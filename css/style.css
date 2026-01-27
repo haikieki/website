@@ -1368,25 +1368,144 @@ ul, ol {
     font-weight: 600;
 }
 
-.form-wrapper {
+/* Contact Form */
+.contact-form {
+    background: #fff;
     border: 1px solid var(--color-border);
     border-radius: var(--radius-md);
-    overflow: hidden;
+    padding: var(--spacing-lg);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.contact-form__group {
     margin-bottom: var(--spacing-md);
 }
 
-.form-wrapper iframe {
+.contact-form__label {
     display: block;
-    width: 100%;
-    min-height: 800px;
-    border: none;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
 }
 
-.contact-note {
-    font-size: 0.85rem;
-    color: var(--color-text-light);
+.contact-form__required {
+    display: inline-block;
+    background: var(--color-error);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 600;
+    padding: 0.1rem 0.4rem;
+    border-radius: 4px;
+    margin-left: 0.25rem;
+    vertical-align: middle;
+}
+
+.contact-form__input,
+.contact-form__select,
+.contact-form__textarea {
+    display: block;
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    font-family: inherit;
+    color: var(--color-text);
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.contact-form__input:focus,
+.contact-form__select:focus,
+.contact-form__textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(43, 108, 176, 0.15);
+}
+
+.contact-form__textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.contact-form__select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23718096' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+}
+
+.contact-form__privacy {
+    margin-bottom: var(--spacing-md);
+}
+
+.contact-form__checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--color-text);
+    cursor: pointer;
+}
+
+.contact-form__checkbox-label input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--color-primary);
+    cursor: pointer;
+}
+
+.contact-form__submit {
     text-align: center;
+    padding-top: var(--spacing-sm);
+}
+
+/* Contact Status Messages */
+.contact-status {
+    text-align: center;
+    padding: var(--spacing-xl) var(--spacing-md);
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.contact-status__icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--spacing-md);
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-radius: 50%;
+}
+
+.contact-status--success .contact-status__icon {
+    background: rgba(56, 161, 105, 0.1);
+    color: var(--color-success);
+}
+
+.contact-status--error .contact-status__icon {
+    background: rgba(229, 62, 62, 0.1);
+    color: var(--color-error);
+}
+
+.contact-status__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-xs);
+}
+
+.contact-status__text {
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    line-height: 1.8;
+    margin-bottom: var(--spacing-md);
 }
 
 /* Utility */

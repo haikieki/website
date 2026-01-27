@@ -49,43 +49,65 @@
         <section class="contact-section">
             <div class="container">
                 <div class="contact-container">
-                    <!-- お問い合わせ前の案内 -->
-                    <div class="contact-info">
-                        <h2 class="contact-info__title">お問い合わせ前にご確認ください</h2>
-                        <ul class="contact-info__list">
-                            <li>資格保有者の検索は<a href="search.html">こちら</a>から</li>
-                            <li>資格の詳細は<a href="about.html">こちら</a>から</li>
-                            <li>リフォームのご相談は<a href="guide.html">こちら</a>のガイドをご覧ください</li>
-                        </ul>
+                    <!-- 送信中メッセージ -->
+                    <div id="sendingMessage" class="contact-status" style="display: none;">
+                        <div class="spinner"></div>
+                        <p class="contact-status__title">送信中...</p>
+                        <p class="contact-status__text">しばらくお待ちください。</p>
+                    </div>
 
-                        <!-- 電話窓口追加 -->
-                        <div
-                            style="margin-top: 2rem; padding: 1.5rem; background: #fff; border: 2px solid #ED8936; border-radius: 8px; text-align: center;">
-                            <p style="font-weight: bold; color: #2D3748; margin-bottom: 0.5rem;">お電話でのご相談も承ります</p>
-                            <p style="font-size: 1.5rem; font-weight: 800; color: #ED8936; margin-bottom: 0.5rem;">
-                                03-XXXX-XXXX</p>
-                            <p style="font-size: 0.85rem; color: #718096;">受付時間：平日 10:00〜17:00（土日祝除く）</p>
+                    <!-- 送信成功メッセージ -->
+                    <div id="successMessage" class="contact-status contact-status--success" style="display: none;">
+                        <div class="contact-status__icon">✓</div>
+                        <p class="contact-status__title">送信が完了しました</p>
+                        <p class="contact-status__text">お問い合わせありがとうございます。<br>内容を確認の上、担当者よりご連絡いたします。</p>
+                        <a href="index.html" class="btn btn-primary">トップページへ戻る</a>
+                    </div>
+
+                    <!-- エラーメッセージ -->
+                    <div id="contactError" class="contact-status contact-status--error" style="display: none;">
+                        <div class="contact-status__icon">!</div>
+                        <p class="contact-status__title">送信に失敗しました</p>
+                        <p class="contact-status__text" id="errorText"></p>
+                        <button type="button" class="btn btn-secondary" onclick="hideError()">フォームに戻る</button>
+                    </div>
+
+                    <!-- お問い合わせフォーム -->
+                    <form id="contactForm" class="contact-form">
+                        <div class="contact-form__group">
+                            <label for="contactName" class="contact-form__label">お名前 <span class="contact-form__required">必須</span></label>
+                            <input type="text" id="contactName" name="name" class="contact-form__input" placeholder="例：山田 太郎" required>
                         </div>
-                    </div>
 
-                    <!-- Googleフォーム埋め込み -->
-                    <div class="form-wrapper">
-                        <iframe src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true" width="100%"
-                            height="1200" frameborder="0" marginheight="0" marginwidth="0" title="お問い合わせフォーム"
-                            loading="lazy">
-                            読み込んでいます...
-                        </iframe>
-                    </div>
+                        <div class="contact-form__group">
+                            <label for="email" class="contact-form__label">メールアドレス <span class="contact-form__required">必須</span></label>
+                            <input type="email" id="email" name="email" class="contact-form__input" placeholder="例：example@mail.com" required>
+                        </div>
 
-                    <!-- フォーム表示されない場合の案内 -->
-                    <p class="contact-note">
-                        ※ フォームが表示されない場合は、
-                        <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform" target="_blank"
-                            rel="noopener noreferrer">
-                            こちらから <span aria-hidden="true">↗</span>
-                        </a>
-                        直接アクセスしてください。
-                    </p>
+                        <div class="contact-form__group">
+                            <label for="phone" class="contact-form__label">電話番号</label>
+                            <input type="tel" id="phone" name="phone" class="contact-form__input" placeholder="例：03-1234-5678">
+                        </div>
+
+                        <div class="contact-form__group">
+                            <label for="category" class="contact-form__label">お問い合わせ種別 <span class="contact-form__required">必須</span></label>
+                            <select id="category" name="category" class="contact-form__select" required>
+                                <option value="">選択してください</option>
+                                <option value="資格保有者の紹介">資格保有者の紹介</option>
+                                <option value="資格について">資格について</option>
+                                <option value="その他">その他</option>
+                            </select>
+                        </div>
+
+                        <div class="contact-form__group">
+                            <label for="message" class="contact-form__label">お問い合わせ内容 <span class="contact-form__required">必須</span></label>
+                            <textarea id="message" name="message" class="contact-form__textarea" rows="6" placeholder="お問い合わせ内容をご記入ください" required></textarea>
+                        </div>
+
+                        <div class="contact-form__submit">
+                            <button type="submit" class="btn btn-primary btn-lg">送信する</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </section>
@@ -130,6 +152,7 @@
     <button class="scroll-top" id="scrollTop" aria-label="ページトップへ">↑</button>
 
     <script src="js/main.js"></script>
+    <script src="js/contact.js"></script>
 </body>
 
 </html>

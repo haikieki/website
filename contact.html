@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="お問い合わせ - 全国住宅リフォーム取扱主任者協会">
+    <title>お問い合わせ | 全国住宅リフォーム取扱主任者協会</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- ヘッダー -->
+    <header class="header" id="header">
+        <div class="header__inner container">
+            <a href="index.html" class="header__logo">
+                <span class="header__logo-main">全国住宅リフォーム取扱主任者協会</span>
+            </a>
+            <nav class="header__nav" id="navMenu">
+                <ul class="header__nav-list">
+                    <li><a href="index.html" class="header__nav-link">ホーム</a></li>
+                    <li><a href="search.html" class="header__nav-link">資格保有者検索</a></li>
+                    <li><a href="about.html" class="header__nav-link">資格について</a></li>
+                    <li><a href="guide.html" class="header__nav-link">いいリフォームをするために</a></li>
+                    <li><a href="voices.html" class="header__nav-link">資格保有者の声</a></li>
+                    <li><a href="contact.html" class="header__nav-link is-current">お問合せ</a></li>
+                </ul>
+            </nav>
+            <button class="header__hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- メインコンテンツ -->
+    <main class="main">
+        <section class="page-header">
+            <div class="container">
+                <h1 class="page-title">お問い合わせ</h1>
+                <p class="page-desc">お問い合わせは下記のフォームからお願いいたします。<br>通常3営業日以内にご返信いたします。</p>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-container">
+                    <!-- お問い合わせ前の案内 -->
+                    <div class="contact-info">
+                        <h2 class="contact-info__title">お問い合わせ前にご確認ください</h2>
+                        <ul class="contact-info__list">
+                            <li>資格保有者の検索は<a href="search.html">こちら</a>から</li>
+                            <li>資格の詳細は<a href="about.html">こちら</a>から</li>
+                            <li>リフォームのご相談は<a href="guide.html">こちら</a>のガイドをご覧ください</li>
+                        </ul>
+                    </div>
+
+                    <!-- Googleフォーム埋め込み -->
+                    <div class="form-wrapper">
+                        <iframe
+                            src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true"
+                            width="100%"
+                            height="1200"
+                            frameborder="0"
+                            marginheight="0"
+                            marginwidth="0"
+                            title="お問い合わせフォーム"
+                            loading="lazy">
+                            読み込んでいます...
+                        </iframe>
+                    </div>
+
+                    <!-- フォーム表示されない場合の案内 -->
+                    <p class="contact-note">
+                        ※ フォームが表示されない場合は、
+                        <a href="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform" target="_blank" rel="noopener noreferrer">
+                            こちらから <span aria-hidden="true">↗</span>
+                        </a>
+                        直接アクセスしてください。
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- フッター -->
+    <footer class="footer">
+        <div class="footer__inner container">
+            <div class="footer__grid">
+                <div class="footer__section">
+                    <h3 class="footer__heading">全国住宅リフォーム取扱主任者協会</h3>
+                    <p class="footer__text">住宅リフォームの信頼と品質を守り、消費者が安心してリフォームを依頼できる社会の実現を目指しています。</p>
+                </div>
+                <div class="footer__section">
+                    <h3 class="footer__heading">サイトマップ</h3>
+                    <ul class="footer__links">
+                        <li><a href="index.html">ホーム</a></li>
+                        <li><a href="search.html">資格保有者検索</a></li>
+                        <li><a href="about.html">資格について</a></li>
+                        <li><a href="guide.html">いいリフォームをするために</a></li>
+                        <li><a href="voices.html">資格保有者の声</a></li>
+                        <li><a href="contact.html">お問合せ</a></li>
+                    </ul>
+                </div>
+                <div class="footer__section">
+                    <h3 class="footer__heading">関連サイト</h3>
+                    <ul class="footer__links">
+                        <li><a href="https://reform-shuninsya.com/houjin" target="_blank" rel="noopener noreferrer" class="footer__external">企業・団体の方へ<span aria-hidden="true"> ↗</span></a></li>
+                        <li><a href="https://reform-shuninsya.com/" target="_blank" rel="noopener noreferrer" class="footer__external">資格を取得したい方はこちら<span aria-hidden="true"> ↗</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2025 全国住宅リフォーム取扱主任者協会 All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ページトップボタン -->
+    <button class="scroll-top" id="scrollTop" aria-label="ページトップへ">↑</button>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

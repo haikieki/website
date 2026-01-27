@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="お問い合わせ - 全国住宅リフォーム取扱主任者協会">
     <title>お問い合わせ | 全国住宅リフォーム取扱主任者協会</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -20,7 +21,7 @@
                 <ul class="header__nav-list">
                     <li><a href="index.html" class="header__nav-link">ホーム</a></li>
                     <li><a href="search.html" class="header__nav-link">資格保有者検索</a></li>
-                    <li><a href="about.html" class="header__nav-link">資格について</a></li>
+                    <li><a href="national_housing_reform_specialist.html" class="header__nav-link">全国住宅リフォーム取扱主任者とは</a></li>
                     <li><a href="guide.html" class="header__nav-link">いいリフォームをするために</a></li>
                     <li><a href="voices.html" class="header__nav-link">資格保有者の声</a></li>
                     <li><a href="contact.html" class="header__nav-link is-current">お問合せ</a></li>
@@ -58,7 +59,7 @@
 
                     <!-- 送信成功メッセージ -->
                     <div id="successMessage" class="contact-status contact-status--success" style="display: none;">
-                        <div class="contact-status__icon">✓</div>
+                        <div class="contact-status__icon"><i class="fas fa-check"></i></div>
                         <p class="contact-status__title">送信が完了しました</p>
                         <p class="contact-status__text">お問い合わせありがとうございます。<br>内容を確認の上、担当者よりご連絡いたします。</p>
                         <a href="index.html" class="btn btn-primary">トップページへ戻る</a>
@@ -66,7 +67,7 @@
 
                     <!-- エラーメッセージ -->
                     <div id="contactError" class="contact-status contact-status--error" style="display: none;">
-                        <div class="contact-status__icon">!</div>
+                        <div class="contact-status__icon"><i class="fas fa-exclamation"></i></div>
                         <p class="contact-status__title">送信に失敗しました</p>
                         <p class="contact-status__text" id="errorText"></p>
                         <button type="button" class="btn btn-secondary" onclick="hideError()">フォームに戻る</button>
@@ -104,6 +105,13 @@
                             <textarea id="message" name="message" class="contact-form__textarea" rows="6" placeholder="お問い合わせ内容をご記入ください" required></textarea>
                         </div>
 
+                        <div class="contact-form__privacy">
+                            <label class="contact-form__checkbox-label">
+                                <input type="checkbox" id="privacy" required>
+                                <span>個人情報の取り扱いに同意する</span>
+                            </label>
+                        </div>
+
                         <div class="contact-form__submit">
                             <button type="submit" class="btn btn-primary btn-lg">送信する</button>
                         </div>
@@ -126,7 +134,7 @@
                     <ul class="footer__links">
                         <li><a href="index.html">ホーム</a></li>
                         <li><a href="search.html">資格保有者検索</a></li>
-                        <li><a href="about.html">資格について</a></li>
+                        <li><a href="national_housing_reform_specialist.html">全国住宅リフォーム取扱主任者とは</a></li>
                         <li><a href="guide.html">いいリフォームをするために</a></li>
                         <li><a href="voices.html">資格保有者の声</a></li>
                         <li><a href="contact.html">お問合せ</a></li>
@@ -136,9 +144,9 @@
                     <h3 class="footer__heading">関連サイト</h3>
                     <ul class="footer__links">
                         <li><a href="https://reform-shuninsya.com/houjin" target="_blank" rel="noopener noreferrer"
-                                class="footer__external">企業・団体の方へ<span aria-hidden="true"> ↗</span></a></li>
+                                class="footer__external">企業・団体の方へ<span aria-hidden="true"> <i class="fas fa-arrow-up-right-from-square fa-xs"></i></span></a></li>
                         <li><a href="https://reform-shuninsya.com/" target="_blank" rel="noopener noreferrer"
-                                class="footer__external">資格を取得したい方はこちら<span aria-hidden="true"> ↗</span></a></li>
+                                class="footer__external">資格を取得したい方はこちら<span aria-hidden="true"> <i class="fas fa-arrow-up-right-from-square fa-xs"></i></span></a></li>
                     </ul>
                 </div>
             </div>

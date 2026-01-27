@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <title>いいリフォームをするために | 全国住宅リフォーム取扱主任者協会</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
     <!-- ヘッダー -->
     <header class="header" id="header">
@@ -20,7 +22,7 @@
                     <li><a href="search.html" class="header__nav-link">資格保有者検索</a></li>
                     <li><a href="about.html" class="header__nav-link">資格について</a></li>
                     <li><a href="guide.html" class="header__nav-link is-current">いいリフォームをするために</a></li>
-                    <li><a href="index.html#voices" class="header__nav-link">資格保有者の声</a></li>
+                    <li><a href="voices.html" class="header__nav-link">資格保有者の声</a></li>
                     <li><a href="contact.html" class="header__nav-link">お問合せ</a></li>
                 </ul>
             </nav>
@@ -38,6 +40,13 @@
             <div class="container">
                 <h1 class="page-title">いいリフォームをするために</h1>
                 <p class="page-desc">リフォームで失敗しないためのチェックポイントをまとめました。印刷してご活用ください。</p>
+                <!-- 印刷ボタン（上部） -->
+                <div style="margin-top: 1.5rem;">
+                    <button type="button" class="btn btn-secondary btn-sm" onclick="window.print()"
+                        style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                        <span>🖨️</span> このページを印刷してチェックリストとして使う
+                    </button>
+                </div>
             </div>
         </section>
 
@@ -295,15 +304,17 @@
                         <li><a href="search.html">資格保有者検索</a></li>
                         <li><a href="about.html">資格について</a></li>
                         <li><a href="guide.html">いいリフォームをするために</a></li>
-                        <li><a href="index.html#voices">資格保有者の声</a></li>
+                        <li><a href="voices.html">資格保有者の声</a></li>
                         <li><a href="contact.html">お問合せ</a></li>
                     </ul>
                 </div>
                 <div class="footer__section">
                     <h3 class="footer__heading">関連サイト</h3>
                     <ul class="footer__links">
-                        <li><a href="https://reform-shuninsya.com/houjin" target="_blank" rel="noopener noreferrer" class="footer__external">企業・団体の方へ<span aria-hidden="true"> ↗</span></a></li>
-                        <li><a href="https://reform-shuninsya.com/" target="_blank" rel="noopener noreferrer" class="footer__external">資格を取得したい方はこちら<span aria-hidden="true"> ↗</span></a></li>
+                        <li><a href="https://reform-shuninsya.com/houjin" target="_blank" rel="noopener noreferrer"
+                                class="footer__external">企業・団体の方へ<span aria-hidden="true"> ↗</span></a></li>
+                        <li><a href="https://reform-shuninsya.com/" target="_blank" rel="noopener noreferrer"
+                                class="footer__external">資格を取得したい方はこちら<span aria-hidden="true"> ↗</span></a></li>
                     </ul>
                 </div>
             </div>
@@ -318,4 +329,5 @@
 
     <script src="js/main.js"></script>
 </body>
+
 </html>

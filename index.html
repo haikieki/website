@@ -1,67 +1,248 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="全国住宅リフォーム取扱主任者協会 - 安心できるリフォームは、信頼できる資格者から">
     <title>全国住宅リフォーム取扱主任者協会</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#1a365d",
+                        "primary-light": "#2c5aa0",
+                        accent: "#FF6B00",
+                        "navy-dark": "#0d1b2e",
+                    },
+                    fontFamily: {
+                        sans: ["'Noto Sans JP'", "sans-serif"],
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        /* ヒーロー対角オーバーレイ */
+        .hero-diagonal-left {
+            clip-path: polygon(0 0, 45% 0, 0 85%);
+        }
+        .hero-diagonal-right {
+            clip-path: polygon(100% 15%, 100% 100%, 55% 100%);
+        }
+        @media (max-width: 1024px) {
+            .hero-diagonal-left,
+            .hero-diagonal-right {
+                clip-path: none;
+                background-color: rgba(26, 54, 93, 0.88);
+            }
+        }
+
+        /* マテリアルアイコン */
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+
+        /* ヘッダースクロール状態 */
+        #header {
+            transition: background 0.3s ease, box-shadow 0.3s ease;
+        }
+        #header.scrolled {
+            background: rgba(26, 54, 93, 0.97) !important;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 2px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        /* モバイルナビ開閉 */
+        #navMenu {
+            display: none;
+            flex-direction: column;
+        }
+        #navMenu.is-open {
+            display: flex;
+        }
+
+        /* ハンバーガーアクティブ */
+        #hamburger.is-active .ham-1 {
+            transform: translateY(7px) rotate(45deg);
+        }
+        #hamburger.is-active .ham-2 {
+            opacity: 0;
+        }
+        #hamburger.is-active .ham-3 {
+            transform: translateY(-7px) rotate(-45deg);
+        }
+
+        /* ページトップボタン */
+        #scrollTop {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s, background 0.3s;
+        }
+        #scrollTop.is-visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* モーダル */
+        #modal {
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        #modal.is-open {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-inner {
+            transform: translateY(20px) scale(0.97);
+            transition: transform 0.3s;
+        }
+        #modal.is-open .modal-inner {
+            transform: none;
+        }
+
+        /* モーダル本文スタイル */
+        #modalBody h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #1a365d;
+            margin-bottom: 1rem;
+            padding-right: 2rem;
+        }
+        #modalBody p {
+            font-size: 0.9rem;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 0.75rem;
+        }
+    </style>
 </head>
 
-<body>
+<body class="font-sans bg-white text-slate-900 overflow-x-hidden">
+
     <!-- ヘッダー -->
-    <header class="header" id="header">
-        <div class="header__inner container">
-            <a href="index.html" class="header__logo">
-                <span class="header__logo-main">全国住宅リフォーム取扱主任者協会</span>
-            </a>
-            <nav class="header__nav" id="navMenu">
-                <ul class="header__nav-list">
-                    <li><a href="index.html" class="header__nav-link is-current">ホーム</a></li>
-                    <li><a href="search.html" class="header__nav-link">資格保有者検索</a></li>
-                    <li><a href="national_housing_reform_specialist.html" class="header__nav-link">全国住宅リフォーム取扱主任者とは</a></li>
-                    <li><a href="guide.html" class="header__nav-link">いいリフォームをするために</a></li>
-                    <li><a href="voices.html" class="header__nav-link">資格保有者の声</a></li>
-                    <li><a href="contact.html" class="header__nav-link">お問合せ</a></li>
-                </ul>
-            </nav>
-            <button class="header__hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+    <header class="fixed top-0 left-0 w-full z-50" id="header">
+        <div class="max-w-7xl mx-auto px-5 lg:px-10">
+            <div class="flex justify-between items-center h-20 lg:h-24">
+
+                <!-- ロゴ -->
+                <a href="index.html" class="flex items-center gap-2 sm:gap-3 text-white hover:opacity-90 transition-opacity" style="text-decoration:none;">
+                    <span class="material-symbols-outlined text-2xl sm:text-3xl hidden sm:inline">architecture</span>
+                    <div class="flex flex-col">
+                        <span class="text-[8px] sm:text-[10px] font-bold tracking-widest opacity-70">一般社団法人</span>
+                        <span class="text-xs sm:text-sm lg:text-base font-black leading-tight tracking-wide">全国住宅リフォーム取扱主任者協会</span>
+                    </div>
+                </a>
+
+                <!-- PCナビゲーション -->
+                <nav class="hidden xl:flex items-center gap-0.5">
+                    <a href="index.html" class="text-xs font-bold text-white px-3 py-2 border-b-2 border-accent" style="text-decoration:none;">ホーム</a>
+                    <a href="search.html" class="text-xs font-bold text-white/80 hover:text-white px-3 py-2 border-b-2 border-transparent hover:border-accent transition-all" style="text-decoration:none;">資格保有者検索</a>
+                    <a href="national_housing_reform_specialist.html" class="text-xs font-bold text-white/80 hover:text-white px-3 py-2 border-b-2 border-transparent hover:border-accent transition-all" style="text-decoration:none;">全国住宅リフォーム取扱主任者とは</a>
+                    <a href="guide.html" class="text-xs font-bold text-white/80 hover:text-white px-3 py-2 border-b-2 border-transparent hover:border-accent transition-all" style="text-decoration:none;">いいリフォームをするために</a>
+                    <a href="voices.html" class="text-xs font-bold text-white/80 hover:text-white px-3 py-2 border-b-2 border-transparent hover:border-accent transition-all" style="text-decoration:none;">資格保有者の声</a>
+                    <a href="contact.html" class="text-xs font-bold text-white border border-white/40 px-4 py-2 ml-3 hover:bg-white hover:text-primary transition-all" style="text-decoration:none;">お問合せ</a>
+                </nav>
+
+                <!-- ハンバーガーボタン -->
+                <button class="xl:hidden flex flex-col gap-[5px] w-10 h-10 items-center justify-center" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
+                    <span class="ham-1 block w-6 h-0.5 bg-white transition-all duration-300 origin-center"></span>
+                    <span class="ham-2 block w-6 h-0.5 bg-white transition-all duration-300"></span>
+                    <span class="ham-3 block w-6 h-0.5 bg-white transition-all duration-300 origin-center"></span>
+                </button>
+            </div>
         </div>
+
+        <!-- モバイルメニュー -->
+        <nav id="navMenu" style="background:rgba(26,54,93,0.97); border-top:1px solid rgba(255,255,255,0.1);">
+            <div class="max-w-7xl mx-auto px-5 py-3">
+                <a href="index.html" class="block text-sm font-bold text-white py-3 border-b border-white/10 hover:text-accent transition-colors" style="text-decoration:none;">ホーム</a>
+                <a href="search.html" class="block text-sm font-bold text-white/80 py-3 border-b border-white/10 hover:text-accent transition-colors" style="text-decoration:none;">資格保有者検索</a>
+                <a href="national_housing_reform_specialist.html" class="block text-sm font-bold text-white/80 py-3 border-b border-white/10 hover:text-accent transition-colors" style="text-decoration:none;">全国住宅リフォーム取扱主任者とは</a>
+                <a href="guide.html" class="block text-sm font-bold text-white/80 py-3 border-b border-white/10 hover:text-accent transition-colors" style="text-decoration:none;">いいリフォームをするために</a>
+                <a href="voices.html" class="block text-sm font-bold text-white/80 py-3 border-b border-white/10 hover:text-accent transition-colors" style="text-decoration:none;">資格保有者の声</a>
+                <a href="contact.html" class="block text-sm font-bold text-white/80 py-3 hover:text-accent transition-colors" style="text-decoration:none;">お問合せ</a>
+            </div>
+        </nav>
     </header>
 
     <!-- メインコンテンツ -->
-    <main class="main">
+    <main>
+
         <!-- ヒーローセクション -->
-        <section class="hero">
-            <div class="hero__bg"></div>
-            <div class="container">
-                <div class="hero__content">
-                    <h1 class="hero__title">安心できるリフォームは、<br>信頼できる資格者から</h1>
-                    <p class="hero__text">全国住宅リフォーム取扱主任者協会は、<br class="sp-only">消費者の皆様が安心してリフォームを<br class="sp-only">依頼できる環境を提供します</p>
+        <section class="relative h-screen min-h-[700px] bg-navy-dark overflow-hidden">
 
-                    <div class="hero__buttons">
-                        <a href="search.html" class="btn btn-primary btn-lg">資格保有者を探す</a>
-                        <a href="national_housing_reform_specialist.html" class="btn btn-white btn-lg">資格について知る</a>
+            <!-- 背景画像 -->
+            <div class="absolute inset-0 z-0">
+                <img src="AdobeStock_629058851.jpeg" alt="" style="position:absolute; left:0; top:0; width:120%; height:100%; object-fit:cover; object-position:left center;">
+            </div>
+
+            <!-- グラデーションオーバーレイ（写真を見せつつテキスト可読性を確保） -->
+            <div class="absolute inset-0 z-10 pointer-events-none" style="background: linear-gradient(to right, rgba(26,54,93,0.15) 0%, rgba(26,54,93,0.15) 30%, rgba(26,54,93,0.70) 60%, rgba(26,54,93,0.92) 100%);"></div>
+            <!-- 下部グラデーション（テキスト周辺を暗く） -->
+            <div class="absolute inset-0 z-10 pointer-events-none" style="background: linear-gradient(to top, rgba(26,54,93,0.65) 0%, transparent 55%);"></div>
+
+            <!-- コンテンツ（右寄せ・下揃え） -->
+            <div class="relative z-20 h-full max-w-7xl mx-auto px-5 lg:px-10 flex flex-col justify-end items-end pb-20 lg:pb-28 text-right">
+                <div class="max-w-2xl">
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.45] mb-8 drop-shadow-lg">
+                        <span class="whitespace-nowrap">安心できるリフォームは、</span><br>
+                        信頼できる資格者から
+                    </h1>
+                    <p class="text-white/85 text-base md:text-lg mb-10 leading-relaxed drop-shadow">
+                        全国住宅リフォーム取扱主任者協会は、<br>
+                        <span class="whitespace-nowrap">消費者の皆様が安心してリフォームを依頼できる環境を提供します</span>
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-end">
+                        <a href="search.html" class="inline-flex items-center justify-center gap-2 text-white font-black text-base px-8 py-4 transition-all transform hover:scale-105 shadow-2xl" style="background:#FF6B00; text-decoration:none;">
+                            資格保有者を探す
+                            <span class="material-symbols-outlined" style="font-size:20px;">search</span>
+                        </a>
+                        <a href="national_housing_reform_specialist.html" class="inline-flex items-center justify-center gap-2 text-white font-black text-base px-8 py-4 border border-white/40 transition-all hover:bg-white hover:text-primary" style="background:rgba(255,255,255,0.1); backdrop-filter:blur(4px); text-decoration:none;">
+                            資格について知る
+                            <span class="material-symbols-outlined" style="font-size:20px;">arrow_forward</span>
+                        </a>
                     </div>
+                </div>
+            </div>
+        </section>
 
-                    <div class="hero__stats">
-                        <div class="hero__stat">
-                            <span class="hero__stat-number">10,000+</span>
-                            <span class="hero__stat-label">資格保有者数</span>
+        <!-- 統計バー -->
+        <section class="bg-white border-b border-slate-100 shadow-sm">
+            <div class="max-w-7xl mx-auto px-5">
+                <div class="grid grid-cols-3 divide-x divide-slate-100">
+                    <div class="py-7 px-4 flex flex-col items-center justify-center">
+                        <p class="text-slate-400 text-[9px] font-bold mb-2 tracking-widest uppercase">資格保有者数</p>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-3xl lg:text-4xl font-black text-primary">10,000</span>
+                            <span class="text-lg font-bold text-primary">+</span>
                         </div>
-                        <div class="hero__stat">
-                            <span class="hero__stat-number">47</span>
-                            <span class="hero__stat-label">都道府県対応</span>
+                    </div>
+                    <div class="py-7 px-4 flex flex-col items-center justify-center">
+                        <p class="text-slate-400 text-[9px] font-bold mb-2 tracking-widest uppercase">都道府県対応</p>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-3xl lg:text-4xl font-black text-primary">47</span>
+                            <span class="text-xs font-bold text-slate-400 ml-1">都道府県</span>
                         </div>
-                        <div class="hero__stat">
-                            <span class="hero__stat-number">15年+</span>
-                            <span class="hero__stat-label">の実績</span>
+                    </div>
+                    <div class="py-7 px-4 flex flex-col items-center justify-center">
+                        <p class="text-slate-400 text-[9px] font-bold mb-2 tracking-widest uppercase">の実績</p>
+                        <div class="flex items-baseline gap-1">
+                            <span class="text-3xl lg:text-4xl font-black text-primary">15</span>
+                            <span class="text-base font-black text-primary ml-1">年以上</span>
                         </div>
                     </div>
                 </div>
@@ -69,29 +250,69 @@
         </section>
 
         <!-- 選ばれる理由セクション -->
-        <section class="features section" id="features">
-            <div class="container">
-                <h2 class="section-title">選ばれる3つの理由</h2>
-                <p class="section-description">全国住宅リフォーム取扱主任者は、消費者の皆様が安心してリフォームを行えるよう、厳格な基準を設けています。</p>
-                <div class="features__grid">
-                    <div class="feature-card">
-                        <div class="feature-card__icon"><i class="fas fa-graduation-cap"></i></div>
-                        <h3 class="feature-card__title">確かな専門知識</h3>
-                        <p class="feature-card__text">法規制や建築の知識はもちろん、消費者保護に関する法令も熟知したプロフェッショナルです。</p>
+        <section class="py-20 lg:py-28 bg-slate-50" id="features">
+            <div class="max-w-7xl mx-auto px-5 lg:px-10">
+
+                <!-- セクションヘッダー -->
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-6">
+                    <div>
+                        <span class="text-accent font-black tracking-[0.3em] text-xs block mb-2">OUR STRENGTHS</span>
+                        <h2 class="text-3xl lg:text-4xl font-black text-primary leading-tight">選ばれる3つの理由</h2>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-card__icon"><i class="fas fa-handshake"></i></div>
-                        <h3 class="feature-card__title">高い倫理観</h3>
-                        <p class="feature-card__text">「消費者の利益を第一に」という理念のもと、透明性の高い取引と誠実な対応を約束します。</p>
+                    <p class="text-slate-500 max-w-sm text-sm font-medium leading-relaxed">
+                        全国住宅リフォーム取扱主任者は、消費者の皆様が安心してリフォームを行えるよう、厳格な基準を設けています。
+                    </p>
+                </div>
+
+                <!-- カードグリッド -->
+                <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+
+                    <!-- カード1 -->
+                    <div class="bg-white p-8 lg:p-10 border-t-4 border-primary shadow-sm hover:shadow-xl transition-all duration-300 group">
+                        <div class="flex justify-between items-start mb-8">
+                            <span class="text-slate-100 text-6xl font-black leading-none group-hover:text-slate-200 transition-colors select-none">01</span>
+                            <span class="material-symbols-outlined text-primary" style="font-size:2.5rem;">engineering</span>
+                        </div>
+                        <h3 class="text-xl font-black text-primary mb-3">確かな専門知識</h3>
+                        <div class="w-8 h-1 bg-accent mb-5"></div>
+                        <p class="text-slate-600 leading-relaxed text-sm">
+                            法規制や建築の知識はもちろん、消費者保護に関する法令も熟知したプロフェッショナルです。
+                        </p>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-card__icon"><i class="fas fa-shield-halved"></i></div>
-                        <h3 class="feature-card__title">第三者機関の認定</h3>
-                        <p class="feature-card__text">公平・中立な立場である協会が認定。万が一のトラブル時も相談窓口が機能します。</p>
+
+                    <!-- カード2 -->
+                    <div class="bg-white p-8 lg:p-10 border-t-4 border-primary shadow-sm hover:shadow-xl transition-all duration-300 group">
+                        <div class="flex justify-between items-start mb-8">
+                            <span class="text-slate-100 text-6xl font-black leading-none group-hover:text-slate-200 transition-colors select-none">02</span>
+                            <span class="material-symbols-outlined text-primary" style="font-size:2.5rem;">handshake</span>
+                        </div>
+                        <h3 class="text-xl font-black text-primary mb-3">高い倫理観</h3>
+                        <div class="w-8 h-1 bg-accent mb-5"></div>
+                        <p class="text-slate-600 leading-relaxed text-sm">
+                            「消費者の利益を第一に」という理念のもと、透明性の高い取引と誠実な対応を約束します。
+                        </p>
+                    </div>
+
+                    <!-- カード3 -->
+                    <div class="bg-white p-8 lg:p-10 border-t-4 border-primary shadow-sm hover:shadow-xl transition-all duration-300 group">
+                        <div class="flex justify-between items-start mb-8">
+                            <span class="text-slate-100 text-6xl font-black leading-none group-hover:text-slate-200 transition-colors select-none">03</span>
+                            <span class="material-symbols-outlined text-primary" style="font-size:2.5rem;">verified_user</span>
+                        </div>
+                        <h3 class="text-xl font-black text-primary mb-3">第三者機関の認定</h3>
+                        <div class="w-8 h-1 bg-accent mb-5"></div>
+                        <p class="text-slate-600 leading-relaxed text-sm">
+                            公平・中立な立場である協会が認定。万が一のトラブル時も相談窓口が機能します。
+                        </p>
                     </div>
                 </div>
-                <div style="text-align: center; margin-top: 3rem;">
-                    <a href="search.html" class="btn btn-primary btn-lg">お近くの資格保有者を探す</a>
+
+                <!-- CTA -->
+                <div class="text-center mt-12">
+                    <a href="search.html" class="inline-flex items-center gap-3 text-white font-black text-base px-10 py-4 transition-all transform hover:scale-105 shadow-lg" style="background:#FF6B00; text-decoration:none;">
+                        お近くの資格保有者を探す
+                        <span class="material-symbols-outlined" style="font-size:20px;">search</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -99,51 +320,76 @@
     </main>
 
     <!-- モーダル -->
-    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-hidden="true">
-        <div class="modal__overlay" data-modal-close></div>
-        <div class="modal__content">
-            <button class="modal__close" data-modal-close aria-label="閉じる">&times;</button>
-            <div class="modal__body" id="modalBody"></div>
+    <div class="fixed inset-0 z-[2000] flex items-center justify-center" id="modal" role="dialog" aria-modal="true" aria-hidden="true">
+        <div class="absolute inset-0 bg-black/50" style="backdrop-filter:blur(4px);" data-modal-close></div>
+        <div class="modal-inner relative bg-white rounded-xl w-[90%] max-w-xl max-h-[85vh] overflow-y-auto p-8 lg:p-10 shadow-2xl">
+            <button class="absolute top-4 right-4 w-9 h-9 flex items-center justify-center bg-slate-100 hover:bg-slate-200 rounded-full text-xl text-slate-500 transition-colors" data-modal-close aria-label="閉じる">&times;</button>
+            <div id="modalBody"></div>
         </div>
     </div>
 
     <!-- フッター -->
-    <footer class="footer">
-        <div class="footer__inner container">
-            <div class="footer__grid">
-                <div class="footer__section">
-                    <h3 class="footer__heading">全国住宅リフォーム取扱主任者協会</h3>
-                    <p class="footer__text">住宅リフォームの信頼と品質を守り、消費者が安心してリフォームを依頼できる社会の実現を目指しています。</p>
+    <footer class="text-white pt-20 pb-10" style="background:#1a365d; border-top:4px solid #FF6B00;">
+        <div class="max-w-7xl mx-auto px-5 lg:px-10">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 mb-14">
+
+                <!-- 協会情報 -->
+                <div>
+                    <div class="flex items-center gap-3 mb-5">
+                        <span class="material-symbols-outlined text-3xl">architecture</span>
+                        <h3 class="text-base font-black leading-tight">全国住宅リフォーム<br>取扱主任者協会</h3>
+                    </div>
+                    <p class="text-sm leading-loose" style="color:rgba(255,255,255,0.7);">
+                        住宅リフォームの信頼と品質を守り、消費者が安心してリフォームを依頼できる社会の実現を目指しています。
+                    </p>
                 </div>
-                <div class="footer__section">
-                    <h3 class="footer__heading">サイトマップ</h3>
-                    <ul class="footer__links">
-                        <li><a href="index.html">ホーム</a></li>
-                        <li><a href="search.html">資格保有者検索</a></li>
-                        <li><a href="national_housing_reform_specialist.html">全国住宅リフォーム取扱主任者とは</a></li>
-                        <li><a href="guide.html">いいリフォームをするために</a></li>
-                        <li><a href="voices.html">資格保有者の声</a></li>
-                        <li><a href="contact.html">お問合せ</a></li>
+
+                <!-- サイトマップ -->
+                <div>
+                    <h3 class="font-black text-xs mb-5 tracking-[0.2em] uppercase pb-3 border-b" style="color:rgba(255,255,255,0.5); border-color:rgba(255,255,255,0.2);">サイトマップ</h3>
+                    <ul class="space-y-3 text-sm font-bold">
+                        <li><a href="index.html" class="flex items-center gap-2 transition-colors hover:text-accent" style="color:rgba(255,255,255,0.8); text-decoration:none;"><span class="w-1 h-1 inline-block flex-shrink-0" style="background:#FF6B00;"></span>ホーム</a></li>
+                        <li><a href="search.html" class="flex items-center gap-2 transition-colors hover:text-accent" style="color:rgba(255,255,255,0.8); text-decoration:none;"><span class="w-1 h-1 inline-block flex-shrink-0" style="background:#FF6B00;"></span>資格保有者検索</a></li>
+                        <li><a href="national_housing_reform_specialist.html" class="flex items-center gap-2 transition-colors hover:text-accent" style="color:rgba(255,255,255,0.8); text-decoration:none;"><span class="w-1 h-1 inline-block flex-shrink-0" style="background:#FF6B00;"></span>全国住宅リフォーム取扱主任者とは</a></li>
+                        <li><a href="guide.html" class="flex items-center gap-2 transition-colors hover:text-accent" style="color:rgba(255,255,255,0.8); text-decoration:none;"><span class="w-1 h-1 inline-block flex-shrink-0" style="background:#FF6B00;"></span>いいリフォームをするために</a></li>
+                        <li><a href="voices.html" class="flex items-center gap-2 transition-colors hover:text-accent" style="color:rgba(255,255,255,0.8); text-decoration:none;"><span class="w-1 h-1 inline-block flex-shrink-0" style="background:#FF6B00;"></span>資格保有者の声</a></li>
+                        <li><a href="contact.html" class="flex items-center gap-2 transition-colors hover:text-accent" style="color:rgba(255,255,255,0.8); text-decoration:none;"><span class="w-1 h-1 inline-block flex-shrink-0" style="background:#FF6B00;"></span>お問合せ</a></li>
                     </ul>
                 </div>
-                <div class="footer__section">
-                    <h3 class="footer__heading">関連サイト</h3>
-                    <ul class="footer__links">
-                        <li><a href="https://reform-shuninsya.com/houjin" target="_blank" rel="noopener noreferrer"
-                                class="footer__external">企業・団体の方へ<span aria-hidden="true"> <i class="fas fa-arrow-up-right-from-square fa-xs"></i></span></a></li>
-                        <li><a href="https://reform-shuninsya.com/" target="_blank" rel="noopener noreferrer"
-                                class="footer__external">資格を取得したい方はこちら<span aria-hidden="true"> <i class="fas fa-arrow-up-right-from-square fa-xs"></i></span></a></li>
+
+                <!-- 関連サイト -->
+                <div>
+                    <h3 class="font-black text-xs mb-5 tracking-[0.2em] uppercase pb-3 border-b" style="color:rgba(255,255,255,0.5); border-color:rgba(255,255,255,0.2);">関連サイト</h3>
+                    <ul class="space-y-3 text-sm font-bold">
+                        <li>
+                            <a href="https://reform-shuninsya.com/houjin" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 transition-colors hover:text-accent" style="color:rgba(255,255,255,0.8); text-decoration:none;">
+                                <span class="w-1 h-1 inline-block flex-shrink-0" style="background:#FF6B00;"></span>
+                                企業・団体の方へ
+                                <i class="fas fa-arrow-up-right-from-square fa-xs" style="opacity:0.6;"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://reform-shuninsya.com/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 transition-colors hover:text-accent" style="color:rgba(255,255,255,0.8); text-decoration:none;">
+                                <span class="w-1 h-1 inline-block flex-shrink-0" style="background:#FF6B00;"></span>
+                                資格を取得したい方はこちら
+                                <i class="fas fa-arrow-up-right-from-square fa-xs" style="opacity:0.6;"></i>
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
-            <div class="footer__bottom">
-                <p>&copy; 2025 全国住宅リフォーム取扱主任者協会 All Rights Reserved.</p>
+
+            <!-- コピーライト -->
+            <div class="pt-8 text-center" style="border-top:1px solid rgba(255,255,255,0.1);">
+                <p class="text-[10px] font-bold tracking-wider" style="color:rgba(255,255,255,0.3);">&copy; 2025 全国住宅リフォーム取扱主任者協会 All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
     <!-- ページトップボタン -->
-    <button class="scroll-top" id="scrollTop" aria-label="ページトップへ"><i class="fas fa-chevron-up"></i></button>
+    <button class="fixed bottom-8 right-8 w-12 h-12 text-white flex items-center justify-center shadow-lg z-[900] transition-all hover:scale-110" id="scrollTop" aria-label="ページトップへ" style="background:#1a365d; border-radius:2px;">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
     <script src="js/main.js"></script>
 </body>

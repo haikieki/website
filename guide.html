@@ -8,6 +8,7 @@
     <title>いいリフォームをするために | 全国住宅リフォーム取扱主任者協会</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 
 <body>
@@ -39,8 +40,8 @@
     <main class="main">
         <section class="page-header page-header--guide">
             <div class="container">
-                <h1 class="page-title">いいリフォームをするために</h1>
-                <p class="page-desc">リフォームを成功させるために知っておきたいポイントをわかりやすくご紹介します。</p>
+                <h1 id="guide-title" class="page-title">いいリフォームをするために</h1>
+                <p id="guide-desc" class="page-desc">リフォームを成功させるために知っておきたいポイントをわかりやすくご紹介します。</p>
             </div>
         </section>
 
@@ -48,27 +49,27 @@
         <section class="stats-section section">
             <div class="container">
                 <h2 class="section-title">リフォームにかかる費用ご存じですか？</h2>
-                <p class="section-description">住まいのリフォームは内容によって費用が大きく異なります。事前に相場を知っておくことが大切です。</p>
+                <p id="guide-cost-desc" class="section-description">住まいのリフォームは内容によって費用が大きく異なります。事前に相場を知っておくことが大切です。</p>
                 <div class="stats-grid">
                     <div class="stat-item">
                         <div class="stat-icon"><i class="fas fa-shower"></i></div>
-                        <div class="stat-number">約100<span>万円</span></div>
-                        <div class="stat-label">水回りリフォーム</div>
+                        <div id="guide-stat-0-num" class="stat-number">約100<span>万円</span></div>
+                        <div id="guide-stat-0-label" class="stat-label">水回りリフォーム</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-icon"><i class="fas fa-house"></i></div>
-                        <div class="stat-number">約150<span>万円</span></div>
-                        <div class="stat-label">外壁・屋根</div>
+                        <div id="guide-stat-1-num" class="stat-number">約150<span>万円</span></div>
+                        <div id="guide-stat-1-label" class="stat-label">外壁・屋根</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-icon"><i class="fas fa-building"></i></div>
-                        <div class="stat-number">約500<span>万円</span></div>
-                        <div class="stat-label">全面リフォーム</div>
+                        <div id="guide-stat-2-num" class="stat-number">約500<span>万円</span></div>
+                        <div id="guide-stat-2-label" class="stat-label">全面リフォーム</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-icon"><i class="fas fa-wheelchair"></i></div>
-                        <div class="stat-number">約50<span>万円</span></div>
-                        <div class="stat-label">バリアフリー化</div>
+                        <div id="guide-stat-3-num" class="stat-number">約50<span>万円</span></div>
+                        <div id="guide-stat-3-label" class="stat-label">バリアフリー化</div>
                     </div>
                 </div>
             </div>
@@ -82,18 +83,18 @@
                 <div class="steps">
                     <div class="step-item">
                         <div class="step-number">1</div>
-                        <h3 class="step-title">情報収集・計画</h3>
-                        <p class="step-text">リフォームの目的を明確にし、予算や使える補助金制度を調べましょう。</p>
+                        <h3 id="guide-step-0-title" class="step-title">情報収集・計画</h3>
+                        <p id="guide-step-0-text" class="step-text">リフォームの目的を明確にし、予算や使える補助金制度を調べましょう。</p>
                     </div>
                     <div class="step-item">
                         <div class="step-number">2</div>
-                        <h3 class="step-title">資格保有者に相談</h3>
-                        <p class="step-text">当サイトで資格保有者を検索し、複数の業者から見積もりを取りましょう。</p>
+                        <h3 id="guide-step-1-title" class="step-title">資格保有者に相談</h3>
+                        <p id="guide-step-1-text" class="step-text">当サイトで資格保有者を検索し、複数の業者から見積もりを取りましょう。</p>
                     </div>
                     <div class="step-item">
                         <div class="step-number">3</div>
-                        <h3 class="step-title">契約・工事開始</h3>
-                        <p class="step-text">契約内容をしっかり確認し、工事中も定期的に進捗を確認しましょう。</p>
+                        <h3 id="guide-step-2-title" class="step-title">契約・工事開始</h3>
+                        <p id="guide-step-2-text" class="step-text">契約内容をしっかり確認し、工事中も定期的に進捗を確認しましょう。</p>
                     </div>
                 </div>
             </div>
@@ -107,18 +108,18 @@
                 <div class="life-events__grid">
                     <div class="life-event-card">
                         <div class="life-event-card__icon"><i class="fas fa-baby"></i></div>
-                        <h3 class="life-event-card__title">子育て世代のリフォーム</h3>
-                        <p class="life-event-card__text">安全対策や収納の充実、子ども部屋の確保など、家族の成長に合わせた住まいづくり。</p>
+                        <h3 id="guide-life-0-title" class="life-event-card__title">子育て世代のリフォーム</h3>
+                        <p id="guide-life-0-text" class="life-event-card__text">安全対策や収納の充実、子ども部屋の確保など、家族の成長に合わせた住まいづくり。</p>
                     </div>
                     <div class="life-event-card">
                         <div class="life-event-card__icon"><i class="fas fa-screwdriver-wrench"></i></div>
-                        <h3 class="life-event-card__title">老朽化・メンテナンス</h3>
-                        <p class="life-event-card__text">築10年以上の住宅は定期的なメンテナンスが必要。早めの対策で大きな出費を防ぎましょう。</p>
+                        <h3 id="guide-life-1-title" class="life-event-card__title">老朽化・メンテナンス</h3>
+                        <p id="guide-life-1-text" class="life-event-card__text">築10年以上の住宅は定期的なメンテナンスが必要。早めの対策で大きな出費を防ぎましょう。</p>
                     </div>
                     <div class="life-event-card">
                         <div class="life-event-card__icon"><i class="fas fa-person-cane"></i></div>
-                        <h3 class="life-event-card__title">シニア向けリフォーム</h3>
-                        <p class="life-event-card__text">バリアフリー化や断熱改修で、安全で快適な暮らしを。補助金制度も活用できます。</p>
+                        <h3 id="guide-life-2-title" class="life-event-card__title">シニア向けリフォーム</h3>
+                        <p id="guide-life-2-text" class="life-event-card__text">バリアフリー化や断熱改修で、安全で快適な暮らしを。補助金制度も活用できます。</p>
                     </div>
                 </div>
             </div>
@@ -165,6 +166,33 @@
     <button class="scroll-top" id="scrollTop" aria-label="ページトップへ"><i class="fas fa-chevron-up"></i></button>
 
     <script src="js/main.js"></script>
+    <script>
+      fetch('/data/guide.json')
+        .then(function(r) { return r.json(); })
+        .then(function(d) {
+          var set = function(id, val) { var el = document.getElementById(id); if (el && val) el.textContent = val; };
+          var setNum = function(id, val) {
+            var el = document.getElementById(id);
+            if (el && val && el.firstChild) el.firstChild.textContent = val;
+          };
+          if (d.header) { set('guide-title', d.header.title); set('guide-desc', d.header.desc); }
+          if (d.costs) {
+            set('guide-cost-desc', d.costs.desc);
+            if (d.costs.items) d.costs.items.forEach(function(item, i) {
+              setNum('guide-stat-' + i + '-num', item.number);
+              set('guide-stat-' + i + '-label', item.label);
+            });
+          }
+          if (d.steps && d.steps.items) d.steps.items.forEach(function(item, i) {
+            set('guide-step-' + i + '-title', item.title);
+            set('guide-step-' + i + '-text', item.text);
+          });
+          if (d.lifeEvents && d.lifeEvents.items) d.lifeEvents.items.forEach(function(item, i) {
+            set('guide-life-' + i + '-title', item.title);
+            set('guide-life-' + i + '-text', item.text);
+          });
+        }).catch(function() {});
+    </script>
 </body>
 
 </html>

@@ -8,6 +8,7 @@
     <title>全国住宅リフォーム取扱主任者とは | 全国住宅リフォーム取扱主任者協会</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 
 <body>
@@ -42,9 +43,9 @@
             <div class="hero__bg"></div>
             <div class="container">
                 <div class="hero__content">
-                    <p class="hero__subtitle"><i class="fas fa-certificate"></i> 信頼の資格制度</p>
-                    <h1 class="hero__title">全国住宅リフォーム<br class="sp-only">取扱主任者とは</h1>
-                    <p class="hero__text">安心してリフォームを任せられる、信頼の証。<br class="sp-only">内閣府認可の一般財団法人職業技能振興会が認定する民間資格です。</p>
+                    <p class="hero__subtitle"><i class="fas fa-certificate"></i> <span id="spec-hero-subtitle">信頼の資格制度</span></p>
+                    <h1 id="spec-hero-title" class="hero__title">全国住宅リフォーム取扱主任者とは</h1>
+                    <p id="spec-hero-text" class="hero__text">安心してリフォームを任せられる、信頼の証。内閣府認可の一般財団法人職業技能振興会が認定する民間資格です。</p>
                     <div class="hero__buttons">
                         <a href="search.html" class="btn btn-primary btn-lg"><i class="fas fa-search"></i>&nbsp; 資格保有者を探す</a>
                         <a href="contact.html" class="btn btn-white btn-lg"><i class="fas fa-envelope"></i>&nbsp; お問い合わせ</a>
@@ -57,22 +58,22 @@
         <section class="section">
             <div class="container">
                 <h2 class="section-title"><i class="fas fa-award" style="margin-right: 0.5rem;"></i>全国住宅リフォーム取扱主任者とは</h2>
-                <p class="section-description">住宅リフォームに関する専門知識と実務力を持ち、消費者の皆様に安心・安全なリフォームを提供できる専門家の証明です。</p>
+                <p id="spec-overview-desc" class="section-description">住宅リフォームに関する専門知識と実務力を持ち、消費者の皆様に安心・安全なリフォームを提供できる専門家の証明です。</p>
                 <div class="features__grid">
                     <div class="feature-card">
                         <div class="feature-card__icon"><i class="fas fa-building-columns"></i></div>
-                        <h3 class="feature-card__title">内閣府認可の認定資格</h3>
-                        <p class="feature-card__text">一般財団法人職業技能振興会が認定する、住宅リフォームに必要な知識と実務力を証明する民間資格です。</p>
+                        <h3 id="spec-feat-0-title" class="feature-card__title">内閣府認可の認定資格</h3>
+                        <p id="spec-feat-0-text" class="feature-card__text">一般財団法人職業技能振興会が認定する、住宅リフォームに必要な知識と実務力を証明する民間資格です。</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-card__icon"><i class="fas fa-user-check"></i></div>
-                        <h3 class="feature-card__title">確かな専門知識</h3>
-                        <p class="feature-card__text">住宅リフォームに関する専門知識と実務力を持ち、消費者の皆様に安心・安全なリフォームを提供します。</p>
+                        <h3 id="spec-feat-1-title" class="feature-card__title">確かな専門知識</h3>
+                        <p id="spec-feat-1-text" class="feature-card__text">住宅リフォームに関する専門知識と実務力を持ち、消費者の皆様に安心・安全なリフォームを提供します。</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-card__icon"><i class="fas fa-scale-balanced"></i></div>
-                        <h3 class="feature-card__title">高い倫理観</h3>
-                        <p class="feature-card__text">リフォームに関する確かな知識と高い倫理観を備え、皆様のリフォーム計画を適切にサポートいたします。</p>
+                        <h3 id="spec-feat-2-title" class="feature-card__title">高い倫理観</h3>
+                        <p id="spec-feat-2-text" class="feature-card__text">リフォームに関する確かな知識と高い倫理観を備え、皆様のリフォーム計画を適切にサポートいたします。</p>
                     </div>
                 </div>
             </div>
@@ -120,8 +121,8 @@
                 <div class="philosophy-wrapper">
                     <div class="philosophy-box">
                         <i class="fas fa-quote-left philosophy-box__quote"></i>
-                        <p class="philosophy-box__text">安心・安全な住宅リフォームの提供を通じて、<br class="sp-only">豊かな住生活の実現をサポートする</p>
-                        <p class="philosophy-box__sub">これが、全国住宅リフォーム取扱主任者協会の理念です。</p>
+                        <p id="spec-philosophy-text" class="philosophy-box__text">安心・安全な住宅リフォームの提供を通じて、豊かな住生活の実現をサポートする</p>
+                        <p id="spec-philosophy-sub" class="philosophy-box__sub">これが、全国住宅リフォーム取扱主任者協会の理念です。</p>
                     </div>
                     <p class="philosophy-desc">リフォームは、多くの方にとって人生で何度もない大きな決断です。<br class="pc-only">だからこそ、専門知識と高い倫理観を持った主任者が、皆様のリフォームを成功に導きます。</p>
                 </div>
@@ -255,6 +256,31 @@
     <button class="scroll-top" id="scrollTop" aria-label="ページトップへ"><i class="fas fa-chevron-up"></i></button>
 
     <script src="js/main.js"></script>
+    <script>
+      fetch('/data/specialist.json')
+        .then(function(r) { return r.json(); })
+        .then(function(d) {
+          var set = function(id, val) { var el = document.getElementById(id); if (el && val) el.textContent = val; };
+          if (d.hero) {
+            set('spec-hero-subtitle', d.hero.subtitle);
+            set('spec-hero-title', d.hero.title);
+            set('spec-hero-text', d.hero.text);
+          }
+          if (d.overview) {
+            set('spec-overview-desc', d.overview.description);
+            if (d.overview.features) {
+              d.overview.features.forEach(function(f, i) {
+                set('spec-feat-' + i + '-title', f.title);
+                set('spec-feat-' + i + '-text', f.text);
+              });
+            }
+          }
+          if (d.philosophy) {
+            set('spec-philosophy-text', d.philosophy.quote);
+            set('spec-philosophy-sub', d.philosophy.sub);
+          }
+        }).catch(function() {});
+    </script>
 </body>
 
 </html>

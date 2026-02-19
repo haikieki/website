@@ -7,6 +7,7 @@
     <title>資格保有者の声 | 全国住宅リフォーム取扱主任者協会</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
     <!-- ヘッダー -->
@@ -37,8 +38,8 @@
     <main class="main">
         <section class="page-header page-header--voices">
             <div class="container">
-                <h1 class="page-title">資格保有者の声</h1>
-                <p class="page-desc">実際に資格を取得し、活躍されている方々の声をご紹介します。</p>
+                <h1 id="voices-title" class="page-title">資格保有者の声</h1>
+                <p id="voices-desc" class="page-desc">実際に資格を取得し、活躍されている方々の声をご紹介します。</p>
             </div>
         </section>
 
@@ -52,22 +53,22 @@
                                 <span class="voice-card__avatar-icon"><i class="fas fa-user"></i></span>
                             </div>
                             <div class="voice-card__meta">
-                                <h2 class="voice-card__name">ニッカホーム</h2>
-                                <p class="voice-card__info">山田 太郎 様 / 東京都<br>会員番号：Z-2024-001</p>
+                                <h2 id="voice-0-name" class="voice-card__name">ニッカホーム</h2>
+                                <p id="voice-0-info" class="voice-card__info">山田 太郎 様 / 東京都<br>会員番号：Z-2024-001</p>
                             </div>
                         </div>
                         <div class="voice-card__content">
                             <div class="voice-card__section">
                                 <h3 class="voice-card__question">資格取得のきっかけ</h3>
-                                <p>長年リフォーム業界で働いてきましたが、お客様からの信頼をより確かなものにしたいと考え、資格取得を決意しました。業界全体の信頼性向上にも貢献できればと思っています。</p>
+                                <p id="voice-0-q1">長年リフォーム業界で働いてきましたが、お客様からの信頼をより確かなものにしたいと考え、資格取得を決意しました。業界全体の信頼性向上にも貢献できればと思っています。</p>
                             </div>
                             <div class="voice-card__section">
                                 <h3 class="voice-card__question">資格を活かした仕事の事例</h3>
-                                <p>資格保有者であることを明示することで、初めてお会いするお客様でも安心して相談していただけるようになりました。特に高齢のお客様からは「資格があるから安心」という言葉をいただくことが増えました。</p>
+                                <p id="voice-0-q2">資格保有者であることを明示することで、初めてお会いするお客様でも安心して相談していただけるようになりました。特に高齢のお客様からは「資格があるから安心」という言葉をいただくことが増えました。</p>
                             </div>
                             <div class="voice-card__section">
                                 <h3 class="voice-card__question">消費者へのメッセージ</h3>
-                                <p>リフォームは人生の大きな決断です。ぜひ資格保有者に相談してください。私たちは常にお客様の立場に立って、最適な提案を心がけています。</p>
+                                <p id="voice-0-q3">リフォームは人生の大きな決断です。ぜひ資格保有者に相談してください。私たちは常にお客様の立場に立って、最適な提案を心がけています。</p>
                             </div>
                         </div>
                     </article>
@@ -79,22 +80,22 @@
                                 <span class="voice-card__avatar-icon"><i class="fas fa-user"></i></span>
                             </div>
                             <div class="voice-card__meta">
-                                <h2 class="voice-card__name">コバーン</h2>
-                                <p class="voice-card__info">佐藤 花子 様 / 神奈川県<br>会員番号：Z-2024-015</p>
+                                <h2 id="voice-1-name" class="voice-card__name">コバーン</h2>
+                                <p id="voice-1-info" class="voice-card__info">佐藤 花子 様 / 神奈川県<br>会員番号：Z-2024-015</p>
                             </div>
                         </div>
                         <div class="voice-card__content">
                             <div class="voice-card__section">
                                 <h3 class="voice-card__question">資格取得のきっかけ</h3>
-                                <p>独立開業にあたり、専門性を証明できる資格が必要だと感じました。お客様に安心していただくためには、確かな知識と証明が必要だと考えたからです。</p>
+                                <p id="voice-1-q1">独立開業にあたり、専門性を証明できる資格が必要だと感じました。お客様に安心していただくためには、確かな知識と証明が必要だと考えたからです。</p>
                             </div>
                             <div class="voice-card__section">
                                 <h3 class="voice-card__question">資格を活かした仕事の事例</h3>
-                                <p>法令遵守や適切な工事方法について、自信を持ってアドバイスできるようになりました。資格取得の過程で学んだ知識が、日々の業務に直結しています。</p>
+                                <p id="voice-1-q2">法令遵守や適切な工事方法について、自信を持ってアドバイスできるようになりました。資格取得の過程で学んだ知識が、日々の業務に直結しています。</p>
                             </div>
                             <div class="voice-card__section">
                                 <h3 class="voice-card__question">消費者へのメッセージ</h3>
-                                <p>小さな疑問でも遠慮なくお尋ねください。丁寧にご説明します。女性目線でのアドバイスも得意としていますので、気軽にご相談ください。</p>
+                                <p id="voice-1-q3">小さな疑問でも遠慮なくお尋ねください。丁寧にご説明します。女性目線でのアドバイスも得意としていますので、気軽にご相談ください。</p>
                             </div>
                         </div>
                     </article>
@@ -106,22 +107,22 @@
                                 <span class="voice-card__avatar-icon"><i class="fas fa-user"></i></span>
                             </div>
                             <div class="voice-card__meta">
-                                <h2 class="voice-card__name">会社C</h2>
-                                <p class="voice-card__info">鈴木 一郎 様 / 大阪府<br>会員番号：Z-2023-082</p>
+                                <h2 id="voice-2-name" class="voice-card__name">会社C</h2>
+                                <p id="voice-2-info" class="voice-card__info">鈴木 一郎 様 / 大阪府<br>会員番号：Z-2023-082</p>
                             </div>
                         </div>
                         <div class="voice-card__content">
                             <div class="voice-card__section">
                                 <h3 class="voice-card__question">資格取得のきっかけ</h3>
-                                <p>業界全体の信頼性向上に貢献したいと思い、取得しました。また、自身のスキルアップにもつながると考えました。</p>
+                                <p id="voice-2-q1">業界全体の信頼性向上に貢献したいと思い、取得しました。また、自身のスキルアップにもつながると考えました。</p>
                             </div>
                             <div class="voice-card__section">
                                 <h3 class="voice-card__question">資格を活かした仕事の事例</h3>
-                                <p>お客様との信頼関係構築がスムーズになり、リピート率が向上しました。また、紹介でのご依頼も増えています。</p>
+                                <p id="voice-2-q2">お客様との信頼関係構築がスムーズになり、リピート率が向上しました。また、紹介でのご依頼も増えています。</p>
                             </div>
                             <div class="voice-card__section">
                                 <h3 class="voice-card__question">消費者へのメッセージ</h3>
-                                <p>納得のいくまでご相談いただき、安心してリフォームを進めましょう。私たちがしっかりサポートします。</p>
+                                <p id="voice-2-q3">納得のいくまでご相談いただき、安心してリフォームを進めましょう。私たちがしっかりサポートします。</p>
                             </div>
                         </div>
                     </article>
@@ -174,5 +175,20 @@
     <button class="scroll-top" id="scrollTop" aria-label="ページトップへ"><i class="fas fa-chevron-up"></i></button>
 
     <script src="js/main.js"></script>
+    <script>
+      fetch('/data/voices.json')
+        .then(function(r) { return r.json(); })
+        .then(function(d) {
+          var set = function(id, val) { var el = document.getElementById(id); if (el && val) el.textContent = val; };
+          if (d.header) { set('voices-title', d.header.title); set('voices-desc', d.header.desc); }
+          if (d.voices) d.voices.forEach(function(v, i) {
+            set('voice-' + i + '-name', v.company);
+            set('voice-' + i + '-info', v.info);
+            set('voice-' + i + '-q1', v.q1);
+            set('voice-' + i + '-q2', v.q2);
+            set('voice-' + i + '-q3', v.q3);
+          });
+        }).catch(function() {});
+    </script>
 </body>
 </html>

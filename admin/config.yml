@@ -7,14 +7,16 @@ public_folder: "/images"
 locale: 'ja'
 
 collections:
-  - name: "homepage"
-    label: "トップページ"
+  - name: "pages"
+    label: "ページ設定"
     files:
-      - label: "トップページ設定"
+
+      # ── トップページ ──
+      - label: "トップページ"
         name: "home"
         file: "data/home.json"
         fields:
-          - label: "ヒーローセクション（一番上の大きいエリア）"
+          - label: "ヒーローセクション"
             name: "hero"
             widget: "object"
             fields:
@@ -36,3 +38,97 @@ collections:
           - label: "フッター説明文"
             name: "footer_desc"
             widget: "text"
+
+      # ── 取扱主任者とはページ ──
+      - label: "取扱主任者とはページ"
+        name: "specialist"
+        file: "data/specialist.json"
+        fields:
+          - label: "ヒーローセクション"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "サブタイトル", name: "subtitle", widget: "string"}
+              - {label: "メイン見出し", name: "title", widget: "string"}
+              - {label: "説明文", name: "text", widget: "text"}
+          - label: "概要セクション"
+            name: "overview"
+            widget: "object"
+            fields:
+              - {label: "説明文", name: "description", widget: "text"}
+              - label: "特徴カード（3つ）"
+                name: "features"
+                widget: "list"
+                fields:
+                  - {label: "タイトル", name: "title", widget: "string"}
+                  - {label: "説明文", name: "text", widget: "text"}
+          - label: "理念セクション"
+            name: "philosophy"
+            widget: "object"
+            fields:
+              - {label: "引用テキスト", name: "quote", widget: "text"}
+              - {label: "サブテキスト", name: "sub", widget: "string"}
+
+      # ── ガイドページ ──
+      - label: "いいリフォームをするためにページ"
+        name: "guide"
+        file: "data/guide.json"
+        fields:
+          - label: "ページヘッダー"
+            name: "header"
+            widget: "object"
+            fields:
+              - {label: "ページタイトル", name: "title", widget: "string"}
+              - {label: "説明文", name: "desc", widget: "text"}
+          - label: "費用セクション"
+            name: "costs"
+            widget: "object"
+            fields:
+              - {label: "説明文", name: "desc", widget: "text"}
+              - label: "費用項目（4つ）"
+                name: "items"
+                widget: "list"
+                fields:
+                  - {label: "金額（例: 約100）", name: "number", widget: "string"}
+                  - {label: "項目名", name: "label", widget: "string"}
+          - label: "ステップセクション"
+            name: "steps"
+            widget: "object"
+            fields:
+              - label: "ステップ項目（3つ）"
+                name: "items"
+                widget: "list"
+                fields:
+                  - {label: "タイトル", name: "title", widget: "string"}
+                  - {label: "説明文", name: "text", widget: "text"}
+          - label: "ライフイベントセクション"
+            name: "lifeEvents"
+            widget: "object"
+            fields:
+              - label: "カード（3つ）"
+                name: "items"
+                widget: "list"
+                fields:
+                  - {label: "タイトル", name: "title", widget: "string"}
+                  - {label: "説明文", name: "text", widget: "text"}
+
+      # ── 資格保有者の声ページ ──
+      - label: "資格保有者の声ページ"
+        name: "voices"
+        file: "data/voices.json"
+        fields:
+          - label: "ページヘッダー"
+            name: "header"
+            widget: "object"
+            fields:
+              - {label: "ページタイトル", name: "title", widget: "string"}
+              - {label: "説明文", name: "desc", widget: "text"}
+          - label: "声カード（3件）"
+            name: "voices"
+            widget: "list"
+            fields:
+              - {label: "会社名", name: "company", widget: "string"}
+              - {label: "氏名・都道府県・会員番号", name: "info", widget: "string"}
+              - {label: "資格取得のきっかけ", name: "q1", widget: "text"}
+              - {label: "資格を活かした仕事の事例", name: "q2", widget: "text"}
+              - {label: "消費者へのメッセージ", name: "q3", widget: "text"}

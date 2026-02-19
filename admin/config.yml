@@ -20,7 +20,7 @@ collections:
             name: "hero"
             widget: "object"
             fields:
-              - {label: "メイン見出し", name: "title", widget: "string"}
+              - {label: "メイン見出し", name: "title", widget: "text"}
               - {label: "説明文", name: "subtitle", widget: "text"}
               - {label: "背景画像", name: "image", widget: "image"}
           - label: "統計数値"
@@ -33,7 +33,7 @@ collections:
             name: "features"
             widget: "list"
             fields:
-              - {label: "タイトル", name: "title", widget: "string"}
+              - {label: "タイトル", name: "title", widget: "text"}
               - {label: "説明文", name: "body", widget: "text"}
           - label: "フッター説明文"
             name: "footer_desc"
@@ -48,8 +48,8 @@ collections:
             name: "hero"
             widget: "object"
             fields:
-              - {label: "サブタイトル", name: "subtitle", widget: "string"}
-              - {label: "メイン見出し", name: "title", widget: "string"}
+              - {label: "サブタイトル", name: "subtitle", widget: "text"}
+              - {label: "メイン見出し", name: "title", widget: "text"}
               - {label: "説明文", name: "text", widget: "text"}
           - label: "概要セクション"
             name: "overview"
@@ -60,14 +60,14 @@ collections:
                 name: "features"
                 widget: "list"
                 fields:
-                  - {label: "タイトル", name: "title", widget: "string"}
+                  - {label: "タイトル", name: "title", widget: "text"}
                   - {label: "説明文", name: "text", widget: "text"}
           - label: "理念セクション"
             name: "philosophy"
             widget: "object"
             fields:
               - {label: "引用テキスト", name: "quote", widget: "text"}
-              - {label: "サブテキスト", name: "sub", widget: "string"}
+              - {label: "サブテキスト", name: "sub", widget: "text"}
 
       # ── ガイドページ ──
       - label: "いいリフォームをするためにページ"
@@ -78,7 +78,7 @@ collections:
             name: "header"
             widget: "object"
             fields:
-              - {label: "ページタイトル", name: "title", widget: "string"}
+              - {label: "ページタイトル", name: "title", widget: "text"}
               - {label: "説明文", name: "desc", widget: "text"}
           - label: "費用セクション"
             name: "costs"
@@ -90,7 +90,7 @@ collections:
                 widget: "list"
                 fields:
                   - {label: "金額（例: 約100）", name: "number", widget: "string"}
-                  - {label: "項目名", name: "label", widget: "string"}
+                  - {label: "項目名", name: "label", widget: "text"}
           - label: "ステップセクション"
             name: "steps"
             widget: "object"
@@ -99,7 +99,7 @@ collections:
                 name: "items"
                 widget: "list"
                 fields:
-                  - {label: "タイトル", name: "title", widget: "string"}
+                  - {label: "タイトル", name: "title", widget: "text"}
                   - {label: "説明文", name: "text", widget: "text"}
           - label: "ライフイベントセクション"
             name: "lifeEvents"
@@ -109,7 +109,7 @@ collections:
                 name: "items"
                 widget: "list"
                 fields:
-                  - {label: "タイトル", name: "title", widget: "string"}
+                  - {label: "タイトル", name: "title", widget: "text"}
                   - {label: "説明文", name: "text", widget: "text"}
 
       # ── 資格保有者の声ページ ──
@@ -121,14 +121,14 @@ collections:
             name: "header"
             widget: "object"
             fields:
-              - {label: "ページタイトル", name: "title", widget: "string"}
+              - {label: "ページタイトル", name: "title", widget: "text"}
               - {label: "説明文", name: "desc", widget: "text"}
           - label: "声カード（3件）"
             name: "voices"
             widget: "list"
             fields:
               - {label: "会社名", name: "company", widget: "string"}
-              - {label: "氏名・都道府県・会員番号", name: "info", widget: "string"}
+              - {label: "氏名・都道府県・会員番号", name: "info", widget: "text"}
               - {label: "資格取得のきっかけ", name: "q1", widget: "text"}
               - {label: "資格を活かした仕事の事例", name: "q2", widget: "text"}
               - {label: "消費者へのメッセージ", name: "q3", widget: "text"}

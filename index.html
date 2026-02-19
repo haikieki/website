@@ -14,6 +14,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Netlify Identity -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -187,7 +189,7 @@
 
             <!-- 背景画像 -->
             <div class="absolute inset-0 z-0">
-                <img src="AdobeStock_629058851.jpeg" alt="" style="position:absolute; left:0; top:0; width:120%; height:100%; object-fit:cover; object-position:left center;">
+                <img id="hero-image" src="AdobeStock_629058851.jpeg" alt="" style="position:absolute; left:0; top:0; width:120%; height:100%; object-fit:cover; object-position:left center;">
             </div>
 
             <!-- グラデーションオーバーレイ（写真を見せつつテキスト可読性を確保） -->
@@ -198,13 +200,11 @@
             <!-- コンテンツ（右寄せ・下揃え） -->
             <div class="relative z-20 h-full max-w-7xl mx-auto px-5 lg:px-10 flex flex-col justify-end items-end pb-20 lg:pb-28 text-right">
                 <div class="max-w-2xl">
-                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.45] mb-8 drop-shadow-lg">
-                        <span class="whitespace-nowrap">安心できるリフォームは、</span><br>
-                        信頼できる資格者から
+                    <h1 id="hero-title" class="text-4xl md:text-5xl lg:text-6xl font-black text-white leading-[1.45] mb-8 drop-shadow-lg">
+                        安心できるリフォームは、信頼できる資格者から
                     </h1>
-                    <p class="text-white/85 text-base md:text-lg mb-10 leading-relaxed drop-shadow">
-                        全国住宅リフォーム取扱主任者協会は、<br>
-                        <span class="whitespace-nowrap">消費者の皆様が安心してリフォームを依頼できる環境を提供します</span>
+                    <p id="hero-subtitle" class="text-white/85 text-base md:text-lg mb-10 leading-relaxed drop-shadow">
+                        全国住宅リフォーム取扱主任者協会は、消費者の皆様が安心してリフォームを依頼できる環境を提供します
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-end">
                         <a href="search.html" class="inline-flex items-center justify-center gap-2 text-white font-black text-base px-8 py-4 transition-all transform hover:scale-105 shadow-2xl" style="background:#FF6B00; text-decoration:none;">
@@ -227,7 +227,7 @@
                     <div class="py-7 px-4 flex flex-col items-center justify-center">
                         <p class="text-slate-400 text-[9px] font-bold mb-2 tracking-widest uppercase">資格保有者数</p>
                         <div class="flex items-baseline gap-1">
-                            <span class="text-3xl lg:text-4xl font-black text-primary">10,000</span>
+                            <span id="stat-holders" class="text-3xl lg:text-4xl font-black text-primary">10,000</span>
                             <span class="text-lg font-bold text-primary">+</span>
                         </div>
                     </div>
@@ -241,7 +241,7 @@
                     <div class="py-7 px-4 flex flex-col items-center justify-center">
                         <p class="text-slate-400 text-[9px] font-bold mb-2 tracking-widest uppercase">の実績</p>
                         <div class="flex items-baseline gap-1">
-                            <span class="text-3xl lg:text-4xl font-black text-primary">15</span>
+                            <span id="stat-years" class="text-3xl lg:text-4xl font-black text-primary">15</span>
                             <span class="text-base font-black text-primary ml-1">年以上</span>
                         </div>
                     </div>
@@ -273,9 +273,9 @@
                             <span class="text-slate-100 text-6xl font-black leading-none group-hover:text-slate-200 transition-colors select-none">01</span>
                             <span class="material-symbols-outlined text-primary" style="font-size:2.5rem;">engineering</span>
                         </div>
-                        <h3 class="text-xl font-black text-primary mb-3">確かな専門知識</h3>
+                        <h3 id="feat-0-title" class="text-xl font-black text-primary mb-3">確かな専門知識</h3>
                         <div class="w-8 h-1 bg-accent mb-5"></div>
-                        <p class="text-slate-600 leading-relaxed text-sm">
+                        <p id="feat-0-body" class="text-slate-600 leading-relaxed text-sm">
                             法規制や建築の知識はもちろん、消費者保護に関する法令も熟知したプロフェッショナルです。
                         </p>
                     </div>
@@ -286,9 +286,9 @@
                             <span class="text-slate-100 text-6xl font-black leading-none group-hover:text-slate-200 transition-colors select-none">02</span>
                             <span class="material-symbols-outlined text-primary" style="font-size:2.5rem;">handshake</span>
                         </div>
-                        <h3 class="text-xl font-black text-primary mb-3">高い倫理観</h3>
+                        <h3 id="feat-1-title" class="text-xl font-black text-primary mb-3">高い倫理観</h3>
                         <div class="w-8 h-1 bg-accent mb-5"></div>
-                        <p class="text-slate-600 leading-relaxed text-sm">
+                        <p id="feat-1-body" class="text-slate-600 leading-relaxed text-sm">
                             「消費者の利益を第一に」という理念のもと、透明性の高い取引と誠実な対応を約束します。
                         </p>
                     </div>
@@ -299,9 +299,9 @@
                             <span class="text-slate-100 text-6xl font-black leading-none group-hover:text-slate-200 transition-colors select-none">03</span>
                             <span class="material-symbols-outlined text-primary" style="font-size:2.5rem;">verified_user</span>
                         </div>
-                        <h3 class="text-xl font-black text-primary mb-3">第三者機関の認定</h3>
+                        <h3 id="feat-2-title" class="text-xl font-black text-primary mb-3">第三者機関の認定</h3>
                         <div class="w-8 h-1 bg-accent mb-5"></div>
-                        <p class="text-slate-600 leading-relaxed text-sm">
+                        <p id="feat-2-body" class="text-slate-600 leading-relaxed text-sm">
                             公平・中立な立場である協会が認定。万が一のトラブル時も相談窓口が機能します。
                         </p>
                     </div>
@@ -339,7 +339,7 @@
                         <span class="material-symbols-outlined text-3xl">architecture</span>
                         <h3 class="text-base font-black leading-tight">全国住宅リフォーム<br>取扱主任者協会</h3>
                     </div>
-                    <p class="text-sm leading-loose" style="color:rgba(255,255,255,0.7);">
+                    <p id="footer-desc" class="text-sm leading-loose" style="color:rgba(255,255,255,0.7);">
                         住宅リフォームの信頼と品質を守り、消費者が安心してリフォームを依頼できる社会の実現を目指しています。
                     </p>
                 </div>
@@ -392,6 +392,45 @@
     </button>
 
     <script src="js/main.js"></script>
+    <script>
+      // Netlify Identity: 管理画面へリダイレクト
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", function(user) {
+          if (!user) {
+            window.netlifyIdentity.on("login", function() {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+      // CMSデータをJSONから読み込む
+      fetch('/data/home.json')
+        .then(function(r) { return r.json(); })
+        .then(function(d) {
+          var set = function(id, val) {
+            var el = document.getElementById(id);
+            if (el && val) el.textContent = val;
+          };
+          if (d.hero) {
+            set('hero-title', d.hero.title);
+            set('hero-subtitle', d.hero.subtitle);
+            var img = document.getElementById('hero-image');
+            if (img && d.hero.image) img.src = d.hero.image;
+          }
+          if (d.stats) {
+            set('stat-holders', d.stats.holders);
+            set('stat-years', d.stats.years);
+          }
+          if (d.features) {
+            d.features.forEach(function(f, i) {
+              set('feat-' + i + '-title', f.title);
+              set('feat-' + i + '-body', f.body);
+            });
+          }
+          set('footer-desc', d.footer_desc);
+        })
+        .catch(function() {});
+    </script>
 </body>
 
 </html>

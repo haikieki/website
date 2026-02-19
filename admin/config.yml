@@ -1,0 +1,38 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images"
+public_folder: "/images"
+locale: 'ja'
+
+collections:
+  - name: "homepage"
+    label: "トップページ"
+    files:
+      - label: "トップページ設定"
+        name: "home"
+        file: "data/home.json"
+        fields:
+          - label: "ヒーローセクション（一番上の大きいエリア）"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "メイン見出し", name: "title", widget: "string"}
+              - {label: "説明文", name: "subtitle", widget: "text"}
+              - {label: "背景画像", name: "image", widget: "image"}
+          - label: "統計数値"
+            name: "stats"
+            widget: "object"
+            fields:
+              - {label: "資格保有者数", name: "holders", widget: "string", hint: "例: 10,000"}
+              - {label: "実績年数", name: "years", widget: "string", hint: "例: 15"}
+          - label: "選ばれる理由（3つのカード）"
+            name: "features"
+            widget: "list"
+            fields:
+              - {label: "タイトル", name: "title", widget: "string"}
+              - {label: "説明文", name: "body", widget: "text"}
+          - label: "フッター説明文"
+            name: "footer_desc"
+            widget: "text"

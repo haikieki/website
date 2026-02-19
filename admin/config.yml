@@ -41,7 +41,6 @@ collections:
           - label: "スタイル設定（フォント・色）"
             name: "styles"
             widget: "object"
-            collapsed: true
             fields:
               - {label: "ヒーロー見出し 文字色", name: "hero_title_color", widget: "string", required: false, hint: "例: #ffffff、white（空欄でデフォルト）"}
               - {label: "ヒーロー見出し フォントサイズ", name: "hero_title_size", widget: "string", required: false, hint: "例: 3rem、48px（空欄でデフォルト）"}
@@ -86,7 +85,6 @@ collections:
           - label: "スタイル設定（フォント・色）"
             name: "styles"
             widget: "object"
-            collapsed: true
             fields:
               - {label: "ヒーロー サブタイトル 文字色", name: "hero_subtitle_color", widget: "string", required: false, hint: "例: #ffffff（空欄でデフォルト）"}
               - {label: "ヒーロー サブタイトル フォントサイズ", name: "hero_subtitle_size", widget: "string", required: false, hint: "例: 1rem（空欄でデフォルト）"}
@@ -150,7 +148,6 @@ collections:
           - label: "スタイル設定（フォント・色）"
             name: "styles"
             widget: "object"
-            collapsed: true
             fields:
               - {label: "ページタイトル 文字色", name: "page_title_color", widget: "string", required: false, hint: "例: #ffffff（空欄でデフォルト）"}
               - {label: "ページタイトル フォントサイズ", name: "page_title_size", widget: "string", required: false, hint: "例: 2.5rem（空欄でデフォルト）"}
@@ -190,7 +187,6 @@ collections:
           - label: "スタイル設定（フォント・色）"
             name: "styles"
             widget: "object"
-            collapsed: true
             fields:
               - {label: "ページタイトル 文字色", name: "page_title_color", widget: "string", required: false, hint: "例: #ffffff（空欄でデフォルト）"}
               - {label: "ページタイトル フォントサイズ", name: "page_title_size", widget: "string", required: false, hint: "例: 2.5rem（空欄でデフォルト）"}

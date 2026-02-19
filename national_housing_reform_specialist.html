@@ -261,6 +261,12 @@
         .then(function(r) { return r.json(); })
         .then(function(d) {
           var set = function(id, val) { var el = document.getElementById(id); if (el && val) el.innerHTML = val.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>'); };
+          var applyStyle = function(id, color, size) {
+            var el = document.getElementById(id);
+            if (!el) return;
+            if (color) el.style.color = color;
+            if (size) el.style.fontSize = size;
+          };
           if (d.hero) {
             set('spec-hero-subtitle', d.hero.subtitle);
             set('spec-hero-title', d.hero.title);
@@ -278,6 +284,21 @@
           if (d.philosophy) {
             set('spec-philosophy-text', d.philosophy.quote);
             set('spec-philosophy-sub', d.philosophy.sub);
+          }
+          if (d.styles) {
+            var s = d.styles;
+            applyStyle('spec-hero-subtitle', s.hero_subtitle_color, s.hero_subtitle_size);
+            applyStyle('spec-hero-title', s.hero_title_color, s.hero_title_size);
+            applyStyle('spec-hero-text', s.hero_text_color, s.hero_text_size);
+            applyStyle('spec-overview-desc', s.overview_desc_color, s.overview_desc_size);
+            if (d.overview && d.overview.features) {
+              d.overview.features.forEach(function(f, i) {
+                applyStyle('spec-feat-' + i + '-title', s.feature_title_color, s.feature_title_size);
+                applyStyle('spec-feat-' + i + '-text', s.feature_text_color, s.feature_text_size);
+              });
+            }
+            applyStyle('spec-philosophy-text', s.philosophy_text_color, s.philosophy_text_size);
+            applyStyle('spec-philosophy-sub', s.philosophy_sub_color, s.philosophy_sub_size);
           }
         }).catch(function() {});
     </script>

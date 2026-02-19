@@ -25,5 +25,17 @@
       "q2": "お客様との信頼関係構築がスムーズになり、リピート率が向上しました。また、紹介でのご依頼も増えています。",
       "q3": "納得のいくまでご相談いただき、安心してリフォームを進めましょう。私たちがしっかりサポートします。"
     }
-  ]
+  ],
+  "styles": {
+    "page_title_color": "",
+    "page_title_size": "",
+    "page_desc_color": "",
+    "page_desc_size": "",
+    "voice_name_color": "",
+    "voice_name_size": "",
+    "voice_info_color": "",
+    "voice_info_size": "",
+    "voice_text_color": "",
+    "voice_text_size": ""
+  }
 }

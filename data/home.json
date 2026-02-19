@@ -22,5 +22,17 @@
       "body": "公平・中立な立場である協会が認定。万が一のトラブル時も相談窓口が機能します。"
     }
   ],
-  "footer_desc": "住宅リフォームの信頼と品質を守り、消費者が安心してリフォームを依頼できる社会の実現を目指しています。"
+  "footer_desc": "住宅リフォームの信頼と品質を守り、消費者が安心してリフォームを依頼できる社会の実現を目指しています。",
+  "styles": {
+    "hero_title_color": "",
+    "hero_title_size": "",
+    "hero_subtitle_color": "",
+    "hero_subtitle_size": "",
+    "feature_title_color": "",
+    "feature_title_size": "",
+    "feature_body_color": "",
+    "feature_body_size": "",
+    "footer_desc_color": "",
+    "footer_desc_size": ""
+  }
 }

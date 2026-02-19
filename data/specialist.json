@@ -24,5 +24,23 @@
   "philosophy": {
     "quote": "安心・安全な住宅リフォームの提供を通じて、豊かな住生活の実現をサポートする",
     "sub": "これが、全国住宅リフォーム取扱主任者協会の理念です。"
+  },
+  "styles": {
+    "hero_subtitle_color": "",
+    "hero_subtitle_size": "",
+    "hero_title_color": "",
+    "hero_title_size": "",
+    "hero_text_color": "",
+    "hero_text_size": "",
+    "overview_desc_color": "",
+    "overview_desc_size": "",
+    "feature_title_color": "",
+    "feature_title_size": "",
+    "feature_text_color": "",
+    "feature_text_size": "",
+    "philosophy_text_color": "",
+    "philosophy_text_size": "",
+    "philosophy_sub_color": "",
+    "philosophy_sub_size": ""
   }
 }

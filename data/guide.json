@@ -30,5 +30,21 @@
       { "title": "老朽化・メンテナンス", "text": "築10年以上の住宅は定期的なメンテナンスが必要。早めの対策で大きな出費を防ぎましょう。" },
       { "title": "シニア向けリフォーム", "text": "バリアフリー化や断熱改修で、安全で快適な暮らしを。補助金制度も活用できます。" }
     ]
+  },
+  "styles": {
+    "page_title_color": "",
+    "page_title_size": "",
+    "page_desc_color": "",
+    "page_desc_size": "",
+    "cost_desc_color": "",
+    "cost_desc_size": "",
+    "step_title_color": "",
+    "step_title_size": "",
+    "step_text_color": "",
+    "step_text_size": "",
+    "life_title_color": "",
+    "life_title_size": "",
+    "life_text_color": "",
+    "life_text_size": ""
   }
 }

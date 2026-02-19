@@ -38,6 +38,21 @@ collections:
           - label: "フッター説明文"
             name: "footer_desc"
             widget: "text"
+          - label: "スタイル設定（フォント・色）"
+            name: "styles"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "ヒーロー見出し 文字色", name: "hero_title_color", widget: "string", required: false, hint: "例: #ffffff、white（空欄でデフォルト）"}
+              - {label: "ヒーロー見出し フォントサイズ", name: "hero_title_size", widget: "string", required: false, hint: "例: 3rem、48px（空欄でデフォルト）"}
+              - {label: "ヒーロー説明文 文字色", name: "hero_subtitle_color", widget: "string", required: false, hint: "例: #ffffff（空欄でデフォルト）"}
+              - {label: "ヒーロー説明文 フォントサイズ", name: "hero_subtitle_size", widget: "string", required: false, hint: "例: 1.125rem（空欄でデフォルト）"}
+              - {label: "カード見出し 文字色", name: "feature_title_color", widget: "string", required: false, hint: "例: #1a365d（空欄でデフォルト）"}
+              - {label: "カード見出し フォントサイズ", name: "feature_title_size", widget: "string", required: false, hint: "例: 1.25rem（空欄でデフォルト）"}
+              - {label: "カード説明文 文字色", name: "feature_body_color", widget: "string", required: false, hint: "例: #475569（空欄でデフォルト）"}
+              - {label: "カード説明文 フォントサイズ", name: "feature_body_size", widget: "string", required: false, hint: "例: 0.875rem（空欄でデフォルト）"}
+              - {label: "フッター説明文 文字色", name: "footer_desc_color", widget: "string", required: false, hint: "例: #ffffff（空欄でデフォルト）"}
+              - {label: "フッター説明文 フォントサイズ", name: "footer_desc_size", widget: "string", required: false, hint: "例: 0.875rem（空欄でデフォルト）"}
 
       # ── 取扱主任者とはページ ──
       - label: "取扱主任者とはページ"
@@ -68,6 +83,27 @@ collections:
             fields:
               - {label: "引用テキスト", name: "quote", widget: "text"}
               - {label: "サブテキスト", name: "sub", widget: "text"}
+          - label: "スタイル設定（フォント・色）"
+            name: "styles"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "ヒーロー サブタイトル 文字色", name: "hero_subtitle_color", widget: "string", required: false, hint: "例: #ffffff（空欄でデフォルト）"}
+              - {label: "ヒーロー サブタイトル フォントサイズ", name: "hero_subtitle_size", widget: "string", required: false, hint: "例: 1rem（空欄でデフォルト）"}
+              - {label: "ヒーロー 見出し 文字色", name: "hero_title_color", widget: "string", required: false, hint: "例: #ffffff（空欄でデフォルト）"}
+              - {label: "ヒーロー 見出し フォントサイズ", name: "hero_title_size", widget: "string", required: false, hint: "例: 2.5rem（空欄でデフォルト）"}
+              - {label: "ヒーロー 説明文 文字色", name: "hero_text_color", widget: "string", required: false, hint: "例: #ffffff（空欄でデフォルト）"}
+              - {label: "ヒーロー 説明文 フォントサイズ", name: "hero_text_size", widget: "string", required: false, hint: "例: 1rem（空欄でデフォルト）"}
+              - {label: "概要説明文 文字色", name: "overview_desc_color", widget: "string", required: false, hint: "例: #333333（空欄でデフォルト）"}
+              - {label: "概要説明文 フォントサイズ", name: "overview_desc_size", widget: "string", required: false, hint: "例: 1rem（空欄でデフォルト）"}
+              - {label: "特徴カード 見出し 文字色", name: "feature_title_color", widget: "string", required: false, hint: "例: #1a365d（空欄でデフォルト）"}
+              - {label: "特徴カード 見出し フォントサイズ", name: "feature_title_size", widget: "string", required: false, hint: "例: 1.25rem（空欄でデフォルト）"}
+              - {label: "特徴カード 説明文 文字色", name: "feature_text_color", widget: "string", required: false, hint: "例: #555555（空欄でデフォルト）"}
+              - {label: "特徴カード 説明文 フォントサイズ", name: "feature_text_size", widget: "string", required: false, hint: "例: 0.9rem（空欄でデフォルト）"}
+              - {label: "理念 引用テキスト 文字色", name: "philosophy_text_color", widget: "string", required: false, hint: "例: #1a365d（空欄でデフォルト）"}
+              - {label: "理念 引用テキスト フォントサイズ", name: "philosophy_text_size", widget: "string", required: false, hint: "例: 1.25rem（空欄でデフォルト）"}
+              - {label: "理念 サブテキスト 文字色", name: "philosophy_sub_color", widget: "string", required: false, hint: "例: #555555（空欄でデフォルト）"}
+              - {label: "理念 サブテキスト フォントサイズ", name: "philosophy_sub_size", widget: "string", required: false, hint: "例: 0.9rem（空欄でデフォルト）"}
 
       # ── ガイドページ ──
       - label: "いいリフォームをするためにページ"
@@ -111,6 +147,25 @@ collections:
                 fields:
                   - {label: "タイトル", name: "title", widget: "text"}
                   - {label: "説明文", name: "text", widget: "text"}
+          - label: "スタイル設定（フォント・色）"
+            name: "styles"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "ページタイトル 文字色", name: "page_title_color", widget: "string", required: false, hint: "例: #ffffff（空欄でデフォルト）"}
+              - {label: "ページタイトル フォントサイズ", name: "page_title_size", widget: "string", required: false, hint: "例: 2.5rem（空欄でデフォルト）"}
+              - {label: "ページ説明文 文字色", name: "page_desc_color", widget: "string", required: false, hint: "例: #ffffff（空欄でデフォルト）"}
+              - {label: "ページ説明文 フォントサイズ", name: "page_desc_size", widget: "string", required: false, hint: "例: 1rem（空欄でデフォルト）"}
+              - {label: "費用説明文 文字色", name: "cost_desc_color", widget: "string", required: false, hint: "例: #555555（空欄でデフォルト）"}
+              - {label: "費用説明文 フォントサイズ", name: "cost_desc_size", widget: "string", required: false, hint: "例: 1rem（空欄でデフォルト）"}
+              - {label: "ステップ見出し 文字色", name: "step_title_color", widget: "string", required: false, hint: "例: #1a365d（空欄でデフォルト）"}
+              - {label: "ステップ見出し フォントサイズ", name: "step_title_size", widget: "string", required: false, hint: "例: 1.25rem（空欄でデフォルト）"}
+              - {label: "ステップ説明文 文字色", name: "step_text_color", widget: "string", required: false, hint: "例: #555555（空欄でデフォルト）"}
+              - {label: "ステップ説明文 フォントサイズ", name: "step_text_size", widget: "string", required: false, hint: "例: 0.9rem（空欄でデフォルト）"}
+              - {label: "ライフイベント見出し 文字色", name: "life_title_color", widget: "string", required: false, hint: "例: #1a365d（空欄でデフォルト）"}
+              - {label: "ライフイベント見出し フォントサイズ", name: "life_title_size", widget: "string", required: false, hint: "例: 1.25rem（空欄でデフォルト）"}
+              - {label: "ライフイベント説明文 文字色", name: "life_text_color", widget: "string", required: false, hint: "例: #555555（空欄でデフォルト）"}
+              - {label: "ライフイベント説明文 フォントサイズ", name: "life_text_size", widget: "string", required: false, hint: "例: 0.9rem（空欄でデフォルト）"}
 
       # ── 資格保有者の声ページ ──
       - label: "資格保有者の声ページ"
@@ -132,3 +187,18 @@ collections:
               - {label: "資格取得のきっかけ", name: "q1", widget: "text"}
               - {label: "資格を活かした仕事の事例", name: "q2", widget: "text"}
               - {label: "消費者へのメッセージ", name: "q3", widget: "text"}
+          - label: "スタイル設定（フォント・色）"
+            name: "styles"
+            widget: "object"
+            collapsed: true
+            fields:
+              - {label: "ページタイトル 文字色", name: "page_title_color", widget: "string", required: false, hint: "例: #ffffff（空欄でデフォルト）"}
+              - {label: "ページタイトル フォントサイズ", name: "page_title_size", widget: "string", required: false, hint: "例: 2.5rem（空欄でデフォルト）"}
+              - {label: "ページ説明文 文字色", name: "page_desc_color", widget: "string", required: false, hint: "例: #ffffff（空欄でデフォルト）"}
+              - {label: "ページ説明文 フォントサイズ", name: "page_desc_size", widget: "string", required: false, hint: "例: 1rem（空欄でデフォルト）"}
+              - {label: "声カード 会社名 文字色", name: "voice_name_color", widget: "string", required: false, hint: "例: #1a365d（空欄でデフォルト）"}
+              - {label: "声カード 会社名 フォントサイズ", name: "voice_name_size", widget: "string", required: false, hint: "例: 1.25rem（空欄でデフォルト）"}
+              - {label: "声カード 情報 文字色", name: "voice_info_color", widget: "string", required: false, hint: "例: #555555（空欄でデフォルト）"}
+              - {label: "声カード 情報 フォントサイズ", name: "voice_info_size", widget: "string", required: false, hint: "例: 0.875rem（空欄でデフォルト）"}
+              - {label: "声カード 本文 文字色", name: "voice_text_color", widget: "string", required: false, hint: "例: #333333（空欄でデフォルト）"}
+              - {label: "声カード 本文 フォントサイズ", name: "voice_text_size", widget: "string", required: false, hint: "例: 0.9rem（空欄でデフォルト）"}

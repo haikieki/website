@@ -411,6 +411,12 @@
             var el = document.getElementById(id);
             if (el && val) el.innerHTML = val.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
           };
+          var applyStyle = function(id, color, size) {
+            var el = document.getElementById(id);
+            if (!el) return;
+            if (color) el.style.color = color;
+            if (size) el.style.fontSize = size;
+          };
           if (d.hero) {
             set('hero-title', d.hero.title);
             set('hero-subtitle', d.hero.subtitle);
@@ -428,6 +434,18 @@
             });
           }
           set('footer-desc', d.footer_desc);
+          if (d.styles) {
+            var s = d.styles;
+            applyStyle('hero-title', s.hero_title_color, s.hero_title_size);
+            applyStyle('hero-subtitle', s.hero_subtitle_color, s.hero_subtitle_size);
+            if (d.features) {
+              d.features.forEach(function(f, i) {
+                applyStyle('feat-' + i + '-title', s.feature_title_color, s.feature_title_size);
+                applyStyle('feat-' + i + '-body', s.feature_body_color, s.feature_body_size);
+              });
+            }
+            applyStyle('footer-desc', s.footer_desc_color, s.footer_desc_size);
+          }
         })
         .catch(function() {});
     </script>

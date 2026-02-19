@@ -180,6 +180,12 @@
         .then(function(r) { return r.json(); })
         .then(function(d) {
           var set = function(id, val) { var el = document.getElementById(id); if (el && val) el.innerHTML = val.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>'); };
+          var applyStyle = function(id, color, size) {
+            var el = document.getElementById(id);
+            if (!el) return;
+            if (color) el.style.color = color;
+            if (size) el.style.fontSize = size;
+          };
           if (d.header) { set('voices-title', d.header.title); set('voices-desc', d.header.desc); }
           if (d.voices) d.voices.forEach(function(v, i) {
             set('voice-' + i + '-name', v.company);
@@ -188,6 +194,18 @@
             set('voice-' + i + '-q2', v.q2);
             set('voice-' + i + '-q3', v.q3);
           });
+          if (d.styles) {
+            var s = d.styles;
+            applyStyle('voices-title', s.page_title_color, s.page_title_size);
+            applyStyle('voices-desc', s.page_desc_color, s.page_desc_size);
+            if (d.voices) d.voices.forEach(function(v, i) {
+              applyStyle('voice-' + i + '-name', s.voice_name_color, s.voice_name_size);
+              applyStyle('voice-' + i + '-info', s.voice_info_color, s.voice_info_size);
+              applyStyle('voice-' + i + '-q1', s.voice_text_color, s.voice_text_size);
+              applyStyle('voice-' + i + '-q2', s.voice_text_color, s.voice_text_size);
+              applyStyle('voice-' + i + '-q3', s.voice_text_color, s.voice_text_size);
+            });
+          }
         }).catch(function() {});
     </script>
 </body>

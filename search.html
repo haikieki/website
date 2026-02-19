@@ -1,126 +1,203 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="資格保有者検索 - 全国住宅リフォーム取扱主任者協会">
     <title>資格保有者検索 | 全国住宅リフォーム取扱主任者協会</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=snap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { primary: "#1a365d", "primary-light": "#2c5aa0", accent: "#FF6B00", "navy-dark": "#0d1b2e" },
+                    fontFamily: { sans: ["'Noto Sans JP'", "sans-serif"] },
+                },
+            },
+        };
+    </script>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+        #header { transition: background 0.3s ease, box-shadow 0.3s ease; }
+        #header.scrolled { background: rgba(26,54,93,0.97) !important; backdrop-filter: blur(12px); box-shadow: 0 2px 24px rgba(0,0,0,0.3); }
+        #navMenu { display: none; flex-direction: column; }
+        #navMenu.is-open { display: flex; }
+        #hamburger.is-active .ham-1 { transform: translateY(7px) rotate(45deg); }
+        #hamburger.is-active .ham-2 { opacity: 0; }
+        #hamburger.is-active .ham-3 { transform: translateY(-7px) rotate(-45deg); }
+        #scrollTop { opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; }
+        #scrollTop.is-visible { opacity: 1; visibility: visible; }
+        /* search.js が生成する要素用スタイル */
+        .spinner { width: 40px; height: 40px; border: 3px solid rgba(26,54,93,0.15); border-top-color: #1a365d; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 1rem; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .results-grid { display: grid; gap: 1.5rem; }
+        @media(min-width:768px){ .results-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media(min-width:1024px){ .results-grid { grid-template-columns: repeat(3, 1fr); } }
+        .result-card { background: #fff; border-top: 4px solid #1a365d; padding: 1.5rem; box-shadow: 0 1px 4px rgba(0,0,0,0.06); transition: box-shadow 0.3s; }
+        .result-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+        .result-header { margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #e2e8f0; }
+        .result-badge { display: inline-block; background: #FF6B00; color: #fff; font-size: 0.65rem; font-weight: 700; padding: 0.15rem 0.6rem; margin-bottom: 0.5rem; }
+        .result-header h3 { font-size: 1.1rem; font-weight: 900; color: #1a365d; margin: 0; }
+        .result-body { display: flex; flex-direction: column; gap: 0.5rem; }
+        .result-item { display: flex; gap: 0.5rem; font-size: 0.8rem; }
+        .result-label { font-weight: 700; color: #94a3b8; min-width: 5rem; flex-shrink: 0; }
+        .result-value { color: #475569; }
+        .search-count { font-size: 0.85rem; font-weight: 700; color: #64748b; margin-bottom: 1.5rem; }
+        .search-error { background: #fef2f2; border-left: 4px solid #ef4444; padding: 1rem 1.25rem; color: #b91c1c; font-size: 0.9rem; font-weight: 600; border-radius: 0 4px 4px 0; }
+    </style>
 </head>
-<body>
+<body class="font-sans bg-white text-slate-900 overflow-x-hidden">
+
     <!-- ヘッダー -->
-    <header class="header" id="header">
-        <div class="header__inner container">
-            <a href="index.html" class="header__logo">
-                <span class="header__logo-main">全国住宅リフォーム取扱主任者協会</span>
-            </a>
-            <nav class="header__nav" id="navMenu">
-                <ul class="header__nav-list">
-                    <li><a href="index.html" class="header__nav-link">ホーム</a></li>
-                    <li><a href="search.html" class="header__nav-link is-current">資格保有者検索</a></li>
-                    <li><a href="national_housing_reform_specialist.html" class="header__nav-link">全国住宅リフォーム取扱主任者とは</a></li>
-                    <li><a href="guide.html" class="header__nav-link">いいリフォームをするために</a></li>
-                    <li><a href="voices.html" class="header__nav-link">資格保有者の声</a></li>
-                    <li><a href="contact.html" class="header__nav-link">お問合せ</a></li>
-                </ul>
-            </nav>
-            <button class="header__hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+    <header class="fixed top-0 left-0 w-full z-50" id="header" style="background:rgba(26,54,93,1);">
+        <div class="max-w-7xl mx-auto px-5 lg:px-10">
+            <div class="flex justify-between items-center h-20 lg:h-24">
+                <a href="index.html" class="flex items-center gap-2 sm:gap-3 text-white hover:opacity-90 transition-opacity" style="text-decoration:none;">
+                    <span class="material-symbols-outlined text-2xl sm:text-3xl hidden sm:inline">architecture</span>
+                    <div class="flex flex-col">
+                        <span class="text-[8px] sm:text-[10px] font-bold tracking-widest opacity-70">一般社団法人</span>
+                        <span class="text-xs sm:text-sm lg:text-base font-black leading-tight tracking-wide">全国住宅リフォーム取扱主任者協会</span>
+                    </div>
+                </a>
+                <nav class="hidden xl:flex items-center gap-0.5">
+                    <a href="index.html" class="text-xs font-bold text-white/80 hover:text-white px-3 py-2 border-b-2 border-transparent hover:border-accent transition-all" style="text-decoration:none;">ホーム</a>
+                    <a href="search.html" class="text-xs font-bold text-white px-3 py-2 border-b-2 border-accent" style="text-decoration:none;">資格保有者検索</a>
+                    <a href="national_housing_reform_specialist.html" class="text-xs font-bold text-white/80 hover:text-white px-3 py-2 border-b-2 border-transparent hover:border-accent transition-all" style="text-decoration:none;">全国住宅リフォーム取扱主任者とは</a>
+                    <a href="guide.html" class="text-xs font-bold text-white/80 hover:text-white px-3 py-2 border-b-2 border-transparent hover:border-accent transition-all" style="text-decoration:none;">いいリフォームをするために</a>
+                    <a href="voices.html" class="text-xs font-bold text-white/80 hover:text-white px-3 py-2 border-b-2 border-transparent hover:border-accent transition-all" style="text-decoration:none;">資格保有者の声</a>
+                    <a href="contact.html" class="text-xs font-bold text-white/80 border border-white/40 px-4 py-2 ml-3 hover:bg-white hover:text-primary transition-all" style="text-decoration:none;">お問合せ</a>
+                </nav>
+                <button class="xl:hidden flex flex-col gap-[5px] w-10 h-10 items-center justify-center" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
+                    <span class="ham-1 block w-6 h-0.5 bg-white transition-all duration-300 origin-center"></span>
+                    <span class="ham-2 block w-6 h-0.5 bg-white transition-all duration-300"></span>
+                    <span class="ham-3 block w-6 h-0.5 bg-white transition-all duration-300 origin-center"></span>
+                </button>
+            </div>
         </div>
+        <nav id="navMenu" style="background:rgba(26,54,93,0.97); border-top:1px solid rgba(255,255,255,0.1);">
+            <div class="max-w-7xl mx-auto px-5 py-3">
+                <a href="index.html" class="block text-sm font-bold text-white/80 py-3 border-b border-white/10 hover:text-accent transition-colors" style="text-decoration:none;">ホーム</a>
+                <a href="search.html" class="block text-sm font-bold text-accent py-3 border-b border-white/10" style="text-decoration:none;">資格保有者検索</a>
+                <a href="national_housing_reform_specialist.html" class="block text-sm font-bold text-white/80 py-3 border-b border-white/10 hover:text-accent transition-colors" style="text-decoration:none;">全国住宅リフォーム取扱主任者とは</a>
+                <a href="guide.html" class="block text-sm font-bold text-white/80 py-3 border-b border-white/10 hover:text-accent transition-colors" style="text-decoration:none;">いいリフォームをするために</a>
+                <a href="voices.html" class="block text-sm font-bold text-white/80 py-3 border-b border-white/10 hover:text-accent transition-colors" style="text-decoration:none;">資格保有者の声</a>
+                <a href="contact.html" class="block text-sm font-bold text-white/80 py-3 hover:text-accent transition-colors" style="text-decoration:none;">お問合せ</a>
+            </div>
+        </nav>
     </header>
 
     <!-- メインコンテンツ -->
-    <main class="main">
-        <section class="page-header page-header--search">
-            <div class="container">
-                <h1 class="page-title">資格保有者検索</h1>
-                <p class="page-desc">会員番号または氏名で検索できます。どちらか一方を入力してください。</p>
+    <main>
+        <!-- ページヘッダー -->
+        <section class="relative h-screen min-h-[700px] overflow-hidden" style="background:#0d1b2e;">
+            <div class="absolute inset-0 z-0">
+                <img src="images/search_hero.png" alt="" style="position:absolute; left:0; top:0; width:100%; height:100%; object-fit:cover; object-position:center;">
+            </div>
+            <div class="absolute inset-0 z-10 pointer-events-none" style="background: linear-gradient(to left, rgba(26,54,93,0.15) 0%, rgba(26,54,93,0.15) 30%, rgba(26,54,93,0.75) 65%, rgba(26,54,93,0.92) 100%);"></div>
+            <div class="absolute inset-0 z-10 pointer-events-none" style="background: linear-gradient(to top, rgba(26,54,93,0.65) 0%, transparent 55%);"></div>
+            <div class="relative z-20 h-full max-w-7xl mx-auto px-5 lg:px-10 flex flex-col justify-end pb-20 lg:pb-28">
+                <span class="text-accent font-black tracking-[0.3em] text-xs block mb-3 uppercase">Search</span>
+                <h1 class="text-3xl lg:text-5xl font-black text-white leading-tight mb-4 drop-shadow-lg">資格保有者検索</h1>
+                <p class="text-white/80 text-base max-w-2xl leading-relaxed drop-shadow">会員番号または氏名で検索できます。どちらか一方を入力してください。</p>
             </div>
         </section>
 
-        <section class="search-section">
-            <div class="container">
+        <!-- 検索セクション -->
+        <section class="py-20 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-5 lg:px-10">
+
                 <!-- 検索フォーム -->
-                <div class="search-box">
-                    <form id="searchForm" class="search-form">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="memberNo">会員番号</label>
-                                <input type="text" id="memberNo" name="memberNo" placeholder="例：Z-2025-001" autocomplete="off">
+                <div class="bg-white shadow-sm p-8 mb-10 max-w-3xl mx-auto">
+                    <h2 class="text-base font-black text-primary mb-6 pb-3 border-b border-slate-100">検索条件を入力してください</h2>
+                    <form id="searchForm">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                            <div>
+                                <label for="memberNo" class="block text-sm font-black text-slate-700 mb-2">会員番号</label>
+                                <input type="text" id="memberNo" name="memberNo" placeholder="例：Z-2025-001" autocomplete="off" class="w-full border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors">
                             </div>
-                            <div class="form-group">
-                                <label for="name">氏名</label>
-                                <input type="text" id="name" name="name" placeholder="例：山田太郎" autocomplete="off">
+                            <div>
+                                <label for="name" class="block text-sm font-black text-slate-700 mb-2">氏名</label>
+                                <input type="text" id="name" name="name" placeholder="例：山田太郎" autocomplete="off" class="w-full border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors">
                             </div>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-search">検索</button>
+                        <button type="submit" class="inline-flex items-center gap-2 text-white font-black px-8 py-3 transition-all hover:opacity-90" style="background:#FF6B00;">
+                            検索
+                            <i class="fas fa-magnifying-glass"></i>
+                        </button>
                     </form>
                 </div>
 
                 <!-- ローディング -->
-                <div id="loading" class="loading" style="display: none;">
+                <div id="loading" style="display:none;" class="text-center py-12">
                     <div class="spinner"></div>
-                    <p>検索中...</p>
+                    <p class="text-slate-500 text-sm font-bold">検索中...</p>
                 </div>
 
                 <!-- エラーメッセージ -->
-                <div id="errorMessage" class="search-error" style="display: none;"></div>
+                <div id="errorMessage" class="search-error max-w-3xl mx-auto" style="display:none;"></div>
 
                 <!-- 検索結果 -->
-                <div id="searchResults" class="search-results"></div>
+                <div id="searchResults"></div>
 
                 <!-- 結果なし -->
-                <div id="noResults" class="no-results" style="display: none;">
-                    <div class="no-results__icon"><i class="fas fa-magnifying-glass"></i></div>
-                    <p class="no-results__title">該当する資格保有者が見つかりません</p>
-                    <p class="no-results__text">お探しの方が見つからない場合は、お気軽にお問い合わせください。<br>協会スタッフが資格保有者の情報をお調べいたします。</p>
-                    <div style="margin-top: 1.5rem;">
-                        <a href="contact.html" class="btn btn-primary btn-lg"><i class="fas fa-envelope"></i>&nbsp; お問い合わせはこちら</a>
+                <div id="noResults" style="display:none;" class="text-center py-16 bg-white shadow-sm max-w-2xl mx-auto">
+                    <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 bg-slate-100">
+                        <i class="fas fa-magnifying-glass text-slate-400 text-2xl"></i>
                     </div>
+                    <p class="text-xl font-black text-primary mb-3">該当する資格保有者が見つかりません</p>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-8">お探しの方が見つからない場合は、お気軽にお問い合わせください。<br>協会スタッフが資格保有者の情報をお調べいたします。</p>
+                    <a href="contact.html" class="inline-flex items-center gap-2 text-white font-black px-8 py-3 transition-all hover:opacity-90" style="background:#FF6B00; text-decoration:none;">
+                        <i class="fas fa-envelope"></i> お問い合わせはこちら
+                    </a>
                 </div>
             </div>
         </section>
     </main>
 
     <!-- フッター -->
-    <footer class="footer">
-        <div class="footer__inner container">
-            <div class="footer__grid">
-                <div class="footer__section">
-                    <h3 class="footer__heading">全国住宅リフォーム取扱主任者協会</h3>
-                    <p class="footer__text">住宅リフォームの信頼と品質を守り、消費者が安心してリフォームを依頼できる社会の実現を目指しています。</p>
+    <footer class="text-white pt-20 pb-10" style="background:#1a365d; border-top:4px solid #FF6B00;">
+        <div class="max-w-7xl mx-auto px-5 lg:px-10">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 mb-14">
+                <div>
+                    <div class="flex items-center gap-3 mb-5">
+                        <span class="material-symbols-outlined text-3xl">architecture</span>
+                        <h3 class="text-base font-black leading-tight">全国住宅リフォーム<br>取扱主任者協会</h3>
+                    </div>
+                    <p class="text-sm leading-loose" style="color:rgba(255,255,255,0.7);">住宅リフォームの信頼と品質を守り、消費者が安心してリフォームを依頼できる社会の実現を目指しています。</p>
                 </div>
-                <div class="footer__section">
-                    <h3 class="footer__heading">サイトマップ</h3>
-                    <ul class="footer__links">
-                        <li><a href="index.html">ホーム</a></li>
-                        <li><a href="search.html">資格保有者検索</a></li>
-                        <li><a href="national_housing_reform_specialist.html">全国住宅リフォーム取扱主任者とは</a></li>
-                        <li><a href="guide.html">いいリフォームをするために</a></li>
-                        <li><a href="voices.html">資格保有者の声</a></li>
-                        <li><a href="contact.html">お問合せ</a></li>
+                <div>
+                    <h3 class="font-black text-xs mb-5 tracking-[0.2em] uppercase pb-3 border-b" style="color:rgba(255,255,255,0.5); border-color:rgba(255,255,255,0.2);">サイトマップ</h3>
+                    <ul class="space-y-3 text-sm font-bold">
+                        <li><a href="index.html" class="flex items-center gap-2 transition-colors hover:text-accent" style="color:rgba(255,255,255,0.8); text-decoration:none;"><span class="w-1 h-1 inline-block flex-shrink-0" style="background:#FF6B00;"></span>ホーム</a></li>
+                        <li><a href="search.html" class="flex items-center gap-2 transition-colors hover:text-accent" style="color:rgba(255,255,255,0.8); text-decoration:none;"><span class="w-1 h-1 inline-block flex-shrink-0" style="background:#FF6B00;"></span>資格保有者検索</a></li>
+                        <li><a href="national_housing_reform_specialist.html" class="flex items-center gap-2 transition-colors hover:text-accent" style="color:rgba(255,255,255,0.8); text-decoration:none;"><span class="w-1 h-1 inline-block flex-shrink-0" style="background:#FF6B00;"></span>全国住宅リフォーム取扱主任者とは</a></li>
+                        <li><a href="guide.html" class="flex items-center gap-2 transition-colors hover:text-accent" style="color:rgba(255,255,255,0.8); text-decoration:none;"><span class="w-1 h-1 inline-block flex-shrink-0" style="background:#FF6B00;"></span>いいリフォームをするために</a></li>
+                        <li><a href="voices.html" class="flex items-center gap-2 transition-colors hover:text-accent" style="color:rgba(255,255,255,0.8); text-decoration:none;"><span class="w-1 h-1 inline-block flex-shrink-0" style="background:#FF6B00;"></span>資格保有者の声</a></li>
+                        <li><a href="contact.html" class="flex items-center gap-2 transition-colors hover:text-accent" style="color:rgba(255,255,255,0.8); text-decoration:none;"><span class="w-1 h-1 inline-block flex-shrink-0" style="background:#FF6B00;"></span>お問合せ</a></li>
                     </ul>
                 </div>
-                <div class="footer__section">
-                    <h3 class="footer__heading">関連サイト</h3>
-                    <ul class="footer__links">
-                        <li><a href="https://reform-shuninsya.com/houjin" target="_blank" rel="noopener noreferrer" class="footer__external">企業・団体の方へ<span aria-hidden="true"> <i class="fas fa-arrow-up-right-from-square fa-xs"></i></span></a></li>
-                        <li><a href="https://reform-shuninsya.com/" target="_blank" rel="noopener noreferrer" class="footer__external">資格を取得したい方はこちら<span aria-hidden="true"> <i class="fas fa-arrow-up-right-from-square fa-xs"></i></span></a></li>
+                <div>
+                    <h3 class="font-black text-xs mb-5 tracking-[0.2em] uppercase pb-3 border-b" style="color:rgba(255,255,255,0.5); border-color:rgba(255,255,255,0.2);">関連サイト</h3>
+                    <ul class="space-y-3 text-sm font-bold">
+                        <li><a href="https://reform-shuninsya.com/houjin" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 transition-colors hover:text-accent" style="color:rgba(255,255,255,0.8); text-decoration:none;"><span class="w-1 h-1 inline-block flex-shrink-0" style="background:#FF6B00;"></span>企業・団体の方へ <i class="fas fa-arrow-up-right-from-square fa-xs" style="opacity:0.6;"></i></a></li>
+                        <li><a href="https://reform-shuninsya.com/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 transition-colors hover:text-accent" style="color:rgba(255,255,255,0.8); text-decoration:none;"><span class="w-1 h-1 inline-block flex-shrink-0" style="background:#FF6B00;"></span>資格を取得したい方はこちら <i class="fas fa-arrow-up-right-from-square fa-xs" style="opacity:0.6;"></i></a></li>
                     </ul>
                 </div>
             </div>
-            <div class="footer__bottom">
-                <p>&copy; 2025 全国住宅リフォーム取扱主任者協会 All Rights Reserved.</p>
+            <div class="pt-8 text-center" style="border-top:1px solid rgba(255,255,255,0.1);">
+                <p class="text-[10px] font-bold tracking-wider" style="color:rgba(255,255,255,0.3);">&copy; 2025 全国住宅リフォーム取扱主任者協会 All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- ページトップボタン -->
-    <button class="scroll-top" id="scrollTop" aria-label="ページトップへ"><i class="fas fa-chevron-up"></i></button>
+    <button class="fixed bottom-8 right-8 w-12 h-12 text-white flex items-center justify-center shadow-lg z-[900] transition-all hover:scale-110" id="scrollTop" aria-label="ページトップへ" style="background:#1a365d; border-radius:2px;">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
     <script src="js/main.js"></script>
     <script src="js/search.js"></script>

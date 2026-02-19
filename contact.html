@@ -1,98 +1,165 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="お問い合わせ - 全国住宅リフォーム取扱主任者協会">
     <title>お問い合わせ | 全国住宅リフォーム取扱主任者協会</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { primary: "#1a365d", "primary-light": "#2c5aa0", accent: "#FF6B00", "navy-dark": "#0d1b2e" },
+                    fontFamily: { sans: ["'Noto Sans JP'", "sans-serif"] },
+                },
+            },
+        };
+    </script>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+        #header { transition: background 0.3s ease, box-shadow 0.3s ease; }
+        #header.scrolled { background: rgba(26,54,93,0.97) !important; backdrop-filter: blur(12px); box-shadow: 0 2px 24px rgba(0,0,0,0.3); }
+        #navMenu { display: none; flex-direction: column; }
+        #navMenu.is-open { display: flex; }
+        #hamburger.is-active .ham-1 { transform: translateY(7px) rotate(45deg); }
+        #hamburger.is-active .ham-2 { opacity: 0; }
+        #hamburger.is-active .ham-3 { transform: translateY(-7px) rotate(-45deg); }
+        #scrollTop { opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; }
+        #scrollTop.is-visible { opacity: 1; visibility: visible; }
+        .spinner { width: 40px; height: 40px; border: 3px solid rgba(26,54,93,0.2); border-top-color: #1a365d; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 1rem; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+    </style>
 </head>
 
-<body>
+<body class="font-sans bg-white text-slate-900 overflow-x-hidden">
+
     <!-- ヘッダー -->
-    <header class="header" id="header">
-        <div class="header__inner container">
-            <a href="index.html" class="header__logo">
-                <span class="header__logo-main">全国住宅リフォーム取扱主任者協会</span>
-            </a>
-            <nav class="header__nav" id="navMenu">
-                <ul class="header__nav-list">
-                    <li><a href="index.html" class="header__nav-link">ホーム</a></li>
-                    <li><a href="search.html" class="header__nav-link">資格保有者検索</a></li>
-                    <li><a href="national_housing_reform_specialist.html" class="header__nav-link">全国住宅リフォーム取扱主任者とは</a></li>
-                    <li><a href="guide.html" class="header__nav-link">いいリフォームをするために</a></li>
-                    <li><a href="voices.html" class="header__nav-link">資格保有者の声</a></li>
-                    <li><a href="contact.html" class="header__nav-link is-current">お問合せ</a></li>
-                </ul>
-            </nav>
-            <button class="header__hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+    <header class="fixed top-0 left-0 w-full z-50" id="header" style="background:rgba(26,54,93,1);">
+        <div class="max-w-7xl mx-auto px-5 lg:px-10">
+            <div class="flex justify-between items-center h-20 lg:h-24">
+                <a href="index.html" class="flex items-center gap-2 sm:gap-3 text-white hover:opacity-90 transition-opacity" style="text-decoration:none;">
+                    <span class="material-symbols-outlined text-2xl sm:text-3xl hidden sm:inline">architecture</span>
+                    <div class="flex flex-col">
+                        <span class="text-[8px] sm:text-[10px] font-bold tracking-widest opacity-70">一般社団法人</span>
+                        <span class="text-xs sm:text-sm lg:text-base font-black leading-tight tracking-wide">全国住宅リフォーム取扱主任者協会</span>
+                    </div>
+                </a>
+                <nav class="hidden xl:flex items-center gap-0.5">
+                    <a href="index.html" class="text-xs font-bold text-white/80 hover:text-white px-3 py-2 border-b-2 border-transparent hover:border-accent transition-all" style="text-decoration:none;">ホーム</a>
+                    <a href="search.html" class="text-xs font-bold text-white/80 hover:text-white px-3 py-2 border-b-2 border-transparent hover:border-accent transition-all" style="text-decoration:none;">資格保有者検索</a>
+                    <a href="national_housing_reform_specialist.html" class="text-xs font-bold text-white/80 hover:text-white px-3 py-2 border-b-2 border-transparent hover:border-accent transition-all" style="text-decoration:none;">全国住宅リフォーム取扱主任者とは</a>
+                    <a href="guide.html" class="text-xs font-bold text-white/80 hover:text-white px-3 py-2 border-b-2 border-transparent hover:border-accent transition-all" style="text-decoration:none;">いいリフォームをするために</a>
+                    <a href="voices.html" class="text-xs font-bold text-white/80 hover:text-white px-3 py-2 border-b-2 border-transparent hover:border-accent transition-all" style="text-decoration:none;">資格保有者の声</a>
+                    <a href="contact.html" class="text-xs font-bold text-white px-3 py-2 border-b-2 border-accent" style="text-decoration:none;">お問合せ</a>
+                </nav>
+                <button class="xl:hidden flex flex-col gap-[5px] w-10 h-10 items-center justify-center" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
+                    <span class="ham-1 block w-6 h-0.5 bg-white transition-all duration-300 origin-center"></span>
+                    <span class="ham-2 block w-6 h-0.5 bg-white transition-all duration-300"></span>
+                    <span class="ham-3 block w-6 h-0.5 bg-white transition-all duration-300 origin-center"></span>
+                </button>
+            </div>
         </div>
+        <nav id="navMenu" style="background:rgba(26,54,93,0.97); border-top:1px solid rgba(255,255,255,0.1);">
+            <div class="max-w-7xl mx-auto px-5 py-3">
+                <a href="index.html" class="block text-sm font-bold text-white/80 py-3 border-b border-white/10 hover:text-accent transition-colors" style="text-decoration:none;">ホーム</a>
+                <a href="search.html" class="block text-sm font-bold text-white/80 py-3 border-b border-white/10 hover:text-accent transition-colors" style="text-decoration:none;">資格保有者検索</a>
+                <a href="national_housing_reform_specialist.html" class="block text-sm font-bold text-white/80 py-3 border-b border-white/10 hover:text-accent transition-colors" style="text-decoration:none;">全国住宅リフォーム取扱主任者とは</a>
+                <a href="guide.html" class="block text-sm font-bold text-white/80 py-3 border-b border-white/10 hover:text-accent transition-colors" style="text-decoration:none;">いいリフォームをするために</a>
+                <a href="voices.html" class="block text-sm font-bold text-white/80 py-3 border-b border-white/10 hover:text-accent transition-colors" style="text-decoration:none;">資格保有者の声</a>
+                <a href="contact.html" class="block text-sm font-bold text-accent py-3 hover:text-accent transition-colors" style="text-decoration:none;">お問合せ</a>
+            </div>
+        </nav>
     </header>
 
     <!-- メインコンテンツ -->
-    <main class="main">
-        <section class="page-header page-header--contact">
-            <div class="container">
-                <h1 class="page-title">お問い合わせ</h1>
-                <p class="page-desc">
+    <main>
+        <!-- ページヘッダー -->
+        <section class="relative h-screen min-h-[700px] overflow-hidden" style="background:#0d1b2e;">
+            <div class="absolute inset-0 z-0">
+                <img src="images/contact_hero.png" alt="" style="position:absolute; left:0; top:0; width:100%; height:100%; object-fit:cover; object-position:center;">
+            </div>
+            <div class="absolute inset-0 z-10 pointer-events-none" style="background: linear-gradient(to left, rgba(26,54,93,0.15) 0%, rgba(26,54,93,0.15) 30%, rgba(26,54,93,0.75) 65%, rgba(26,54,93,0.92) 100%);"></div>
+            <div class="absolute inset-0 z-10 pointer-events-none" style="background: linear-gradient(to top, rgba(26,54,93,0.65) 0%, transparent 55%);"></div>
+            <div class="relative z-20 h-full max-w-7xl mx-auto px-5 lg:px-10 flex flex-col justify-end pb-20 lg:pb-28">
+                <span class="text-accent font-black tracking-[0.3em] text-xs block mb-3 uppercase">Contact Us</span>
+                <h1 class="text-3xl lg:text-5xl font-black text-white leading-tight mb-4">お問い合わせ</h1>
+                <p class="text-white/80 text-base max-w-2xl leading-relaxed">
                     リフォームに関するご相談、資格保有者のご紹介など、お気軽にお問い合わせください。<br>
-                    <strong>※ 営業電話は一切かかってきませんのでご安心ください。</strong>
+                    <strong class="text-white">※ 営業電話は一切かかってきませんのでご安心ください。</strong>
                 </p>
             </div>
         </section>
 
-        <section class="contact-section">
-            <div class="container">
-                <div class="contact-container">
-                    <!-- 送信中メッセージ -->
-                    <div id="sendingMessage" class="contact-status" style="display: none;">
-                        <div class="spinner"></div>
-                        <p class="contact-status__title">送信中...</p>
-                        <p class="contact-status__text">しばらくお待ちください。</p>
-                    </div>
+        <!-- フォームセクション -->
+        <section class="py-20 bg-slate-50">
+            <div class="max-w-2xl mx-auto px-5">
 
-                    <!-- 送信成功メッセージ -->
-                    <div id="successMessage" class="contact-status contact-status--success" style="display: none;">
-                        <div class="contact-status__icon"><i class="fas fa-check"></i></div>
-                        <p class="contact-status__title">送信が完了しました</p>
-                        <p class="contact-status__text">お問い合わせありがとうございます。<br>内容を確認の上、担当者よりご連絡いたします。</p>
-                        <a href="index.html" class="btn btn-primary">トップページへ戻る</a>
-                    </div>
+                <!-- 送信中メッセージ -->
+                <div id="sendingMessage" style="display:none;" class="text-center py-16">
+                    <div class="spinner"></div>
+                    <p class="text-xl font-black text-primary mb-2">送信中...</p>
+                    <p class="text-slate-500 text-sm">しばらくお待ちください。</p>
+                </div>
 
-                    <!-- エラーメッセージ -->
-                    <div id="contactError" class="contact-status contact-status--error" style="display: none;">
-                        <div class="contact-status__icon"><i class="fas fa-exclamation"></i></div>
-                        <p class="contact-status__title">送信に失敗しました</p>
-                        <p class="contact-status__text" id="errorText"></p>
-                        <button type="button" class="btn btn-secondary" onclick="hideError()">フォームに戻る</button>
+                <!-- 送信成功メッセージ -->
+                <div id="successMessage" style="display:none;" class="text-center py-16 bg-white rounded-xl shadow-sm p-10">
+                    <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6" style="background:#FF6B00;">
+                        <i class="fas fa-check text-white text-2xl"></i>
                     </div>
+                    <p class="text-2xl font-black text-primary mb-3">送信が完了しました</p>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-8">お問い合わせありがとうございます。<br>内容を確認の上、担当者よりご連絡いたします。</p>
+                    <a href="index.html" class="inline-flex items-center gap-2 text-white font-black px-8 py-3 transition-all hover:opacity-90" style="background:#FF6B00; text-decoration:none;">
+                        トップページへ戻る
+                        <span class="material-symbols-outlined" style="font-size:18px;">arrow_forward</span>
+                    </a>
+                </div>
 
-                    <!-- お問い合わせフォーム -->
-                    <form id="contactForm" class="contact-form">
-                        <div class="contact-form__group">
-                            <label for="contactName" class="contact-form__label">お名前 <span class="contact-form__required">必須</span></label>
-                            <input type="text" id="contactName" name="name" class="contact-form__input" placeholder="例：山田 太郎" required>
+                <!-- エラーメッセージ -->
+                <div id="contactError" style="display:none;" class="text-center py-16 bg-white rounded-xl shadow-sm p-10">
+                    <div class="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 bg-red-100">
+                        <i class="fas fa-exclamation text-red-500 text-2xl"></i>
+                    </div>
+                    <p class="text-2xl font-black text-primary mb-3">送信に失敗しました</p>
+                    <p class="text-slate-500 text-sm leading-relaxed mb-8" id="errorText"></p>
+                    <button type="button" onclick="hideError()" class="inline-flex items-center gap-2 font-black px-8 py-3 border-2 border-primary text-primary transition-all hover:bg-primary hover:text-white">フォームに戻る</button>
+                </div>
+
+                <!-- お問い合わせフォーム -->
+                <form id="contactForm" class="bg-white shadow-sm p-8 lg:p-10">
+                    <h2 class="text-xl font-black text-primary mb-8 pb-4 border-b-2 border-accent inline-block">お問い合わせフォーム</h2>
+
+                    <div class="space-y-6">
+                        <div>
+                            <label for="contactName" class="block text-sm font-black text-slate-700 mb-2">
+                                お名前 <span class="text-xs font-bold text-white px-2 py-0.5 ml-1" style="background:#FF6B00;">必須</span>
+                            </label>
+                            <input type="text" id="contactName" name="name" placeholder="例：山田 太郎" required class="w-full border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors">
                         </div>
 
-                        <div class="contact-form__group">
-                            <label for="email" class="contact-form__label">メールアドレス <span class="contact-form__required">必須</span></label>
-                            <input type="email" id="email" name="email" class="contact-form__input" placeholder="例：example@mail.com" required>
+                        <div>
+                            <label for="email" class="block text-sm font-black text-slate-700 mb-2">
+                                メールアドレス <span class="text-xs font-bold text-white px-2 py-0.5 ml-1" style="background:#FF6B00;">必須</span>
+                            </label>
+                            <input type="email" id="email" name="email" placeholder="例：example@mail.com" required class="w-full border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors">
                         </div>
 
-                        <div class="contact-form__group">
-                            <label for="phone" class="contact-form__label">電話番号</label>
-                            <input type="tel" id="phone" name="phone" class="contact-form__input" placeholder="例：03-1234-5678">
+                        <div>
+                            <label for="phone" class="block text-sm font-black text-slate-700 mb-2">電話番号</label>
+                            <input type="tel" id="phone" name="phone" placeholder="例：03-1234-5678" class="w-full border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors">
                         </div>
 
-                        <div class="contact-form__group">
-                            <label for="category" class="contact-form__label">お問い合わせ種別 <span class="contact-form__required">必須</span></label>
-                            <select id="category" name="category" class="contact-form__select" required>
+                        <div>
+                            <label for="category" class="block text-sm font-black text-slate-700 mb-2">
+                                お問い合わせ種別 <span class="text-xs font-bold text-white px-2 py-0.5 ml-1" style="background:#FF6B00;">必須</span>
+                            </label>
+                            <select id="category" name="category" required class="w-full border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors bg-white">
                                 <option value="">選択してください</option>
                                 <option value="資格保有者の紹介">資格保有者の紹介</option>
                                 <option value="資格について">資格について</option>
@@ -100,64 +167,71 @@
                             </select>
                         </div>
 
-                        <div class="contact-form__group">
-                            <label for="message" class="contact-form__label">お問い合わせ内容 <span class="contact-form__required">必須</span></label>
-                            <textarea id="message" name="message" class="contact-form__textarea" rows="6" placeholder="お問い合わせ内容をご記入ください" required></textarea>
+                        <div>
+                            <label for="message" class="block text-sm font-black text-slate-700 mb-2">
+                                お問い合わせ内容 <span class="text-xs font-bold text-white px-2 py-0.5 ml-1" style="background:#FF6B00;">必須</span>
+                            </label>
+                            <textarea id="message" name="message" rows="6" placeholder="お問い合わせ内容をご記入ください" required class="w-full border border-slate-200 px-4 py-3 text-sm focus:outline-none focus:border-primary transition-colors resize-none"></textarea>
                         </div>
 
-                        <div class="contact-form__group">
-                            <label class="contact-form__checkbox-label">
-                                <input type="checkbox" id="privacy" name="privacy" required>
-                                <span>個人情報の取り扱いに同意する <span class="contact-form__required">必須</span></span>
+                        <div>
+                            <label class="flex items-start gap-3 cursor-pointer">
+                                <input type="checkbox" id="privacy" name="privacy" required class="mt-1 w-4 h-4 accent-primary">
+                                <span class="text-sm text-slate-600">個人情報の取り扱いに同意する <span class="text-xs font-bold text-white px-2 py-0.5 ml-1" style="background:#FF6B00;">必須</span></span>
                             </label>
                         </div>
 
-                        <div class="contact-form__submit">
-                            <button type="submit" class="btn btn-primary btn-lg">送信する</button>
+                        <div class="pt-4">
+                            <button type="submit" class="w-full text-white font-black text-base py-4 transition-all hover:opacity-90 flex items-center justify-center gap-3" style="background:#FF6B00;">
+                                送信する
+                                <span class="material-symbols-outlined" style="font-size:20px;">send</span>
+                            </button>
                         </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
             </div>
         </section>
     </main>
 
     <!-- フッター -->
-    <footer class="footer">
-        <div class="footer__inner container">
-            <div class="footer__grid">
-                <div class="footer__section">
-                    <h3 class="footer__heading">全国住宅リフォーム取扱主任者協会</h3>
-                    <p class="footer__text">住宅リフォームの信頼と品質を守り、消費者が安心してリフォームを依頼できる社会の実現を目指しています。</p>
+    <footer class="text-white pt-20 pb-10" style="background:#1a365d; border-top:4px solid #FF6B00;">
+        <div class="max-w-7xl mx-auto px-5 lg:px-10">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 mb-14">
+                <div>
+                    <div class="flex items-center gap-3 mb-5">
+                        <span class="material-symbols-outlined text-3xl">architecture</span>
+                        <h3 class="text-base font-black leading-tight">全国住宅リフォーム<br>取扱主任者協会</h3>
+                    </div>
+                    <p class="text-sm leading-loose" style="color:rgba(255,255,255,0.7);">住宅リフォームの信頼と品質を守り、消費者が安心してリフォームを依頼できる社会の実現を目指しています。</p>
                 </div>
-                <div class="footer__section">
-                    <h3 class="footer__heading">サイトマップ</h3>
-                    <ul class="footer__links">
-                        <li><a href="index.html">ホーム</a></li>
-                        <li><a href="search.html">資格保有者検索</a></li>
-                        <li><a href="national_housing_reform_specialist.html">全国住宅リフォーム取扱主任者とは</a></li>
-                        <li><a href="guide.html">いいリフォームをするために</a></li>
-                        <li><a href="voices.html">資格保有者の声</a></li>
-                        <li><a href="contact.html">お問合せ</a></li>
+                <div>
+                    <h3 class="font-black text-xs mb-5 tracking-[0.2em] uppercase pb-3 border-b" style="color:rgba(255,255,255,0.5); border-color:rgba(255,255,255,0.2);">サイトマップ</h3>
+                    <ul class="space-y-3 text-sm font-bold">
+                        <li><a href="index.html" class="flex items-center gap-2 transition-colors hover:text-accent" style="color:rgba(255,255,255,0.8); text-decoration:none;"><span class="w-1 h-1 inline-block flex-shrink-0" style="background:#FF6B00;"></span>ホーム</a></li>
+                        <li><a href="search.html" class="flex items-center gap-2 transition-colors hover:text-accent" style="color:rgba(255,255,255,0.8); text-decoration:none;"><span class="w-1 h-1 inline-block flex-shrink-0" style="background:#FF6B00;"></span>資格保有者検索</a></li>
+                        <li><a href="national_housing_reform_specialist.html" class="flex items-center gap-2 transition-colors hover:text-accent" style="color:rgba(255,255,255,0.8); text-decoration:none;"><span class="w-1 h-1 inline-block flex-shrink-0" style="background:#FF6B00;"></span>全国住宅リフォーム取扱主任者とは</a></li>
+                        <li><a href="guide.html" class="flex items-center gap-2 transition-colors hover:text-accent" style="color:rgba(255,255,255,0.8); text-decoration:none;"><span class="w-1 h-1 inline-block flex-shrink-0" style="background:#FF6B00;"></span>いいリフォームをするために</a></li>
+                        <li><a href="voices.html" class="flex items-center gap-2 transition-colors hover:text-accent" style="color:rgba(255,255,255,0.8); text-decoration:none;"><span class="w-1 h-1 inline-block flex-shrink-0" style="background:#FF6B00;"></span>資格保有者の声</a></li>
+                        <li><a href="contact.html" class="flex items-center gap-2 transition-colors hover:text-accent" style="color:rgba(255,255,255,0.8); text-decoration:none;"><span class="w-1 h-1 inline-block flex-shrink-0" style="background:#FF6B00;"></span>お問合せ</a></li>
                     </ul>
                 </div>
-                <div class="footer__section">
-                    <h3 class="footer__heading">関連サイト</h3>
-                    <ul class="footer__links">
-                        <li><a href="https://reform-shuninsya.com/houjin" target="_blank" rel="noopener noreferrer"
-                                class="footer__external">企業・団体の方へ<span aria-hidden="true"> <i class="fas fa-arrow-up-right-from-square fa-xs"></i></span></a></li>
-                        <li><a href="https://reform-shuninsya.com/" target="_blank" rel="noopener noreferrer"
-                                class="footer__external">資格を取得したい方はこちら<span aria-hidden="true"> <i class="fas fa-arrow-up-right-from-square fa-xs"></i></span></a></li>
+                <div>
+                    <h3 class="font-black text-xs mb-5 tracking-[0.2em] uppercase pb-3 border-b" style="color:rgba(255,255,255,0.5); border-color:rgba(255,255,255,0.2);">関連サイト</h3>
+                    <ul class="space-y-3 text-sm font-bold">
+                        <li><a href="https://reform-shuninsya.com/houjin" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 transition-colors hover:text-accent" style="color:rgba(255,255,255,0.8); text-decoration:none;"><span class="w-1 h-1 inline-block flex-shrink-0" style="background:#FF6B00;"></span>企業・団体の方へ <i class="fas fa-arrow-up-right-from-square fa-xs" style="opacity:0.6;"></i></a></li>
+                        <li><a href="https://reform-shuninsya.com/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 transition-colors hover:text-accent" style="color:rgba(255,255,255,0.8); text-decoration:none;"><span class="w-1 h-1 inline-block flex-shrink-0" style="background:#FF6B00;"></span>資格を取得したい方はこちら <i class="fas fa-arrow-up-right-from-square fa-xs" style="opacity:0.6;"></i></a></li>
                     </ul>
                 </div>
             </div>
-            <div class="footer__bottom">
-                <p>&copy; 2025 全国住宅リフォーム取扱主任者協会 All Rights Reserved.</p>
+            <div class="pt-8 text-center" style="border-top:1px solid rgba(255,255,255,0.1);">
+                <p class="text-[10px] font-bold tracking-wider" style="color:rgba(255,255,255,0.3);">&copy; 2025 全国住宅リフォーム取扱主任者協会 All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- ページトップボタン -->
-    <button class="scroll-top" id="scrollTop" aria-label="ページトップへ"><i class="fas fa-chevron-up"></i></button>
+    <button class="fixed bottom-8 right-8 w-12 h-12 text-white flex items-center justify-center shadow-lg z-[900] transition-all hover:scale-110" id="scrollTop" aria-label="ページトップへ" style="background:#1a365d; border-radius:2px;">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
     <script src="js/main.js"></script>
     <script src="js/contact.js"></script>

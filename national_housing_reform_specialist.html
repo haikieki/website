@@ -1,203 +1,318 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="ja" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="全国住宅リフォーム取扱主任者とは - 安心してリフォームを任せられる、信頼の証">
     <title>全国住宅リフォーム取扱主任者とは | 全国住宅リフォーム取扱主任者協会</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="css/style.css">
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { primary: "#1a365d", "primary-light": "#2c5aa0", accent: "#FF6B00", "navy-dark": "#0d1b2e" },
+                    fontFamily: { sans: ["'Noto Sans JP'", "sans-serif"] },
+                },
+            },
+        };
+    </script>
+    <style>
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; vertical-align: middle; }
+        #header { transition: background 0.3s ease, box-shadow 0.3s ease; }
+        #header.scrolled { background: rgba(26,54,93,0.97) !important; backdrop-filter: blur(12px); box-shadow: 0 2px 24px rgba(0,0,0,0.3); }
+        #navMenu { display: none; flex-direction: column; }
+        #navMenu.is-open { display: flex; }
+        #hamburger.is-active .ham-1 { transform: translateY(7px) rotate(45deg); }
+        #hamburger.is-active .ham-2 { opacity: 0; }
+        #hamburger.is-active .ham-3 { transform: translateY(-7px) rotate(-45deg); }
+        #scrollTop { opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; }
+        #scrollTop.is-visible { opacity: 1; visibility: visible; }
+    </style>
 </head>
 
-<body>
+<body class="font-sans bg-white text-slate-900 overflow-x-hidden">
+
     <!-- ヘッダー -->
-    <header class="header" id="header">
-        <div class="header__inner container">
-            <a href="index.html" class="header__logo">
-                <span class="header__logo-main">全国住宅リフォーム取扱主任者協会</span>
-            </a>
-            <nav class="header__nav" id="navMenu">
-                <ul class="header__nav-list">
-                    <li><a href="index.html" class="header__nav-link">ホーム</a></li>
-                    <li><a href="search.html" class="header__nav-link">資格保有者検索</a></li>
-                    <li><a href="national_housing_reform_specialist.html" class="header__nav-link is-current">全国住宅リフォーム取扱主任者とは</a></li>
-                    <li><a href="guide.html" class="header__nav-link">いいリフォームをするために</a></li>
-                    <li><a href="voices.html" class="header__nav-link">資格保有者の声</a></li>
-                    <li><a href="contact.html" class="header__nav-link">お問合せ</a></li>
-                </ul>
-            </nav>
-            <button class="header__hamburger" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+    <header class="fixed top-0 left-0 w-full z-50" id="header" style="background:rgba(26,54,93,1);">
+        <div class="max-w-7xl mx-auto px-5 lg:px-10">
+            <div class="flex justify-between items-center h-20 lg:h-24">
+                <a href="index.html" class="flex items-center gap-2 sm:gap-3 text-white hover:opacity-90 transition-opacity" style="text-decoration:none;">
+                    <span class="material-symbols-outlined text-2xl sm:text-3xl hidden sm:inline">architecture</span>
+                    <div class="flex flex-col">
+                        <span class="text-[8px] sm:text-[10px] font-bold tracking-widest opacity-70">一般社団法人</span>
+                        <span class="text-xs sm:text-sm lg:text-base font-black leading-tight tracking-wide">全国住宅リフォーム取扱主任者協会</span>
+                    </div>
+                </a>
+                <nav class="hidden xl:flex items-center gap-0.5">
+                    <a href="index.html" class="text-xs font-bold text-white/80 hover:text-white px-3 py-2 border-b-2 border-transparent hover:border-accent transition-all" style="text-decoration:none;">ホーム</a>
+                    <a href="search.html" class="text-xs font-bold text-white/80 hover:text-white px-3 py-2 border-b-2 border-transparent hover:border-accent transition-all" style="text-decoration:none;">資格保有者検索</a>
+                    <a href="national_housing_reform_specialist.html" class="text-xs font-bold text-white px-3 py-2 border-b-2 border-accent" style="text-decoration:none;">全国住宅リフォーム取扱主任者とは</a>
+                    <a href="guide.html" class="text-xs font-bold text-white/80 hover:text-white px-3 py-2 border-b-2 border-transparent hover:border-accent transition-all" style="text-decoration:none;">いいリフォームをするために</a>
+                    <a href="voices.html" class="text-xs font-bold text-white/80 hover:text-white px-3 py-2 border-b-2 border-transparent hover:border-accent transition-all" style="text-decoration:none;">資格保有者の声</a>
+                    <a href="contact.html" class="text-xs font-bold text-white/80 border border-white/40 px-4 py-2 ml-3 hover:bg-white hover:text-primary transition-all" style="text-decoration:none;">お問合せ</a>
+                </nav>
+                <button class="xl:hidden flex flex-col gap-[5px] w-10 h-10 items-center justify-center" id="hamburger" aria-label="メニューを開く" aria-expanded="false">
+                    <span class="ham-1 block w-6 h-0.5 bg-white transition-all duration-300 origin-center"></span>
+                    <span class="ham-2 block w-6 h-0.5 bg-white transition-all duration-300"></span>
+                    <span class="ham-3 block w-6 h-0.5 bg-white transition-all duration-300 origin-center"></span>
+                </button>
+            </div>
         </div>
+        <nav id="navMenu" style="background:rgba(26,54,93,0.97); border-top:1px solid rgba(255,255,255,0.1);">
+            <div class="max-w-7xl mx-auto px-5 py-3">
+                <a href="index.html" class="block text-sm font-bold text-white/80 py-3 border-b border-white/10 hover:text-accent transition-colors" style="text-decoration:none;">ホーム</a>
+                <a href="search.html" class="block text-sm font-bold text-white/80 py-3 border-b border-white/10 hover:text-accent transition-colors" style="text-decoration:none;">資格保有者検索</a>
+                <a href="national_housing_reform_specialist.html" class="block text-sm font-bold text-accent py-3 border-b border-white/10" style="text-decoration:none;">全国住宅リフォーム取扱主任者とは</a>
+                <a href="guide.html" class="block text-sm font-bold text-white/80 py-3 border-b border-white/10 hover:text-accent transition-colors" style="text-decoration:none;">いいリフォームをするために</a>
+                <a href="voices.html" class="block text-sm font-bold text-white/80 py-3 border-b border-white/10 hover:text-accent transition-colors" style="text-decoration:none;">資格保有者の声</a>
+                <a href="contact.html" class="block text-sm font-bold text-white/80 py-3 hover:text-accent transition-colors" style="text-decoration:none;">お問合せ</a>
+            </div>
+        </nav>
     </header>
 
     <!-- メインコンテンツ -->
-    <main class="main">
+    <main>
         <!-- ヒーローセクション -->
-        <section class="hero hero--specialist">
-            <div class="hero__bg"></div>
-            <div class="container">
-                <div class="hero__content">
-                    <p class="hero__subtitle"><i class="fas fa-certificate"></i> <span id="spec-hero-subtitle">信頼の資格制度</span></p>
-                    <h1 id="spec-hero-title" class="hero__title">全国住宅リフォーム取扱主任者とは</h1>
-                    <p id="spec-hero-text" class="hero__text">安心してリフォームを任せられる、信頼の証。内閣府認可の一般財団法人職業技能振興会が認定する民間資格です。</p>
-                    <div class="hero__buttons">
-                        <a href="search.html" class="btn btn-primary btn-lg"><i class="fas fa-search"></i>&nbsp; 資格保有者を探す</a>
-                        <a href="contact.html" class="btn btn-white btn-lg"><i class="fas fa-envelope"></i>&nbsp; お問い合わせ</a>
-                    </div>
-                </div>
+        <section class="relative h-screen min-h-[700px] overflow-hidden" style="background:#0d1b2e;">
+            <div class="absolute inset-0 z-0">
+                <img src="images/specialist_hero.png" alt="" style="position:absolute; left:0; top:0; width:100%; height:100%; object-fit:cover; object-position:center;">
+            </div>
+            <div class="absolute inset-0 z-10 pointer-events-none" style="background: linear-gradient(to left, rgba(26,54,93,0.15) 0%, rgba(26,54,93,0.15) 30%, rgba(26,54,93,0.75) 65%, rgba(26,54,93,0.92) 100%);"></div>
+            <div class="absolute inset-0 z-10 pointer-events-none" style="background: linear-gradient(to top, rgba(26,54,93,0.65) 0%, transparent 55%);"></div>
+            <div class="relative z-20 h-full max-w-7xl mx-auto px-5 lg:px-10 flex flex-col justify-end pb-20 lg:pb-28">
+                <p class="text-accent font-black tracking-[0.3em] text-xs block mb-3 uppercase">
+                    <i class="fas fa-certificate mr-1"></i> <span id="spec-hero-subtitle">信頼の資格制度</span>
+                </p>
+                <h1 id="spec-hero-title" class="text-3xl lg:text-5xl font-black text-white leading-tight mb-6">全国住宅リフォーム取扱主任者とは</h1>
+                <p id="spec-hero-text" class="text-white/80 text-base md:text-lg max-w-2xl leading-relaxed">安心してリフォームを任せられる、信頼の証。内閣府認可の一般財団法人職業技能振興会が認定する民間資格です。</p>
             </div>
         </section>
 
         <!-- 資格の概要セクション -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title"><i class="fas fa-award" style="margin-right: 0.5rem;"></i>全国住宅リフォーム取扱主任者とは</h2>
-                <p id="spec-overview-desc" class="section-description">住宅リフォームに関する専門知識と実務力を持ち、消費者の皆様に安心・安全なリフォームを提供できる専門家の証明です。</p>
-                <div class="features__grid">
-                    <div class="feature-card">
-                        <div class="feature-card__icon"><i class="fas fa-building-columns"></i></div>
-                        <h3 id="spec-feat-0-title" class="feature-card__title">内閣府認可の認定資格</h3>
-                        <p id="spec-feat-0-text" class="feature-card__text">一般財団法人職業技能振興会が認定する、住宅リフォームに必要な知識と実務力を証明する民間資格です。</p>
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-5 lg:px-10">
+                <div class="mb-14">
+                    <span class="text-accent font-black tracking-[0.3em] text-xs block mb-2 uppercase">About</span>
+                    <h2 class="text-3xl lg:text-4xl font-black text-primary leading-tight mb-4">全国住宅リフォーム取扱主任者とは</h2>
+                    <p id="spec-overview-desc" class="text-slate-500 text-sm max-w-2xl leading-relaxed">住宅リフォームに関する専門知識と実務力を持ち、消費者の皆様に安心・安全なリフォームを提供できる専門家の証明です。</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+                    <div class="bg-white p-8 lg:p-10 border-t-4 border-primary shadow-sm hover:shadow-xl transition-all duration-300 group">
+                        <div class="flex justify-between items-start mb-8">
+                            <span class="text-slate-300 text-6xl font-black leading-none group-hover:text-slate-400 transition-colors select-none">01</span>
+                            <span class="material-symbols-outlined text-primary" style="font-size:2.5rem;">account_balance</span>
+                        </div>
+                        <h3 id="spec-feat-0-title" class="text-xl font-black text-primary mb-3">内閣府認可の認定資格</h3>
+                        <div class="w-8 h-1 mb-5" style="background:#FF6B00;"></div>
+                        <p id="spec-feat-0-text" class="text-slate-600 leading-relaxed text-sm">一般財団法人職業技能振興会が認定する、住宅リフォームに必要な知識と実務力を証明する民間資格です。</p>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-card__icon"><i class="fas fa-user-check"></i></div>
-                        <h3 id="spec-feat-1-title" class="feature-card__title">確かな専門知識</h3>
-                        <p id="spec-feat-1-text" class="feature-card__text">住宅リフォームに関する専門知識と実務力を持ち、消費者の皆様に安心・安全なリフォームを提供します。</p>
+                    <div class="bg-white p-8 lg:p-10 border-t-4 border-primary shadow-sm hover:shadow-xl transition-all duration-300 group">
+                        <div class="flex justify-between items-start mb-8">
+                            <span class="text-slate-300 text-6xl font-black leading-none group-hover:text-slate-400 transition-colors select-none">02</span>
+                            <span class="material-symbols-outlined text-primary" style="font-size:2.5rem;">engineering</span>
+                        </div>
+                        <h3 id="spec-feat-1-title" class="text-xl font-black text-primary mb-3">確かな専門知識</h3>
+                        <div class="w-8 h-1 mb-5" style="background:#FF6B00;"></div>
+                        <p id="spec-feat-1-text" class="text-slate-600 leading-relaxed text-sm">住宅リフォームに関する専門知識と実務力を持ち、消費者の皆様に安心・安全なリフォームを提供します。</p>
                     </div>
-                    <div class="feature-card">
-                        <div class="feature-card__icon"><i class="fas fa-scale-balanced"></i></div>
-                        <h3 id="spec-feat-2-title" class="feature-card__title">高い倫理観</h3>
-                        <p id="spec-feat-2-text" class="feature-card__text">リフォームに関する確かな知識と高い倫理観を備え、皆様のリフォーム計画を適切にサポートいたします。</p>
+                    <div class="bg-white p-8 lg:p-10 border-t-4 border-primary shadow-sm hover:shadow-xl transition-all duration-300 group">
+                        <div class="flex justify-between items-start mb-8">
+                            <span class="text-slate-300 text-6xl font-black leading-none group-hover:text-slate-400 transition-colors select-none">03</span>
+                            <span class="material-symbols-outlined text-primary" style="font-size:2.5rem;">gavel</span>
+                        </div>
+                        <h3 id="spec-feat-2-title" class="text-xl font-black text-primary mb-3">高い倫理観</h3>
+                        <div class="w-8 h-1 mb-5" style="background:#FF6B00;"></div>
+                        <p id="spec-feat-2-text" class="text-slate-600 leading-relaxed text-sm">リフォームに関する確かな知識と高い倫理観を備え、皆様のリフォーム計画を適切にサポートいたします。</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- なぜこの資格が生まれたのか -->
-        <section class="section section-gray">
-            <div class="container">
-                <h2 class="section-title"><i class="fas fa-lightbulb" style="margin-right: 0.5rem;"></i>なぜこの資格が生まれたのか</h2>
-                <p class="section-description">リフォームトラブルから消費者を守るために。近年、住宅リフォーム市場は拡大を続けていますが、残念ながら消費者トラブルも増加しています。</p>
-                <div class="trouble-grid">
-                    <div class="trouble-card">
-                        <div class="trouble-card__icon"><i class="fas fa-yen-sign"></i></div>
-                        <div class="trouble-card__title">高額な追加請求</div>
-                        <div class="trouble-card__text">をされた</div>
+        <section class="py-20 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-5 lg:px-10">
+                <div class="mb-14">
+                    <span class="text-accent font-black tracking-[0.3em] text-xs block mb-2 uppercase">Background</span>
+                    <h2 class="text-3xl lg:text-4xl font-black text-primary leading-tight mb-4">なぜこの資格が生まれたのか</h2>
+                    <p class="text-slate-500 text-sm max-w-2xl leading-relaxed">リフォームトラブルから消費者を守るために。近年、住宅リフォーム市場は拡大を続けていますが、残念ながら消費者トラブルも増加しています。</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+                    <div class="bg-white p-6 text-center border-t-4 border-red-400 shadow-sm">
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 bg-red-50">
+                            <i class="fas fa-yen-sign text-red-400 text-xl"></i>
+                        </div>
+                        <p class="text-sm font-black text-slate-700 mb-1">高額な追加請求</p>
+                        <p class="text-xs text-slate-500">をされた</p>
                     </div>
-                    <div class="trouble-card">
-                        <div class="trouble-card__icon"><i class="fas fa-hammer"></i></div>
-                        <div class="trouble-card__title">工事が雑で欠陥</div>
-                        <div class="trouble-card__text">が見つかった</div>
+                    <div class="bg-white p-6 text-center border-t-4 border-red-400 shadow-sm">
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 bg-red-50">
+                            <i class="fas fa-hammer text-red-400 text-xl"></i>
+                        </div>
+                        <p class="text-sm font-black text-slate-700 mb-1">工事が雑で欠陥</p>
+                        <p class="text-xs text-slate-500">が見つかった</p>
                     </div>
-                    <div class="trouble-card">
-                        <div class="trouble-card__icon"><i class="fas fa-file-contract"></i></div>
-                        <div class="trouble-card__title">契約内容と異なる工事</div>
-                        <div class="trouble-card__text">をされた</div>
+                    <div class="bg-white p-6 text-center border-t-4 border-red-400 shadow-sm">
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 bg-red-50">
+                            <i class="fas fa-file-contract text-red-400 text-xl"></i>
+                        </div>
+                        <p class="text-sm font-black text-slate-700 mb-1">契約内容と異なる工事</p>
+                        <p class="text-xs text-slate-500">をされた</p>
                     </div>
-                    <div class="trouble-card">
-                        <div class="trouble-card__icon"><i class="fas fa-phone-slash"></i></div>
-                        <div class="trouble-card__title">業者と連絡が取れない</div>
-                        <div class="trouble-card__text">状態になった</div>
+                    <div class="bg-white p-6 text-center border-t-4 border-red-400 shadow-sm">
+                        <div class="w-12 h-12 rounded-full flex items-center justify-center mx-auto mb-4 bg-red-50">
+                            <i class="fas fa-phone-slash text-red-400 text-xl"></i>
+                        </div>
+                        <p class="text-sm font-black text-slate-700 mb-1">業者と連絡が取れない</p>
+                        <p class="text-xs text-slate-500">状態になった</p>
                     </div>
                 </div>
-                <div class="info-box info-box--center">
-                    <h4><i class="fas fa-shield-halved"></i> 消費者を守る資格制度</h4>
-                    <p>このようなトラブルを防ぎ、皆様が安心してリフォームを依頼できる専門家を育成するために、一般財団法人職業技能振興会により本資格制度が設立されました。</p>
+                <div class="bg-primary text-white p-8 lg:p-10 border-l-4 border-accent">
+                    <div class="flex items-start gap-4">
+                        <span class="material-symbols-outlined text-accent text-3xl flex-shrink-0 mt-1">shield</span>
+                        <div>
+                            <h4 class="text-lg font-black mb-3">消費者を守る資格制度</h4>
+                            <p class="text-white/80 text-sm leading-relaxed">このようなトラブルを防ぎ、皆様が安心してリフォームを依頼できる専門家を育成するために、一般財団法人職業技能振興会により本資格制度が設立されました。</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
         <!-- 私たちの理念 -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title"><i class="fas fa-heart" style="margin-right: 0.5rem;"></i>私たちの理念</h2>
-                <p class="section-description">あなたの「理想の住まい」を、後悔なく実現するために</p>
-                <div class="philosophy-wrapper">
-                    <div class="philosophy-box">
-                        <i class="fas fa-quote-left philosophy-box__quote"></i>
-                        <p id="spec-philosophy-text" class="philosophy-box__text">安心・安全な住宅リフォームの提供を通じて、豊かな住生活の実現をサポートする</p>
-                        <p id="spec-philosophy-sub" class="philosophy-box__sub">これが、全国住宅リフォーム取扱主任者協会の理念です。</p>
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-5 lg:px-10">
+                <div class="mb-14">
+                    <span class="text-accent font-black tracking-[0.3em] text-xs block mb-2 uppercase">Philosophy</span>
+                    <h2 class="text-3xl lg:text-4xl font-black text-primary leading-tight mb-4">私たちの理念</h2>
+                    <p class="text-slate-500 text-sm leading-relaxed">あなたの「理想の住まい」を、後悔なく実現するために</p>
+                </div>
+                <div class="max-w-3xl mx-auto">
+                    <div class="relative bg-slate-50 p-10 lg:p-14 border-l-4 border-accent mb-8">
+                        <i class="fas fa-quote-left text-4xl absolute top-8 left-10" style="color:rgba(255,107,0,0.15);"></i>
+                        <p id="spec-philosophy-text" class="text-xl lg:text-2xl font-black text-primary leading-relaxed mb-4 relative z-10">安心・安全な住宅リフォームの提供を通じて、豊かな住生活の実現をサポートする</p>
+                        <p id="spec-philosophy-sub" class="text-sm font-bold text-slate-500 relative z-10">これが、全国住宅リフォーム取扱主任者協会の理念です。</p>
                     </div>
-                    <p class="philosophy-desc">リフォームは、多くの方にとって人生で何度もない大きな決断です。<br class="pc-only">だからこそ、専門知識と高い倫理観を持った主任者が、皆様のリフォームを成功に導きます。</p>
+                    <p class="text-slate-600 text-sm leading-relaxed">リフォームは、多くの方にとって人生で何度もない大きな決断です。だからこそ、専門知識と高い倫理観を持った主任者が、皆様のリフォームを成功に導きます。</p>
                 </div>
             </div>
         </section>
 
         <!-- 私たちができること -->
-        <section class="section section-gray">
-            <div class="container">
-                <h2 class="section-title"><i class="fas fa-hands-holding" style="margin-right: 0.5rem;"></i>私たちができること</h2>
-                <p class="section-description">専門知識と高い倫理観を持った主任者が、あなたのリフォームをサポートします。</p>
-                <div class="capability-grid">
-                    <div class="feature-card feature-card--left">
-                        <div class="feature-card__icon"><i class="fas fa-graduation-cap"></i></div>
-                        <h3 class="feature-card__title">1. 確かな知識でサポート</h3>
-                        <p class="feature-card__text">住宅リフォームに関する最新の知識、技術、法規制を常に学び続けています。あなたのご要望を、専門的な視点から最適な形で実現します。</p>
+        <section class="py-20 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-5 lg:px-10">
+                <div class="mb-14">
+                    <span class="text-accent font-black tracking-[0.3em] text-xs block mb-2 uppercase">What We Do</span>
+                    <h2 class="text-3xl lg:text-4xl font-black text-primary leading-tight mb-4">私たちができること</h2>
+                    <p class="text-slate-500 text-sm max-w-2xl leading-relaxed">専門知識と高い倫理観を持った主任者が、あなたのリフォームをサポートします。</p>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-white p-8 border-l-4 border-primary hover:shadow-lg transition-all duration-300 group">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 flex items-center justify-center flex-shrink-0 group-hover:bg-accent transition-colors" style="background:#1a365d;">
+                                <i class="fas fa-graduation-cap text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-base font-black text-primary mb-3">1. 確かな知識でサポート</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed">住宅リフォームに関する最新の知識、技術、法規制を常に学び続けています。あなたのご要望を、専門的な視点から最適な形で実現します。</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="feature-card feature-card--left">
-                        <div class="feature-card__icon"><i class="fas fa-shield-halved"></i></div>
-                        <h3 class="feature-card__title">2. あなたの権利を守ります</h3>
-                        <p class="feature-card__text">消費者契約法や特定商取引法など、消費者保護に関する法令を遵守し、公正で透明な取引を行います。契約前の説明から、工事後のアフターフォローまで安心してお任せください。</p>
+                    <div class="bg-white p-8 border-l-4 border-primary hover:shadow-lg transition-all duration-300 group">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 flex items-center justify-center flex-shrink-0 group-hover:bg-accent transition-colors" style="background:#1a365d;">
+                                <i class="fas fa-shield-halved text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-base font-black text-primary mb-3">2. あなたの権利を守ります</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed">消費者契約法や特定商取引法など、消費者保護に関する法令を遵守し、公正で透明な取引を行います。契約前の説明から、工事後のアフターフォローまで安心してお任せください。</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="feature-card feature-card--left">
-                        <div class="feature-card__icon"><i class="fas fa-handshake"></i></div>
-                        <h3 class="feature-card__title">3. 誠実な対応をお約束</h3>
-                        <p class="feature-card__text">悪質な営業や不当な請求は一切行いません。お見積もりの内容を丁寧に説明し、納得いただいた上で工事を進めます。疑問や不安があれば、いつでもお気軽にご相談ください。</p>
+                    <div class="bg-white p-8 border-l-4 border-primary hover:shadow-lg transition-all duration-300 group">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 flex items-center justify-center flex-shrink-0 group-hover:bg-accent transition-colors" style="background:#1a365d;">
+                                <i class="fas fa-handshake text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-base font-black text-primary mb-3">3. 誠実な対応をお約束</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed">悪質な営業や不当な請求は一切行いません。お見積もりの内容を丁寧に説明し、納得いただいた上で工事を進めます。疑問や不安があれば、いつでもお気軽にご相談ください。</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="feature-card feature-card--left">
-                        <div class="feature-card__icon"><i class="fas fa-comments"></i></div>
-                        <h3 class="feature-card__title">4. リフォームの不安を解消</h3>
-                        <p class="feature-card__text">「何から始めればいいかわからない」「どこに頼めばいいか不安」というお悩みにもお応えします。リフォームに関する基本的な知識や、失敗しないためのポイントなどもご案内しています。</p>
+                    <div class="bg-white p-8 border-l-4 border-primary hover:shadow-lg transition-all duration-300 group">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 flex items-center justify-center flex-shrink-0 group-hover:bg-accent transition-colors" style="background:#1a365d;">
+                                <i class="fas fa-comments text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-base font-black text-primary mb-3">4. リフォームの不安を解消</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed">「何から始めればいいかわからない」「どこに頼めばいいか不安」というお悩みにもお応えします。リフォームに関する基本的な知識や、失敗しないためのポイントなどもご案内しています。</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- こんな方におすすめです -->
-        <section class="section">
-            <div class="container">
-                <h2 class="section-title"><i class="fas fa-user-group" style="margin-right: 0.5rem;"></i>こんな方におすすめです</h2>
-                <p class="section-description">全国住宅リフォーム取扱主任者は、さまざまなお悩みをお持ちの方をサポートします。</p>
-                <div style="max-width: 800px; margin: 0 auto; display: flex; flex-direction: column; gap: 1rem;">
-                    <div class="check-item">
-                        <div class="check-item__icon"><i class="fas fa-check"></i></div>
-                        <div class="check-item__body">
-                            <div class="check-item__title">初めてのリフォームで不安がある方</div>
-                            <p>専門知識を持った主任者が、基本から丁寧にご説明します。</p>
+        <section class="py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-5 lg:px-10">
+                <div class="mb-14">
+                    <span class="text-accent font-black tracking-[0.3em] text-xs block mb-2 uppercase">For You</span>
+                    <h2 class="text-3xl lg:text-4xl font-black text-primary leading-tight mb-4">こんな方におすすめです</h2>
+                    <p class="text-slate-500 text-sm leading-relaxed">全国住宅リフォーム取扱主任者は、さまざまなお悩みをお持ちの方をサポートします。</p>
+                </div>
+                <div class="max-w-3xl flex flex-col gap-4">
+                    <div class="flex items-start gap-4 bg-slate-50 p-5">
+                        <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#FF6B00;">
+                            <i class="fas fa-check text-white text-xs"></i>
+                        </div>
+                        <div>
+                            <p class="font-black text-primary text-sm mb-1">初めてのリフォームで不安がある方</p>
+                            <p class="text-slate-500 text-sm">専門知識を持った主任者が、基本から丁寧にご説明します。</p>
                         </div>
                     </div>
-                    <div class="check-item">
-                        <div class="check-item__icon"><i class="fas fa-check"></i></div>
-                        <div class="check-item__body">
-                            <div class="check-item__title">過去にリフォームで嫌な思いをした方</div>
-                            <p>誠実で透明性の高い対応をお約束します。</p>
+                    <div class="flex items-start gap-4 bg-slate-50 p-5">
+                        <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#FF6B00;">
+                            <i class="fas fa-check text-white text-xs"></i>
+                        </div>
+                        <div>
+                            <p class="font-black text-primary text-sm mb-1">過去にリフォームで嫌な思いをした方</p>
+                            <p class="text-slate-500 text-sm">誠実で透明性の高い対応をお約束します。</p>
                         </div>
                     </div>
-                    <div class="check-item">
-                        <div class="check-item__icon"><i class="fas fa-check"></i></div>
-                        <div class="check-item__body">
-                            <div class="check-item__title">信頼できる業者を探している方</div>
-                            <p>資格を持つ主任者なら、安心してお任せいただけます。</p>
+                    <div class="flex items-start gap-4 bg-slate-50 p-5">
+                        <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#FF6B00;">
+                            <i class="fas fa-check text-white text-xs"></i>
+                        </div>
+                        <div>
+                            <p class="font-black text-primary text-sm mb-1">信頼できる業者を探している方</p>
+                            <p class="text-slate-500 text-sm">資格を持つ主任者なら、安心してお任せいただけます。</p>
                         </div>
                     </div>
-                    <div class="check-item">
-                        <div class="check-item__icon"><i class="fas fa-check"></i></div>
-                        <div class="check-item__body">
-                            <div class="check-item__title">適正な価格でリフォームしたい方</div>
-                            <p>明確なお見積もりと、納得のいく説明を提供します。</p>
+                    <div class="flex items-start gap-4 bg-slate-50 p-5">
+                        <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#FF6B00;">
+                            <i class="fas fa-check text-white text-xs"></i>
+                        </div>
+                        <div>
+                            <p class="font-black text-primary text-sm mb-1">適正な価格でリフォームしたい方</p>
+                            <p class="text-slate-500 text-sm">明確なお見積もりと、納得のいく説明を提供します。</p>
                         </div>
                     </div>
-                    <div class="check-item">
-                        <div class="check-item__icon"><i class="fas fa-check"></i></div>
-                        <div class="check-item__body">
-                            <div class="check-item__title">長く安心して暮らせる家にしたい方</div>
-                            <p>確かな技術と知識で、質の高いリフォームを実現します。</p>
+                    <div class="flex items-start gap-4 bg-slate-50 p-5">
+                        <div class="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style="background:#FF6B00;">
+                            <i class="fas fa-check text-white text-xs"></i>
+                        </div>
+                        <div>
+                            <p class="font-black text-primary text-sm mb-1">長く安心して暮らせる家にしたい方</p>
+                            <p class="text-slate-500 text-sm">確かな技術と知識で、質の高いリフォームを実現します。</p>
                         </div>
                     </div>
                 </div>
@@ -205,55 +320,62 @@
         </section>
 
         <!-- CTAバナー -->
-        <section class="cta-banner">
-            <div class="container">
-                <h2 class="cta-banner__title"><i class="fas fa-search-location" style="margin-right: 0.5rem;"></i>資格保有者を探す</h2>
-                <p class="cta-banner__text">あなたのお住まいの地域で、全国住宅リフォーム取扱主任者の資格を持つ専門家を検索できます。<br>安心・安全なリフォームのために、ぜひ資格保有者にご相談ください。</p>
-                <div class="cta-banner__buttons">
-                    <a href="search.html" class="btn btn-primary btn-lg"><i class="fas fa-search"></i>&nbsp; 資格保有者を検索する</a>
-                    <a href="contact.html" class="btn btn-white btn-lg"><i class="fas fa-envelope"></i>&nbsp; お問い合わせはこちら</a>
+        <section class="py-20" style="background: linear-gradient(135deg, #0d1b2e 0%, #1a365d 100%);">
+            <div class="max-w-7xl mx-auto px-5 lg:px-10 text-center">
+                <span class="text-accent font-black tracking-[0.3em] text-xs block mb-3 uppercase">Find a Specialist</span>
+                <h2 class="text-3xl lg:text-4xl font-black text-white mb-4">資格保有者を探す</h2>
+                <p class="text-white/70 text-sm md:text-base max-w-xl mx-auto leading-relaxed mb-10">あなたのお住まいの地域で、全国住宅リフォーム取扱主任者の資格を持つ専門家を検索できます。安心・安全なリフォームのために、ぜひ資格保有者にご相談ください。</p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="search.html" class="inline-flex items-center justify-center gap-2 text-white font-black px-10 py-4 transition-all hover:opacity-90" style="background:#FF6B00; text-decoration:none;">
+                        <i class="fas fa-search"></i> 資格保有者を検索する
+                    </a>
+                    <a href="contact.html" class="inline-flex items-center justify-center gap-2 text-white font-black px-10 py-4 border border-white/40 transition-all hover:bg-white hover:text-primary" style="background:rgba(255,255,255,0.1); text-decoration:none;">
+                        <i class="fas fa-envelope"></i> お問い合わせはこちら
+                    </a>
                 </div>
             </div>
         </section>
     </main>
 
     <!-- フッター -->
-    <footer class="footer">
-        <div class="footer__inner container">
-            <div class="footer__grid">
-                <div class="footer__section">
-                    <h3 class="footer__heading">全国住宅リフォーム取扱主任者協会</h3>
-                    <p class="footer__text">住宅リフォームの信頼と品質を守り、消費者が安心してリフォームを依頼できる社会の実現を目指しています。</p>
+    <footer class="text-white pt-20 pb-10" style="background:#1a365d; border-top:4px solid #FF6B00;">
+        <div class="max-w-7xl mx-auto px-5 lg:px-10">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 mb-14">
+                <div>
+                    <div class="flex items-center gap-3 mb-5">
+                        <span class="material-symbols-outlined text-3xl">architecture</span>
+                        <h3 class="text-base font-black leading-tight">全国住宅リフォーム<br>取扱主任者協会</h3>
+                    </div>
+                    <p class="text-sm leading-loose" style="color:rgba(255,255,255,0.7);">住宅リフォームの信頼と品質を守り、消費者が安心してリフォームを依頼できる社会の実現を目指しています。</p>
                 </div>
-                <div class="footer__section">
-                    <h3 class="footer__heading">サイトマップ</h3>
-                    <ul class="footer__links">
-                        <li><a href="index.html">ホーム</a></li>
-                        <li><a href="search.html">資格保有者検索</a></li>
-                        <li><a href="national_housing_reform_specialist.html">全国住宅リフォーム取扱主任者とは</a></li>
-                        <li><a href="guide.html">いいリフォームをするために</a></li>
-                        <li><a href="voices.html">資格保有者の声</a></li>
-                        <li><a href="contact.html">お問合せ</a></li>
+                <div>
+                    <h3 class="font-black text-xs mb-5 tracking-[0.2em] uppercase pb-3 border-b" style="color:rgba(255,255,255,0.5); border-color:rgba(255,255,255,0.2);">サイトマップ</h3>
+                    <ul class="space-y-3 text-sm font-bold">
+                        <li><a href="index.html" class="flex items-center gap-2 transition-colors hover:text-accent" style="color:rgba(255,255,255,0.8); text-decoration:none;"><span class="w-1 h-1 inline-block flex-shrink-0" style="background:#FF6B00;"></span>ホーム</a></li>
+                        <li><a href="search.html" class="flex items-center gap-2 transition-colors hover:text-accent" style="color:rgba(255,255,255,0.8); text-decoration:none;"><span class="w-1 h-1 inline-block flex-shrink-0" style="background:#FF6B00;"></span>資格保有者検索</a></li>
+                        <li><a href="national_housing_reform_specialist.html" class="flex items-center gap-2 transition-colors hover:text-accent" style="color:rgba(255,255,255,0.8); text-decoration:none;"><span class="w-1 h-1 inline-block flex-shrink-0" style="background:#FF6B00;"></span>全国住宅リフォーム取扱主任者とは</a></li>
+                        <li><a href="guide.html" class="flex items-center gap-2 transition-colors hover:text-accent" style="color:rgba(255,255,255,0.8); text-decoration:none;"><span class="w-1 h-1 inline-block flex-shrink-0" style="background:#FF6B00;"></span>いいリフォームをするために</a></li>
+                        <li><a href="voices.html" class="flex items-center gap-2 transition-colors hover:text-accent" style="color:rgba(255,255,255,0.8); text-decoration:none;"><span class="w-1 h-1 inline-block flex-shrink-0" style="background:#FF6B00;"></span>資格保有者の声</a></li>
+                        <li><a href="contact.html" class="flex items-center gap-2 transition-colors hover:text-accent" style="color:rgba(255,255,255,0.8); text-decoration:none;"><span class="w-1 h-1 inline-block flex-shrink-0" style="background:#FF6B00;"></span>お問合せ</a></li>
                     </ul>
                 </div>
-                <div class="footer__section">
-                    <h3 class="footer__heading">関連サイト</h3>
-                    <ul class="footer__links">
-                        <li><a href="https://reform-shuninsya.com/houjin" target="_blank" rel="noopener noreferrer"
-                                class="footer__external">企業・団体の方へ<span aria-hidden="true"> <i class="fas fa-arrow-up-right-from-square fa-xs"></i></span></a></li>
-                        <li><a href="https://reform-shuninsya.com/" target="_blank" rel="noopener noreferrer"
-                                class="footer__external">資格を取得したい方はこちら<span aria-hidden="true"> <i class="fas fa-arrow-up-right-from-square fa-xs"></i></span></a></li>
+                <div>
+                    <h3 class="font-black text-xs mb-5 tracking-[0.2em] uppercase pb-3 border-b" style="color:rgba(255,255,255,0.5); border-color:rgba(255,255,255,0.2);">関連サイト</h3>
+                    <ul class="space-y-3 text-sm font-bold">
+                        <li><a href="https://reform-shuninsya.com/houjin" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 transition-colors hover:text-accent" style="color:rgba(255,255,255,0.8); text-decoration:none;"><span class="w-1 h-1 inline-block flex-shrink-0" style="background:#FF6B00;"></span>企業・団体の方へ <i class="fas fa-arrow-up-right-from-square fa-xs" style="opacity:0.6;"></i></a></li>
+                        <li><a href="https://reform-shuninsya.com/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 transition-colors hover:text-accent" style="color:rgba(255,255,255,0.8); text-decoration:none;"><span class="w-1 h-1 inline-block flex-shrink-0" style="background:#FF6B00;"></span>資格を取得したい方はこちら <i class="fas fa-arrow-up-right-from-square fa-xs" style="opacity:0.6;"></i></a></li>
                     </ul>
                 </div>
             </div>
-            <div class="footer__bottom">
-                <p>&copy; 2025 全国住宅リフォーム取扱主任者協会 All Rights Reserved.</p>
+            <div class="pt-8 text-center" style="border-top:1px solid rgba(255,255,255,0.1);">
+                <p class="text-[10px] font-bold tracking-wider" style="color:rgba(255,255,255,0.3);">&copy; 2025 全国住宅リフォーム取扱主任者協会 All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- ページトップボタン -->
-    <button class="scroll-top" id="scrollTop" aria-label="ページトップへ"><i class="fas fa-chevron-up"></i></button>
+    <button class="fixed bottom-8 right-8 w-12 h-12 text-white flex items-center justify-center shadow-lg z-[900] transition-all hover:scale-110" id="scrollTop" aria-label="ページトップへ" style="background:#1a365d; border-radius:2px;">
+        <i class="fas fa-chevron-up"></i>
+    </button>
 
     <script src="js/main.js"></script>
     <script>
@@ -261,42 +383,20 @@
         .then(function(r) { return r.json(); })
         .then(function(d) {
           var set = function(id, val) { var el = document.getElementById(id); if (el && val) el.innerHTML = val.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>'); };
-          var applyStyle = function(id, color, size) {
-            var el = document.getElementById(id);
-            if (!el) return;
-            if (color) el.style.color = color;
-            if (size) el.style.fontSize = size;
-          };
-          if (d.hero) {
-            set('spec-hero-subtitle', d.hero.subtitle);
-            set('spec-hero-title', d.hero.title);
-            set('spec-hero-text', d.hero.text);
-          }
+          var applyStyle = function(id, color, size) { var el = document.getElementById(id); if (!el) return; if (color) el.style.color = color; if (size) el.style.fontSize = size; };
+          if (d.hero) { set('spec-hero-subtitle', d.hero.subtitle); set('spec-hero-title', d.hero.title); set('spec-hero-text', d.hero.text); }
           if (d.overview) {
             set('spec-overview-desc', d.overview.description);
-            if (d.overview.features) {
-              d.overview.features.forEach(function(f, i) {
-                set('spec-feat-' + i + '-title', f.title);
-                set('spec-feat-' + i + '-text', f.text);
-              });
-            }
+            if (d.overview.features) d.overview.features.forEach(function(f, i) { set('spec-feat-' + i + '-title', f.title); set('spec-feat-' + i + '-text', f.text); });
           }
-          if (d.philosophy) {
-            set('spec-philosophy-text', d.philosophy.quote);
-            set('spec-philosophy-sub', d.philosophy.sub);
-          }
+          if (d.philosophy) { set('spec-philosophy-text', d.philosophy.quote); set('spec-philosophy-sub', d.philosophy.sub); }
           if (d.styles) {
             var s = d.styles;
             applyStyle('spec-hero-subtitle', s.hero_subtitle_color, s.hero_subtitle_size);
             applyStyle('spec-hero-title', s.hero_title_color, s.hero_title_size);
             applyStyle('spec-hero-text', s.hero_text_color, s.hero_text_size);
             applyStyle('spec-overview-desc', s.overview_desc_color, s.overview_desc_size);
-            if (d.overview && d.overview.features) {
-              d.overview.features.forEach(function(f, i) {
-                applyStyle('spec-feat-' + i + '-title', s.feature_title_color, s.feature_title_size);
-                applyStyle('spec-feat-' + i + '-text', s.feature_text_color, s.feature_text_size);
-              });
-            }
+            if (d.overview && d.overview.features) d.overview.features.forEach(function(f, i) { applyStyle('spec-feat-' + i + '-title', s.feature_title_color, s.feature_title_size); applyStyle('spec-feat-' + i + '-text', s.feature_text_color, s.feature_text_size); });
             applyStyle('spec-philosophy-text', s.philosophy_text_color, s.philosophy_text_size);
             applyStyle('spec-philosophy-sub', s.philosophy_sub_color, s.philosophy_sub_size);
           }

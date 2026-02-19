@@ -9,14 +9,58 @@
 <body>
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   <script>
-    // 管理画面にダウンロードリンクを追加
     window.addEventListener('load', function() {
       setTimeout(function() {
-        var link = document.createElement('a');
-        link.href = '/admin/download.html';
-        link.textContent = '⬇ ファイルダウンロード';
-        link.style.cssText = 'position:fixed;bottom:20px;right:20px;z-index:9999;background:#1565c0;color:#fff;padding:10px 18px;border-radius:6px;text-decoration:none;font-size:14px;font-family:sans-serif;box-shadow:0 2px 8px rgba(0,0,0,.3);';
-        document.body.appendChild(link);
+        var pages = [
+          { label: 'トップページ', href: '/' },
+          { label: '全国住宅リフォーム取扱主任者とは', href: '/national_housing_reform_specialist.html' },
+          { label: 'いいリフォームをするために', href: '/guide.html' },
+          { label: '資格保有者の声', href: '/voices.html' },
+          { label: '資格保有者検索', href: '/search.html' },
+          { label: 'お問合せ', href: '/contact.html' },
+        ];
+
+        // ラッパー
+        var wrap = document.createElement('div');
+        wrap.style.cssText = 'position:fixed;bottom:20px;right:20px;z-index:9999;display:flex;flex-direction:column;align-items:flex-end;gap:8px;font-family:sans-serif;';
+
+        // プレビューメニュー（初期非表示）
+        var menu = document.createElement('div');
+        menu.style.cssText = 'background:#fff;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.2);overflow:hidden;display:none;min-width:240px;';
+        var menuTitle = document.createElement('div');
+        menuTitle.textContent = 'ページを確認する';
+        menuTitle.style.cssText = 'padding:10px 16px;background:#1b5e20;color:#fff;font-size:13px;font-weight:bold;';
+        menu.appendChild(menuTitle);
+        pages.forEach(function(p) {
+          var a = document.createElement('a');
+          a.href = p.href;
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+          a.textContent = p.label;
+          a.style.cssText = 'display:block;padding:9px 16px;font-size:13px;color:#333;text-decoration:none;border-bottom:1px solid #eee;';
+          a.onmouseover = function() { this.style.background = '#f5f5f5'; };
+          a.onmouseout = function() { this.style.background = ''; };
+          menu.appendChild(a);
+        });
+
+        // プレビューボタン
+        var previewBtn = document.createElement('button');
+        previewBtn.textContent = '👁 プレビュー';
+        previewBtn.style.cssText = 'background:#2e7d32;color:#fff;border:none;padding:10px 18px;border-radius:6px;font-size:14px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.3);';
+        previewBtn.onclick = function() {
+          menu.style.display = menu.style.display === 'none' ? 'block' : 'none';
+        };
+
+        // ダウンロードボタン
+        var dlBtn = document.createElement('a');
+        dlBtn.href = '/admin/download.html';
+        dlBtn.textContent = '⬇ ダウンロード';
+        dlBtn.style.cssText = 'background:#1565c0;color:#fff;padding:10px 18px;border-radius:6px;text-decoration:none;font-size:14px;box-shadow:0 2px 8px rgba(0,0,0,.3);text-align:center;';
+
+        wrap.appendChild(menu);
+        wrap.appendChild(previewBtn);
+        wrap.appendChild(dlBtn);
+        document.body.appendChild(wrap);
       }, 2000);
     });
   </script>

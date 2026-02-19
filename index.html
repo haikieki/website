@@ -409,7 +409,7 @@
         .then(function(d) {
           var set = function(id, val) {
             var el = document.getElementById(id);
-            if (el && val) el.textContent = val;
+            if (el && val) el.innerHTML = val.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/\n/g,'<br>');
           };
           if (d.hero) {
             set('hero-title', d.hero.title);

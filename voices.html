@@ -33,6 +33,8 @@
         #hamburger.is-active .ham-3 { transform: translateY(-7px) rotate(-45deg); }
         #scrollTop { opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s; }
         #scrollTop.is-visible { opacity: 1; visibility: visible; }
+        .diagonal-banner { clip-path: polygon(0 0, 100% 0, 92% 100%, 0% 100%); }
+        @media (max-width: 768px) { .diagonal-banner { clip-path: polygon(0 0, 100% 0, 88% 100%, 0% 100%); } }
     </style>
 </head>
 <body class="font-sans bg-white text-slate-900 overflow-x-hidden">
@@ -80,7 +82,7 @@
         <!-- ページヘッダー -->
         <section class="relative h-screen min-h-[700px] overflow-hidden" style="background:#0d1b2e;">
             <div class="absolute inset-0 z-0">
-                <img src="images/voices_hero.png" alt="" style="position:absolute; left:0; top:0; width:100%; height:100%; object-fit:cover; object-position:center;">
+                <img src="リサイズ済画像2026219/AdobeStock_591954509.jpeg" alt="" style="position:absolute; left:0; top:0; width:100%; height:100%; object-fit:cover; object-position:center;">
             </div>
             <div class="absolute inset-0 z-10 pointer-events-none" style="background: linear-gradient(to left, rgba(26,54,93,0.15) 0%, rgba(26,54,93,0.15) 30%, rgba(26,54,93,0.75) 65%, rgba(26,54,93,0.92) 100%);"></div>
             <div class="absolute inset-0 z-10 pointer-events-none" style="background: linear-gradient(to top, rgba(26,54,93,0.65) 0%, transparent 55%);"></div>
@@ -93,98 +95,93 @@
 
         <!-- 声セクション -->
         <section class="py-20 bg-slate-50">
-            <div class="max-w-5xl mx-auto px-5 lg:px-10">
+            <div class="max-w-4xl mx-auto px-5 lg:px-10">
                 <div class="flex flex-col gap-8">
 
                     <!-- 事例1 -->
-                    <article class="bg-white shadow-sm border-t-4 border-primary overflow-hidden">
-                        <div class="flex items-center gap-5 p-6 lg:p-8" style="background:rgba(26,54,93,0.03); border-bottom:1px solid #e2e8f0;">
-                            <div class="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0" style="background:#1a365d;">
-                                <i class="fas fa-user text-white text-xl"></i>
+                    <article class="bg-white rounded-xl shadow-lg overflow-hidden border border-slate-200">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="p-6 md:p-8 flex-1 space-y-6">
+                                <p id="voice-0-q1" class="text-lg md:text-xl font-bold leading-relaxed text-slate-900">長年リフォーム業界で働いてきましたが、お客様からの信頼をより確かなものにしたいと考え、資格取得を決意しました。業界全体の信頼性向上にも貢献できればと思っています。</p>
+                                <div class="relative -ml-6 pr-6">
+                                    <div class="diagonal-banner py-3 pl-6 pr-14 text-white shadow-md" style="background:#1a365d;">
+                                        <div id="voice-0-name" class="font-black text-base">ニッカホーム</div>
+                                        <div id="voice-0-info" class="text-xs" style="opacity:0.8;">山田 太郎 様 / 東京都 ／ 会員番号：Z-2024-001</div>
+                                    </div>
+                                </div>
+                                <div class="space-y-4">
+                                    <div class="flex items-start gap-4">
+                                        <div class="min-w-[6.5rem] py-2 px-2 text-center text-xs font-bold border-l-4 shrink-0" style="background:#fef2f2; color:#b91c1c; border-color:#b91c1c;">資格を活かした事例</div>
+                                        <p id="voice-0-q2" class="text-slate-700 font-medium text-sm pt-1 leading-relaxed">資格保有者であることを明示することで、初めてお会いするお客様でも安心して相談していただけるようになりました。特に高齢のお客様からは「資格があるから安心」という言葉をいただくことが増えました。</p>
+                                    </div>
+                                    <div class="flex items-start gap-4">
+                                        <div class="min-w-[6.5rem] py-2 px-2 text-center text-xs font-bold border-l-4 shrink-0" style="background:#fef2f2; color:#b91c1c; border-color:#b91c1c;">消費者へのメッセージ</div>
+                                        <p id="voice-0-q3" class="text-slate-700 font-medium text-sm pt-1 leading-relaxed">リフォームは人生の大きな決断です。ぜひ資格保有者に相談してください。私たちは常にお客様の立場に立って、最適な提案を心がけています。</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <h2 id="voice-0-name" class="text-xl font-black text-primary">ニッカホーム</h2>
-                                <p id="voice-0-info" class="text-sm text-slate-500 mt-0.5">山田 太郎 様 / 東京都<br>会員番号：Z-2024-001</p>
-                            </div>
-                        </div>
-                        <div class="p-6 lg:p-8 grid md:grid-cols-3 gap-6">
-                            <div>
-                                <h3 class="text-xs font-black text-accent tracking-widest uppercase mb-3">資格取得のきっかけ</h3>
-                                <div class="w-6 h-0.5 mb-4" style="background:#FF6B00;"></div>
-                                <p id="voice-0-q1" class="text-sm text-slate-600 leading-relaxed">長年リフォーム業界で働いてきましたが、お客様からの信頼をより確かなものにしたいと考え、資格取得を決意しました。業界全体の信頼性向上にも貢献できればと思っています。</p>
-                            </div>
-                            <div>
-                                <h3 class="text-xs font-black text-accent tracking-widest uppercase mb-3">資格を活かした事例</h3>
-                                <div class="w-6 h-0.5 mb-4" style="background:#FF6B00;"></div>
-                                <p id="voice-0-q2" class="text-sm text-slate-600 leading-relaxed">資格保有者であることを明示することで、初めてお会いするお客様でも安心して相談していただけるようになりました。特に高齢のお客様からは「資格があるから安心」という言葉をいただくことが増えました。</p>
-                            </div>
-                            <div>
-                                <h3 class="text-xs font-black text-accent tracking-widest uppercase mb-3">消費者へのメッセージ</h3>
-                                <div class="w-6 h-0.5 mb-4" style="background:#FF6B00;"></div>
-                                <p id="voice-0-q3" class="text-sm text-slate-600 leading-relaxed">リフォームは人生の大きな決断です。ぜひ資格保有者に相談してください。私たちは常にお客様の立場に立って、最適な提案を心がけています。</p>
+                            <div class="w-full md:w-2/5 min-h-[300px] flex items-center justify-center flex-shrink-0" style="background:linear-gradient(135deg,#1a365d 0%,#0d1b2e 100%);">
+                                <i class="fas fa-user" style="font-size:5rem; color:rgba(255,255,255,0.08);"></i>
                             </div>
                         </div>
                     </article>
 
                     <!-- 事例2 -->
-                    <article class="bg-white shadow-sm border-t-4 border-primary overflow-hidden">
-                        <div class="flex items-center gap-5 p-6 lg:p-8" style="background:rgba(26,54,93,0.03); border-bottom:1px solid #e2e8f0;">
-                            <div class="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0" style="background:#1a365d;">
-                                <i class="fas fa-user text-white text-xl"></i>
+                    <article class="bg-white rounded-xl shadow-lg overflow-hidden border border-slate-200">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="p-6 md:p-8 flex-1 space-y-6">
+                                <p id="voice-1-q1" class="text-lg md:text-xl font-bold leading-relaxed text-slate-900">独立開業にあたり、専門性を証明できる資格が必要だと感じました。お客様に安心していただくためには、確かな知識と証明が必要だと考えたからです。</p>
+                                <div class="relative -ml-6 pr-6">
+                                    <div class="diagonal-banner py-3 pl-6 pr-14 text-white shadow-md" style="background:#1a365d;">
+                                        <div id="voice-1-name" class="font-black text-base">コバーン</div>
+                                        <div id="voice-1-info" class="text-xs" style="opacity:0.8;">佐藤 花子 様 / 神奈川県 ／ 会員番号：Z-2024-015</div>
+                                    </div>
+                                </div>
+                                <div class="space-y-4">
+                                    <div class="flex items-start gap-4">
+                                        <div class="min-w-[6.5rem] py-2 px-2 text-center text-xs font-bold border-l-4 shrink-0" style="background:#fef2f2; color:#b91c1c; border-color:#b91c1c;">資格を活かした事例</div>
+                                        <p id="voice-1-q2" class="text-slate-700 font-medium text-sm pt-1 leading-relaxed">法令遵守や適切な工事方法について、自信を持ってアドバイスできるようになりました。資格取得の過程で学んだ知識が、日々の業務に直結しています。</p>
+                                    </div>
+                                    <div class="flex items-start gap-4">
+                                        <div class="min-w-[6.5rem] py-2 px-2 text-center text-xs font-bold border-l-4 shrink-0" style="background:#fef2f2; color:#b91c1c; border-color:#b91c1c;">消費者へのメッセージ</div>
+                                        <p id="voice-1-q3" class="text-slate-700 font-medium text-sm pt-1 leading-relaxed">小さな疑問でも遠慮なくお尋ねください。丁寧にご説明します。女性目線でのアドバイスも得意としていますので、気軽にご相談ください。</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <h2 id="voice-1-name" class="text-xl font-black text-primary">コバーン</h2>
-                                <p id="voice-1-info" class="text-sm text-slate-500 mt-0.5">佐藤 花子 様 / 神奈川県<br>会員番号：Z-2024-015</p>
-                            </div>
-                        </div>
-                        <div class="p-6 lg:p-8 grid md:grid-cols-3 gap-6">
-                            <div>
-                                <h3 class="text-xs font-black text-accent tracking-widest uppercase mb-3">資格取得のきっかけ</h3>
-                                <div class="w-6 h-0.5 mb-4" style="background:#FF6B00;"></div>
-                                <p id="voice-1-q1" class="text-sm text-slate-600 leading-relaxed">独立開業にあたり、専門性を証明できる資格が必要だと感じました。お客様に安心していただくためには、確かな知識と証明が必要だと考えたからです。</p>
-                            </div>
-                            <div>
-                                <h3 class="text-xs font-black text-accent tracking-widest uppercase mb-3">資格を活かした事例</h3>
-                                <div class="w-6 h-0.5 mb-4" style="background:#FF6B00;"></div>
-                                <p id="voice-1-q2" class="text-sm text-slate-600 leading-relaxed">法令遵守や適切な工事方法について、自信を持ってアドバイスできるようになりました。資格取得の過程で学んだ知識が、日々の業務に直結しています。</p>
-                            </div>
-                            <div>
-                                <h3 class="text-xs font-black text-accent tracking-widest uppercase mb-3">消費者へのメッセージ</h3>
-                                <div class="w-6 h-0.5 mb-4" style="background:#FF6B00;"></div>
-                                <p id="voice-1-q3" class="text-sm text-slate-600 leading-relaxed">小さな疑問でも遠慮なくお尋ねください。丁寧にご説明します。女性目線でのアドバイスも得意としていますので、気軽にご相談ください。</p>
+                            <div class="w-full md:w-2/5 min-h-[300px] flex items-center justify-center flex-shrink-0" style="background:linear-gradient(135deg,#1a365d 0%,#0d1b2e 100%);">
+                                <i class="fas fa-user" style="font-size:5rem; color:rgba(255,255,255,0.08);"></i>
                             </div>
                         </div>
                     </article>
 
                     <!-- 事例3 -->
-                    <article class="bg-white shadow-sm border-t-4 border-primary overflow-hidden">
-                        <div class="flex items-center gap-5 p-6 lg:p-8" style="background:rgba(26,54,93,0.03); border-bottom:1px solid #e2e8f0;">
-                            <div class="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0" style="background:#1a365d;">
-                                <i class="fas fa-user text-white text-xl"></i>
+                    <article class="bg-white rounded-xl shadow-lg overflow-hidden border border-slate-200">
+                        <div class="flex flex-col md:flex-row">
+                            <div class="p-6 md:p-8 flex-1 space-y-6">
+                                <p id="voice-2-q1" class="text-lg md:text-xl font-bold leading-relaxed text-slate-900">業界全体の信頼性向上に貢献したいと思い、取得しました。また、自身のスキルアップにもつながると考えました。</p>
+                                <div class="relative -ml-6 pr-6">
+                                    <div class="diagonal-banner py-3 pl-6 pr-14 text-white shadow-md" style="background:#1a365d;">
+                                        <div id="voice-2-name" class="font-black text-base">会社C</div>
+                                        <div id="voice-2-info" class="text-xs" style="opacity:0.8;">鈴木 一郎 様 / 大阪府 ／ 会員番号：Z-2023-082</div>
+                                    </div>
+                                </div>
+                                <div class="space-y-4">
+                                    <div class="flex items-start gap-4">
+                                        <div class="min-w-[6.5rem] py-2 px-2 text-center text-xs font-bold border-l-4 shrink-0" style="background:#fef2f2; color:#b91c1c; border-color:#b91c1c;">資格を活かした事例</div>
+                                        <p id="voice-2-q2" class="text-slate-700 font-medium text-sm pt-1 leading-relaxed">お客様との信頼関係構築がスムーズになり、リピート率が向上しました。また、紹介でのご依頼も増えています。</p>
+                                    </div>
+                                    <div class="flex items-start gap-4">
+                                        <div class="min-w-[6.5rem] py-2 px-2 text-center text-xs font-bold border-l-4 shrink-0" style="background:#fef2f2; color:#b91c1c; border-color:#b91c1c;">消費者へのメッセージ</div>
+                                        <p id="voice-2-q3" class="text-slate-700 font-medium text-sm pt-1 leading-relaxed">納得のいくまでご相談いただき、安心してリフォームを進めましょう。私たちがしっかりサポートします。</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div>
-                                <h2 id="voice-2-name" class="text-xl font-black text-primary">会社C</h2>
-                                <p id="voice-2-info" class="text-sm text-slate-500 mt-0.5">鈴木 一郎 様 / 大阪府<br>会員番号：Z-2023-082</p>
-                            </div>
-                        </div>
-                        <div class="p-6 lg:p-8 grid md:grid-cols-3 gap-6">
-                            <div>
-                                <h3 class="text-xs font-black text-accent tracking-widest uppercase mb-3">資格取得のきっかけ</h3>
-                                <div class="w-6 h-0.5 mb-4" style="background:#FF6B00;"></div>
-                                <p id="voice-2-q1" class="text-sm text-slate-600 leading-relaxed">業界全体の信頼性向上に貢献したいと思い、取得しました。また、自身のスキルアップにもつながると考えました。</p>
-                            </div>
-                            <div>
-                                <h3 class="text-xs font-black text-accent tracking-widest uppercase mb-3">資格を活かした事例</h3>
-                                <div class="w-6 h-0.5 mb-4" style="background:#FF6B00;"></div>
-                                <p id="voice-2-q2" class="text-sm text-slate-600 leading-relaxed">お客様との信頼関係構築がスムーズになり、リピート率が向上しました。また、紹介でのご依頼も増えています。</p>
-                            </div>
-                            <div>
-                                <h3 class="text-xs font-black text-accent tracking-widest uppercase mb-3">消費者へのメッセージ</h3>
-                                <div class="w-6 h-0.5 mb-4" style="background:#FF6B00;"></div>
-                                <p id="voice-2-q3" class="text-sm text-slate-600 leading-relaxed">納得のいくまでご相談いただき、安心してリフォームを進めましょう。私たちがしっかりサポートします。</p>
+                            <div class="w-full md:w-2/5 min-h-[300px] flex items-center justify-center flex-shrink-0" style="background:linear-gradient(135deg,#1a365d 0%,#0d1b2e 100%);">
+                                <i class="fas fa-user" style="font-size:5rem; color:rgba(255,255,255,0.08);"></i>
                             </div>
                         </div>
                     </article>
+
                 </div>
 
                 <!-- CTA -->

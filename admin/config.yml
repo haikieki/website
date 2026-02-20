@@ -2,8 +2,8 @@ backend:
   name: git-gateway
   branch: main
 
-media_folder: "images"
-public_folder: "/images"
+media_folder: "リサイズ済画像2026219"
+public_folder: "/リサイズ済画像2026219"
 locale: 'ja'
 
 collections:
@@ -22,7 +22,8 @@ collections:
             fields:
               - {label: "メイン見出し", name: "title", widget: "text"}
               - {label: "説明文", name: "subtitle", widget: "text"}
-              - {label: "背景画像", name: "image", widget: "image"}
+              - {label: "背景画像", name: "image", widget: "image", required: false, hint: "ヒーローの背景写真"}
+              - {label: "画像位置", name: "position", widget: "string", required: false, hint: "例: center（デフォルト）、center 20%、top（顔が切れる場合は 20% 等に調整）"}
           - label: "統計数値"
             name: "stats"
             widget: "object"
@@ -65,6 +66,8 @@ collections:
               - {label: "サブタイトル", name: "subtitle", widget: "text"}
               - {label: "メイン見出し", name: "title", widget: "text"}
               - {label: "説明文", name: "text", widget: "text"}
+              - {label: "背景画像", name: "image", widget: "image", required: false, hint: "ヒーローの背景写真"}
+              - {label: "画像位置", name: "position", widget: "string", required: false, hint: "例: center（デフォルト）、center 20%、top"}
           - label: "概要セクション"
             name: "overview"
             widget: "object"
@@ -114,6 +117,8 @@ collections:
             fields:
               - {label: "ページタイトル", name: "title", widget: "text"}
               - {label: "説明文", name: "desc", widget: "text"}
+              - {label: "背景画像", name: "image", widget: "image", required: false, hint: "ヒーローの背景写真"}
+              - {label: "画像位置", name: "position", widget: "string", required: false, hint: "例: center（デフォルト）、center 20%、top"}
           - label: "費用セクション"
             name: "costs"
             widget: "object"
@@ -175,6 +180,8 @@ collections:
             fields:
               - {label: "ページタイトル", name: "title", widget: "text"}
               - {label: "説明文", name: "desc", widget: "text"}
+              - {label: "背景画像", name: "image", widget: "image", required: false, hint: "ヒーローの背景写真"}
+              - {label: "画像位置", name: "position", widget: "string", required: false, hint: "例: center（デフォルト）、center 20%、top"}
           - label: "声カード（3件）"
             name: "voices"
             widget: "list"
@@ -198,3 +205,27 @@ collections:
               - {label: "声カード 情報 フォントサイズ", name: "voice_info_size", widget: "string", required: false, hint: "例: 0.875rem（空欄でデフォルト）"}
               - {label: "声カード 本文 文字色", name: "voice_text_color", widget: "string", required: false, hint: "例: #333333（空欄でデフォルト）"}
               - {label: "声カード 本文 フォントサイズ", name: "voice_text_size", widget: "string", required: false, hint: "例: 0.9rem（空欄でデフォルト）"}
+
+      # ── 資格保有者検索ページ ──
+      - label: "資格保有者検索ページ"
+        name: "search"
+        file: "data/search.json"
+        fields:
+          - label: "ヒーロー画像設定"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "背景画像", name: "image", widget: "image", required: false, hint: "ヒーローの背景写真"}
+              - {label: "画像位置", name: "position", widget: "string", required: false, hint: "例: center（デフォルト）、center 20%、top"}
+
+      # ── お問合せページ ──
+      - label: "お問合せページ"
+        name: "contact"
+        file: "data/contact.json"
+        fields:
+          - label: "ヒーロー画像設定"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "背景画像", name: "image", widget: "image", required: false, hint: "ヒーローの背景写真"}
+              - {label: "画像位置", name: "position", widget: "string", required: false, hint: "例: center（デフォルト）、center 5%、top"}

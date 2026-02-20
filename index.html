@@ -421,7 +421,7 @@
             set('hero-title', d.hero.title);
             set('hero-subtitle', d.hero.subtitle);
             var img = document.getElementById('hero-image');
-            if (img && d.hero.image) img.src = d.hero.image;
+            if (img) { if (d.hero.image) img.src = d.hero.image; if (d.hero.position) img.style.objectPosition = d.hero.position; }
           }
           if (d.stats) {
             set('stat-holders', d.stats.holders);

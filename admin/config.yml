@@ -541,6 +541,7 @@ collections:
             widget: "list"
             fields:
               - {label: "会社名", name: "company", widget: "string"}
+              - {label: "プロフィール写真", name: "photo", widget: "image", required: false, hint: "カード右側に表示される写真"}
               - {label: "氏名・都道府県・会員番号", name: "info", widget: "text"}
               - {label: "資格取得のきっかけ", name: "q1", widget: "text"}
               - {label: "資格を活かした仕事の事例", name: "q2", widget: "text"}

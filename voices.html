@@ -121,7 +121,7 @@
                                 </div>
                             </div>
                             <div class="w-full md:w-2/5 min-h-[300px] flex-shrink-0 overflow-hidden">
-                                <img src="/リサイズ済画像2026219/easy-banana-2026-02-20T03-14-53-225Z.png" alt="ニッカホーム 山田 太郎 様" class="w-full h-full object-cover" style="min-height:300px;">
+                                <img id="voice-0-photo" src="/リサイズ済画像2026219/easy-banana-2026-02-20T03-14-53-225Z.png" alt="ニッカホーム 山田 太郎 様" class="w-full h-full object-cover" style="min-height:300px;">
                             </div>
                         </div>
                     </article>
@@ -149,7 +149,7 @@
                                 </div>
                             </div>
                             <div class="w-full md:w-2/5 min-h-[300px] flex-shrink-0 overflow-hidden">
-                                <img src="/リサイズ済画像2026219/easy-banana-2026-02-20T03-14-51-087Z.png" alt="コバーン 佐藤 花子 様" class="w-full h-full object-cover" style="min-height:300px;">
+                                <img id="voice-1-photo" src="/リサイズ済画像2026219/easy-banana-2026-02-20T03-14-51-087Z.png" alt="コバーン 佐藤 花子 様" class="w-full h-full object-cover" style="min-height:300px;">
                             </div>
                         </div>
                     </article>
@@ -177,7 +177,7 @@
                                 </div>
                             </div>
                             <div class="w-full md:w-2/5 min-h-[300px] flex-shrink-0 overflow-hidden">
-                                <img src="/リサイズ済画像2026219/easy-banana-2026-02-20T03-15-40-021Z.png" alt="会社C 鈴木 一郎 様" class="w-full h-full object-cover" style="min-height:300px;">
+                                <img id="voice-2-photo" src="/リサイズ済画像2026219/easy-banana-2026-02-20T03-15-40-021Z.png" alt="会社C 鈴木 一郎 様" class="w-full h-full object-cover" style="min-height:300px;">
                             </div>
                         </div>
                     </article>
@@ -256,6 +256,7 @@
             set('voice-' + i + '-q1', v.q1);
             set('voice-' + i + '-q2', v.q2);
             set('voice-' + i + '-q3', v.q3);
+            if (v.photo) { var pi = document.getElementById('voice-' + i + '-photo'); if (pi) pi.src = v.photo; }
           });
           if (d.styles) {
             var s = d.styles;

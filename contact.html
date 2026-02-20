@@ -35,6 +35,9 @@
         #scrollTop.is-visible { opacity: 1; visibility: visible; }
         .spinner { width: 40px; height: 40px; border: 3px solid rgba(26,54,93,0.2); border-top-color: #1a365d; border-radius: 50%; animation: spin 0.8s linear infinite; margin: 0 auto 1rem; }
         @keyframes spin { to { transform: rotate(360deg); } }
+        @media (max-width: 767px) {
+            #contact-hero-image { object-position: center 40% !important; }
+        }
     </style>
 </head>
 

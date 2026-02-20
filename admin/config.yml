@@ -49,10 +49,12 @@ collections:
                 required: false
                 enableAlpha: false
                 allowInput: true
+                default: ""
               - label: "ヒーロー見出し フォントサイズ"
                 name: "hero_title_size"
                 widget: "select"
                 required: false
+                default: ""
                 options:
                   - {label: "デフォルト", value: ""}
                   - {label: "小 (0.875rem)", value: "0.875rem"}
@@ -70,10 +72,12 @@ collections:
                 required: false
                 enableAlpha: false
                 allowInput: true
+                default: ""
               - label: "ヒーロー説明文 フォントサイズ"
                 name: "hero_subtitle_size"
                 widget: "select"
                 required: false
+                default: ""
                 options:
                   - {label: "デフォルト", value: ""}
                   - {label: "小 (0.875rem)", value: "0.875rem"}
@@ -88,10 +92,12 @@ collections:
                 required: false
                 enableAlpha: false
                 allowInput: true
+                default: ""
               - label: "カード見出し フォントサイズ"
                 name: "feature_title_size"
                 widget: "select"
                 required: false
+                default: ""
                 options:
                   - {label: "デフォルト", value: ""}
                   - {label: "小 (0.875rem)", value: "0.875rem"}
@@ -106,10 +112,12 @@ collections:
                 required: false
                 enableAlpha: false
                 allowInput: true
+                default: ""
               - label: "カード説明文 フォントサイズ"
                 name: "feature_body_size"
                 widget: "select"
                 required: false
+                default: ""
                 options:
                   - {label: "デフォルト", value: ""}
                   - {label: "極小 (0.75rem)", value: "0.75rem"}
@@ -123,10 +131,12 @@ collections:
                 required: false
                 enableAlpha: false
                 allowInput: true
+                default: ""
               - label: "フッター説明文 フォントサイズ"
                 name: "footer_desc_size"
                 widget: "select"
                 required: false
+                default: ""
                 options:
                   - {label: "デフォルト", value: ""}
                   - {label: "極小 (0.75rem)", value: "0.75rem"}
@@ -176,10 +186,12 @@ collections:
                 required: false
                 enableAlpha: false
                 allowInput: true
+                default: ""
               - label: "ヒーロー サブタイトル フォントサイズ"
                 name: "hero_subtitle_size"
                 widget: "select"
                 required: false
+                default: ""
                 options:
                   - {label: "デフォルト", value: ""}
                   - {label: "極小 (0.75rem)", value: "0.75rem"}
@@ -193,10 +205,12 @@ collections:
                 required: false
                 enableAlpha: false
                 allowInput: true
+                default: ""
               - label: "ヒーロー 見出し フォントサイズ"
                 name: "hero_title_size"
                 widget: "select"
                 required: false
+                default: ""
                 options:
                   - {label: "デフォルト", value: ""}
                   - {label: "小 (0.875rem)", value: "0.875rem"}
@@ -214,10 +228,12 @@ collections:
                 required: false
                 enableAlpha: false
                 allowInput: true
+                default: ""
               - label: "ヒーロー 説明文 フォントサイズ"
                 name: "hero_text_size"
                 widget: "select"
                 required: false
+                default: ""
                 options:
                   - {label: "デフォルト", value: ""}
                   - {label: "極小 (0.75rem)", value: "0.75rem"}
@@ -231,10 +247,12 @@ collections:
                 required: false
                 enableAlpha: false
                 allowInput: true
+                default: ""
               - label: "概要説明文 フォントサイズ"
                 name: "overview_desc_size"
                 widget: "select"
                 required: false
+                default: ""
                 options:
                   - {label: "デフォルト", value: ""}
                   - {label: "極小 (0.75rem)", value: "0.75rem"}
@@ -248,10 +266,12 @@ collections:
                 required: false
                 enableAlpha: false
                 allowInput: true
+                default: ""
               - label: "特徴カード 見出し フォントサイズ"
                 name: "feature_title_size"
                 widget: "select"
                 required: false
+                default: ""
                 options:
                   - {label: "デフォルト", value: ""}
                   - {label: "小 (0.875rem)", value: "0.875rem"}
@@ -265,10 +285,12 @@ collections:
                 required: false
                 enableAlpha: false
                 allowInput: true
+                default: ""
               - label: "特徴カード 説明文 フォントサイズ"
                 name: "feature_text_size"
                 widget: "select"
                 required: false
+                default: ""
                 options:
                   - {label: "デフォルト", value: ""}
                   - {label: "極小 (0.75rem)", value: "0.75rem"}
@@ -282,10 +304,12 @@ collections:
                 required: false
                 enableAlpha: false
                 allowInput: true
+                default: ""
               - label: "理念 引用テキスト フォントサイズ"
                 name: "philosophy_text_size"
                 widget: "select"
                 required: false
+                default: ""
                 options:
                   - {label: "デフォルト", value: ""}
                   - {label: "小 (0.875rem)", value: "0.875rem"}
@@ -299,10 +323,12 @@ collections:
                 required: false
                 enableAlpha: false
                 allowInput: true
+                default: ""
               - label: "理念 サブテキスト フォントサイズ"
                 name: "philosophy_sub_size"
                 widget: "select"
                 required: false
+                default: ""
                 options:
                   - {label: "デフォルト", value: ""}
                   - {label: "極小 (0.75rem)", value: "0.75rem"}
@@ -365,10 +391,12 @@ collections:
                 required: false
                 enableAlpha: false
                 allowInput: true
+                default: ""
               - label: "ページタイトル フォントサイズ"
                 name: "page_title_size"
                 widget: "select"
                 required: false
+                default: ""
                 options:
                   - {label: "デフォルト", value: ""}
                   - {label: "小 (0.875rem)", value: "0.875rem"}
@@ -386,10 +414,12 @@ collections:
                 required: false
                 enableAlpha: false
                 allowInput: true
+                default: ""
               - label: "ページ説明文 フォントサイズ"
                 name: "page_desc_size"
                 widget: "select"
                 required: false
+                default: ""
                 options:
                   - {label: "デフォルト", value: ""}
                   - {label: "極小 (0.75rem)", value: "0.75rem"}
@@ -403,10 +433,12 @@ collections:
                 required: false
                 enableAlpha: false
                 allowInput: true
+                default: ""
               - label: "費用説明文 フォントサイズ"
                 name: "cost_desc_size"
                 widget: "select"
                 required: false
+                default: ""
                 options:
                   - {label: "デフォルト", value: ""}
                   - {label: "極小 (0.75rem)", value: "0.75rem"}
@@ -420,10 +452,12 @@ collections:
                 required: false
                 enableAlpha: false
                 allowInput: true
+                default: ""
               - label: "ステップ見出し フォントサイズ"
                 name: "step_title_size"
                 widget: "select"
                 required: false
+                default: ""
                 options:
                   - {label: "デフォルト", value: ""}
                   - {label: "小 (0.875rem)", value: "0.875rem"}
@@ -437,10 +471,12 @@ collections:
                 required: false
                 enableAlpha: false
                 allowInput: true
+                default: ""
               - label: "ステップ説明文 フォントサイズ"
                 name: "step_text_size"
                 widget: "select"
                 required: false
+                default: ""
                 options:
                   - {label: "デフォルト", value: ""}
                   - {label: "極小 (0.75rem)", value: "0.75rem"}
@@ -454,10 +490,12 @@ collections:
                 required: false
                 enableAlpha: false
                 allowInput: true
+                default: ""
               - label: "ライフイベント見出し フォントサイズ"
                 name: "life_title_size"
                 widget: "select"
                 required: false
+                default: ""
                 options:
                   - {label: "デフォルト", value: ""}
                   - {label: "小 (0.875rem)", value: "0.875rem"}
@@ -471,10 +509,12 @@ collections:
                 required: false
                 enableAlpha: false
                 allowInput: true
+                default: ""
               - label: "ライフイベント説明文 フォントサイズ"
                 name: "life_text_size"
                 widget: "select"
                 required: false
+                default: ""
                 options:
                   - {label: "デフォルト", value: ""}
                   - {label: "極小 (0.75rem)", value: "0.75rem"}
@@ -515,10 +555,12 @@ collections:
                 required: false
                 enableAlpha: false
                 allowInput: true
+                default: ""
               - label: "ページタイトル フォントサイズ"
                 name: "page_title_size"
                 widget: "select"
                 required: false
+                default: ""
                 options:
                   - {label: "デフォルト", value: ""}
                   - {label: "小 (0.875rem)", value: "0.875rem"}
@@ -536,10 +578,12 @@ collections:
                 required: false
                 enableAlpha: false
                 allowInput: true
+                default: ""
               - label: "ページ説明文 フォントサイズ"
                 name: "page_desc_size"
                 widget: "select"
                 required: false
+                default: ""
                 options:
                   - {label: "デフォルト", value: ""}
                   - {label: "極小 (0.75rem)", value: "0.75rem"}
@@ -553,10 +597,12 @@ collections:
                 required: false
                 enableAlpha: false
                 allowInput: true
+                default: ""
               - label: "声カード 会社名 フォントサイズ"
                 name: "voice_name_size"
                 widget: "select"
                 required: false
+                default: ""
                 options:
                   - {label: "デフォルト", value: ""}
                   - {label: "小 (0.875rem)", value: "0.875rem"}
@@ -570,10 +616,12 @@ collections:
                 required: false
                 enableAlpha: false
                 allowInput: true
+                default: ""
               - label: "声カード 情報 フォントサイズ"
                 name: "voice_info_size"
                 widget: "select"
                 required: false
+                default: ""
                 options:
                   - {label: "デフォルト", value: ""}
                   - {label: "極小 (0.75rem)", value: "0.75rem"}
@@ -586,10 +634,12 @@ collections:
                 required: false
                 enableAlpha: false
                 allowInput: true
+                default: ""
               - label: "声カード 本文 フォントサイズ"
                 name: "voice_text_size"
                 widget: "select"
                 required: false
+                default: ""
                 options:
                   - {label: "デフォルト", value: ""}
                   - {label: "極小 (0.75rem)", value: "0.75rem"}

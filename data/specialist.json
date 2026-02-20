@@ -3,7 +3,7 @@
     "subtitle": "信頼の資格制度",
     "title": "全国住宅リフォーム取扱主任者とは",
     "text": "安心してリフォームを任せられる、信頼の証。内閣府認可の一般財団法人職業技能振興会が認定する民間資格です。",
-    "image": "/リサイズ済画像2026219/AdobeStock_858633190.jpeg",
+    "image": "/リサイズ済画像2026219/AdobeStock_635387200.jpeg",
     "position": "center 1%"
   },
   "overview": {
@@ -30,19 +30,19 @@
   "styles": {
     "hero_subtitle_color": "",
     "hero_subtitle_size": "",
-    "hero_title_color": "",
-    "hero_title_size": "",
-    "hero_text_color": "",
-    "hero_text_size": "",
-    "overview_desc_color": "",
-    "overview_desc_size": "",
-    "feature_title_color": "",
-    "feature_title_size": "",
-    "feature_text_color": "",
-    "feature_text_size": "",
-    "philosophy_text_color": "",
     "philosophy_text_size": "",
+    "overview_desc_size": "",
+    "feature_text_size": "",
+    "hero_title_size": "",
+    "hero_text_size": "",
+    "philosophy_sub_size": "",
+    "feature_title_size": "",
+    "feature_title_color": "",
     "philosophy_sub_color": "",
-    "philosophy_sub_size": ""
+    "hero_text_color": "",
+    "hero_title_color": "",
+    "feature_text_color": "",
+    "overview_desc_color": "",
+    "philosophy_text_color": ""
   }
 }

@@ -43,16 +43,97 @@ collections:
             name: "styles"
             widget: "object"
             fields:
-              - {label: "ヒーロー見出し 文字色", name: "hero_title_color", widget: "string", required: false, hint: "例: #ffffff、white（空欄でデフォルト）"}
-              - {label: "ヒーロー見出し フォントサイズ", name: "hero_title_size", widget: "string", required: false, hint: "例: 3rem、48px（空欄でデフォルト）"}
-              - {label: "ヒーロー説明文 文字色", name: "hero_subtitle_color", widget: "string", required: false, hint: "例: #ffffff（空欄でデフォルト）"}
-              - {label: "ヒーロー説明文 フォントサイズ", name: "hero_subtitle_size", widget: "string", required: false, hint: "例: 1.125rem（空欄でデフォルト）"}
-              - {label: "カード見出し 文字色", name: "feature_title_color", widget: "string", required: false, hint: "例: #1a365d（空欄でデフォルト）"}
-              - {label: "カード見出し フォントサイズ", name: "feature_title_size", widget: "string", required: false, hint: "例: 1.25rem（空欄でデフォルト）"}
-              - {label: "カード説明文 文字色", name: "feature_body_color", widget: "string", required: false, hint: "例: #475569（空欄でデフォルト）"}
-              - {label: "カード説明文 フォントサイズ", name: "feature_body_size", widget: "string", required: false, hint: "例: 0.875rem（空欄でデフォルト）"}
-              - {label: "フッター説明文 文字色", name: "footer_desc_color", widget: "string", required: false, hint: "例: #ffffff（空欄でデフォルト）"}
-              - {label: "フッター説明文 フォントサイズ", name: "footer_desc_size", widget: "string", required: false, hint: "例: 0.875rem（空欄でデフォルト）"}
+              - label: "ヒーロー見出し 文字色"
+                name: "hero_title_color"
+                widget: "color"
+                required: false
+                enableAlpha: false
+                allowInput: true
+              - label: "ヒーロー見出し フォントサイズ"
+                name: "hero_title_size"
+                widget: "select"
+                required: false
+                options:
+                  - {label: "デフォルト", value: ""}
+                  - {label: "小 (0.875rem)", value: "0.875rem"}
+                  - {label: "標準 (1rem)", value: "1rem"}
+                  - {label: "やや大 (1.25rem)", value: "1.25rem"}
+                  - {label: "大 (1.5rem)", value: "1.5rem"}
+                  - {label: "特大 (1.875rem)", value: "1.875rem"}
+                  - {label: "2XL (2.25rem)", value: "2.25rem"}
+                  - {label: "3XL (2.5rem)", value: "2.5rem"}
+                  - {label: "4XL (3rem)", value: "3rem"}
+                  - {label: "5XL (3.75rem)", value: "3.75rem"}
+              - label: "ヒーロー説明文 文字色"
+                name: "hero_subtitle_color"
+                widget: "color"
+                required: false
+                enableAlpha: false
+                allowInput: true
+              - label: "ヒーロー説明文 フォントサイズ"
+                name: "hero_subtitle_size"
+                widget: "select"
+                required: false
+                options:
+                  - {label: "デフォルト", value: ""}
+                  - {label: "小 (0.875rem)", value: "0.875rem"}
+                  - {label: "標準 (1rem)", value: "1rem"}
+                  - {label: "やや大 (1.125rem)", value: "1.125rem"}
+                  - {label: "大 (1.25rem)", value: "1.25rem"}
+                  - {label: "特大 (1.5rem)", value: "1.5rem"}
+                  - {label: "2XL (1.875rem)", value: "1.875rem"}
+              - label: "カード見出し 文字色"
+                name: "feature_title_color"
+                widget: "color"
+                required: false
+                enableAlpha: false
+                allowInput: true
+              - label: "カード見出し フォントサイズ"
+                name: "feature_title_size"
+                widget: "select"
+                required: false
+                options:
+                  - {label: "デフォルト", value: ""}
+                  - {label: "小 (0.875rem)", value: "0.875rem"}
+                  - {label: "標準 (1rem)", value: "1rem"}
+                  - {label: "やや大 (1.125rem)", value: "1.125rem"}
+                  - {label: "大 (1.25rem)", value: "1.25rem"}
+                  - {label: "特大 (1.5rem)", value: "1.5rem"}
+                  - {label: "2XL (1.875rem)", value: "1.875rem"}
+              - label: "カード説明文 文字色"
+                name: "feature_body_color"
+                widget: "color"
+                required: false
+                enableAlpha: false
+                allowInput: true
+              - label: "カード説明文 フォントサイズ"
+                name: "feature_body_size"
+                widget: "select"
+                required: false
+                options:
+                  - {label: "デフォルト", value: ""}
+                  - {label: "極小 (0.75rem)", value: "0.75rem"}
+                  - {label: "小 (0.875rem)", value: "0.875rem"}
+                  - {label: "標準 (1rem)", value: "1rem"}
+                  - {label: "やや大 (1.125rem)", value: "1.125rem"}
+                  - {label: "大 (1.25rem)", value: "1.25rem"}
+              - label: "フッター説明文 文字色"
+                name: "footer_desc_color"
+                widget: "color"
+                required: false
+                enableAlpha: false
+                allowInput: true
+              - label: "フッター説明文 フォントサイズ"
+                name: "footer_desc_size"
+                widget: "select"
+                required: false
+                options:
+                  - {label: "デフォルト", value: ""}
+                  - {label: "極小 (0.75rem)", value: "0.75rem"}
+                  - {label: "小 (0.875rem)", value: "0.875rem"}
+                  - {label: "標準 (1rem)", value: "1rem"}
+                  - {label: "やや大 (1.125rem)", value: "1.125rem"}
+                  - {label: "大 (1.25rem)", value: "1.25rem"}
 
       # ── 取扱主任者とはページ ──
       - label: "取扱主任者とはページ"
@@ -89,22 +170,146 @@ collections:
             name: "styles"
             widget: "object"
             fields:
-              - {label: "ヒーロー サブタイトル 文字色", name: "hero_subtitle_color", widget: "string", required: false, hint: "例: #ffffff（空欄でデフォルト）"}
-              - {label: "ヒーロー サブタイトル フォントサイズ", name: "hero_subtitle_size", widget: "string", required: false, hint: "例: 1rem（空欄でデフォルト）"}
-              - {label: "ヒーロー 見出し 文字色", name: "hero_title_color", widget: "string", required: false, hint: "例: #ffffff（空欄でデフォルト）"}
-              - {label: "ヒーロー 見出し フォントサイズ", name: "hero_title_size", widget: "string", required: false, hint: "例: 2.5rem（空欄でデフォルト）"}
-              - {label: "ヒーロー 説明文 文字色", name: "hero_text_color", widget: "string", required: false, hint: "例: #ffffff（空欄でデフォルト）"}
-              - {label: "ヒーロー 説明文 フォントサイズ", name: "hero_text_size", widget: "string", required: false, hint: "例: 1rem（空欄でデフォルト）"}
-              - {label: "概要説明文 文字色", name: "overview_desc_color", widget: "string", required: false, hint: "例: #333333（空欄でデフォルト）"}
-              - {label: "概要説明文 フォントサイズ", name: "overview_desc_size", widget: "string", required: false, hint: "例: 1rem（空欄でデフォルト）"}
-              - {label: "特徴カード 見出し 文字色", name: "feature_title_color", widget: "string", required: false, hint: "例: #1a365d（空欄でデフォルト）"}
-              - {label: "特徴カード 見出し フォントサイズ", name: "feature_title_size", widget: "string", required: false, hint: "例: 1.25rem（空欄でデフォルト）"}
-              - {label: "特徴カード 説明文 文字色", name: "feature_text_color", widget: "string", required: false, hint: "例: #555555（空欄でデフォルト）"}
-              - {label: "特徴カード 説明文 フォントサイズ", name: "feature_text_size", widget: "string", required: false, hint: "例: 0.9rem（空欄でデフォルト）"}
-              - {label: "理念 引用テキスト 文字色", name: "philosophy_text_color", widget: "string", required: false, hint: "例: #1a365d（空欄でデフォルト）"}
-              - {label: "理念 引用テキスト フォントサイズ", name: "philosophy_text_size", widget: "string", required: false, hint: "例: 1.25rem（空欄でデフォルト）"}
-              - {label: "理念 サブテキスト 文字色", name: "philosophy_sub_color", widget: "string", required: false, hint: "例: #555555（空欄でデフォルト）"}
-              - {label: "理念 サブテキスト フォントサイズ", name: "philosophy_sub_size", widget: "string", required: false, hint: "例: 0.9rem（空欄でデフォルト）"}
+              - label: "ヒーロー サブタイトル 文字色"
+                name: "hero_subtitle_color"
+                widget: "color"
+                required: false
+                enableAlpha: false
+                allowInput: true
+              - label: "ヒーロー サブタイトル フォントサイズ"
+                name: "hero_subtitle_size"
+                widget: "select"
+                required: false
+                options:
+                  - {label: "デフォルト", value: ""}
+                  - {label: "極小 (0.75rem)", value: "0.75rem"}
+                  - {label: "小 (0.875rem)", value: "0.875rem"}
+                  - {label: "標準 (1rem)", value: "1rem"}
+                  - {label: "やや大 (1.125rem)", value: "1.125rem"}
+                  - {label: "大 (1.25rem)", value: "1.25rem"}
+              - label: "ヒーロー 見出し 文字色"
+                name: "hero_title_color"
+                widget: "color"
+                required: false
+                enableAlpha: false
+                allowInput: true
+              - label: "ヒーロー 見出し フォントサイズ"
+                name: "hero_title_size"
+                widget: "select"
+                required: false
+                options:
+                  - {label: "デフォルト", value: ""}
+                  - {label: "小 (0.875rem)", value: "0.875rem"}
+                  - {label: "標準 (1rem)", value: "1rem"}
+                  - {label: "やや大 (1.25rem)", value: "1.25rem"}
+                  - {label: "大 (1.5rem)", value: "1.5rem"}
+                  - {label: "特大 (1.875rem)", value: "1.875rem"}
+                  - {label: "2XL (2.25rem)", value: "2.25rem"}
+                  - {label: "3XL (2.5rem)", value: "2.5rem"}
+                  - {label: "4XL (3rem)", value: "3rem"}
+                  - {label: "5XL (3.75rem)", value: "3.75rem"}
+              - label: "ヒーロー 説明文 文字色"
+                name: "hero_text_color"
+                widget: "color"
+                required: false
+                enableAlpha: false
+                allowInput: true
+              - label: "ヒーロー 説明文 フォントサイズ"
+                name: "hero_text_size"
+                widget: "select"
+                required: false
+                options:
+                  - {label: "デフォルト", value: ""}
+                  - {label: "極小 (0.75rem)", value: "0.75rem"}
+                  - {label: "小 (0.875rem)", value: "0.875rem"}
+                  - {label: "標準 (1rem)", value: "1rem"}
+                  - {label: "やや大 (1.125rem)", value: "1.125rem"}
+                  - {label: "大 (1.25rem)", value: "1.25rem"}
+              - label: "概要説明文 文字色"
+                name: "overview_desc_color"
+                widget: "color"
+                required: false
+                enableAlpha: false
+                allowInput: true
+              - label: "概要説明文 フォントサイズ"
+                name: "overview_desc_size"
+                widget: "select"
+                required: false
+                options:
+                  - {label: "デフォルト", value: ""}
+                  - {label: "極小 (0.75rem)", value: "0.75rem"}
+                  - {label: "小 (0.875rem)", value: "0.875rem"}
+                  - {label: "標準 (1rem)", value: "1rem"}
+                  - {label: "やや大 (1.125rem)", value: "1.125rem"}
+                  - {label: "大 (1.25rem)", value: "1.25rem"}
+              - label: "特徴カード 見出し 文字色"
+                name: "feature_title_color"
+                widget: "color"
+                required: false
+                enableAlpha: false
+                allowInput: true
+              - label: "特徴カード 見出し フォントサイズ"
+                name: "feature_title_size"
+                widget: "select"
+                required: false
+                options:
+                  - {label: "デフォルト", value: ""}
+                  - {label: "小 (0.875rem)", value: "0.875rem"}
+                  - {label: "標準 (1rem)", value: "1rem"}
+                  - {label: "やや大 (1.125rem)", value: "1.125rem"}
+                  - {label: "大 (1.25rem)", value: "1.25rem"}
+                  - {label: "特大 (1.5rem)", value: "1.5rem"}
+              - label: "特徴カード 説明文 文字色"
+                name: "feature_text_color"
+                widget: "color"
+                required: false
+                enableAlpha: false
+                allowInput: true
+              - label: "特徴カード 説明文 フォントサイズ"
+                name: "feature_text_size"
+                widget: "select"
+                required: false
+                options:
+                  - {label: "デフォルト", value: ""}
+                  - {label: "極小 (0.75rem)", value: "0.75rem"}
+                  - {label: "小 (0.875rem)", value: "0.875rem"}
+                  - {label: "標準 (1rem)", value: "1rem"}
+                  - {label: "やや大 (1.125rem)", value: "1.125rem"}
+                  - {label: "大 (1.25rem)", value: "1.25rem"}
+              - label: "理念 引用テキスト 文字色"
+                name: "philosophy_text_color"
+                widget: "color"
+                required: false
+                enableAlpha: false
+                allowInput: true
+              - label: "理念 引用テキスト フォントサイズ"
+                name: "philosophy_text_size"
+                widget: "select"
+                required: false
+                options:
+                  - {label: "デフォルト", value: ""}
+                  - {label: "小 (0.875rem)", value: "0.875rem"}
+                  - {label: "標準 (1rem)", value: "1rem"}
+                  - {label: "やや大 (1.125rem)", value: "1.125rem"}
+                  - {label: "大 (1.25rem)", value: "1.25rem"}
+                  - {label: "特大 (1.5rem)", value: "1.5rem"}
+              - label: "理念 サブテキスト 文字色"
+                name: "philosophy_sub_color"
+                widget: "color"
+                required: false
+                enableAlpha: false
+                allowInput: true
+              - label: "理念 サブテキスト フォントサイズ"
+                name: "philosophy_sub_size"
+                widget: "select"
+                required: false
+                options:
+                  - {label: "デフォルト", value: ""}
+                  - {label: "極小 (0.75rem)", value: "0.75rem"}
+                  - {label: "小 (0.875rem)", value: "0.875rem"}
+                  - {label: "標準 (1rem)", value: "1rem"}
+                  - {label: "やや大 (1.125rem)", value: "1.125rem"}
+                  - {label: "大 (1.25rem)", value: "1.25rem"}
 
       # ── ガイドページ ──
       - label: "いいリフォームをするためにページ"
@@ -154,20 +359,129 @@ collections:
             name: "styles"
             widget: "object"
             fields:
-              - {label: "ページタイトル 文字色", name: "page_title_color", widget: "string", required: false, hint: "例: #ffffff（空欄でデフォルト）"}
-              - {label: "ページタイトル フォントサイズ", name: "page_title_size", widget: "string", required: false, hint: "例: 2.5rem（空欄でデフォルト）"}
-              - {label: "ページ説明文 文字色", name: "page_desc_color", widget: "string", required: false, hint: "例: #ffffff（空欄でデフォルト）"}
-              - {label: "ページ説明文 フォントサイズ", name: "page_desc_size", widget: "string", required: false, hint: "例: 1rem（空欄でデフォルト）"}
-              - {label: "費用説明文 文字色", name: "cost_desc_color", widget: "string", required: false, hint: "例: #555555（空欄でデフォルト）"}
-              - {label: "費用説明文 フォントサイズ", name: "cost_desc_size", widget: "string", required: false, hint: "例: 1rem（空欄でデフォルト）"}
-              - {label: "ステップ見出し 文字色", name: "step_title_color", widget: "string", required: false, hint: "例: #1a365d（空欄でデフォルト）"}
-              - {label: "ステップ見出し フォントサイズ", name: "step_title_size", widget: "string", required: false, hint: "例: 1.25rem（空欄でデフォルト）"}
-              - {label: "ステップ説明文 文字色", name: "step_text_color", widget: "string", required: false, hint: "例: #555555（空欄でデフォルト）"}
-              - {label: "ステップ説明文 フォントサイズ", name: "step_text_size", widget: "string", required: false, hint: "例: 0.9rem（空欄でデフォルト）"}
-              - {label: "ライフイベント見出し 文字色", name: "life_title_color", widget: "string", required: false, hint: "例: #1a365d（空欄でデフォルト）"}
-              - {label: "ライフイベント見出し フォントサイズ", name: "life_title_size", widget: "string", required: false, hint: "例: 1.25rem（空欄でデフォルト）"}
-              - {label: "ライフイベント説明文 文字色", name: "life_text_color", widget: "string", required: false, hint: "例: #555555（空欄でデフォルト）"}
-              - {label: "ライフイベント説明文 フォントサイズ", name: "life_text_size", widget: "string", required: false, hint: "例: 0.9rem（空欄でデフォルト）"}
+              - label: "ページタイトル 文字色"
+                name: "page_title_color"
+                widget: "color"
+                required: false
+                enableAlpha: false
+                allowInput: true
+              - label: "ページタイトル フォントサイズ"
+                name: "page_title_size"
+                widget: "select"
+                required: false
+                options:
+                  - {label: "デフォルト", value: ""}
+                  - {label: "小 (0.875rem)", value: "0.875rem"}
+                  - {label: "標準 (1rem)", value: "1rem"}
+                  - {label: "やや大 (1.25rem)", value: "1.25rem"}
+                  - {label: "大 (1.5rem)", value: "1.5rem"}
+                  - {label: "特大 (1.875rem)", value: "1.875rem"}
+                  - {label: "2XL (2.25rem)", value: "2.25rem"}
+                  - {label: "3XL (2.5rem)", value: "2.5rem"}
+                  - {label: "4XL (3rem)", value: "3rem"}
+                  - {label: "5XL (3.75rem)", value: "3.75rem"}
+              - label: "ページ説明文 文字色"
+                name: "page_desc_color"
+                widget: "color"
+                required: false
+                enableAlpha: false
+                allowInput: true
+              - label: "ページ説明文 フォントサイズ"
+                name: "page_desc_size"
+                widget: "select"
+                required: false
+                options:
+                  - {label: "デフォルト", value: ""}
+                  - {label: "極小 (0.75rem)", value: "0.75rem"}
+                  - {label: "小 (0.875rem)", value: "0.875rem"}
+                  - {label: "標準 (1rem)", value: "1rem"}
+                  - {label: "やや大 (1.125rem)", value: "1.125rem"}
+                  - {label: "大 (1.25rem)", value: "1.25rem"}
+              - label: "費用説明文 文字色"
+                name: "cost_desc_color"
+                widget: "color"
+                required: false
+                enableAlpha: false
+                allowInput: true
+              - label: "費用説明文 フォントサイズ"
+                name: "cost_desc_size"
+                widget: "select"
+                required: false
+                options:
+                  - {label: "デフォルト", value: ""}
+                  - {label: "極小 (0.75rem)", value: "0.75rem"}
+                  - {label: "小 (0.875rem)", value: "0.875rem"}
+                  - {label: "標準 (1rem)", value: "1rem"}
+                  - {label: "やや大 (1.125rem)", value: "1.125rem"}
+                  - {label: "大 (1.25rem)", value: "1.25rem"}
+              - label: "ステップ見出し 文字色"
+                name: "step_title_color"
+                widget: "color"
+                required: false
+                enableAlpha: false
+                allowInput: true
+              - label: "ステップ見出し フォントサイズ"
+                name: "step_title_size"
+                widget: "select"
+                required: false
+                options:
+                  - {label: "デフォルト", value: ""}
+                  - {label: "小 (0.875rem)", value: "0.875rem"}
+                  - {label: "標準 (1rem)", value: "1rem"}
+                  - {label: "やや大 (1.125rem)", value: "1.125rem"}
+                  - {label: "大 (1.25rem)", value: "1.25rem"}
+                  - {label: "特大 (1.5rem)", value: "1.5rem"}
+              - label: "ステップ説明文 文字色"
+                name: "step_text_color"
+                widget: "color"
+                required: false
+                enableAlpha: false
+                allowInput: true
+              - label: "ステップ説明文 フォントサイズ"
+                name: "step_text_size"
+                widget: "select"
+                required: false
+                options:
+                  - {label: "デフォルト", value: ""}
+                  - {label: "極小 (0.75rem)", value: "0.75rem"}
+                  - {label: "小 (0.875rem)", value: "0.875rem"}
+                  - {label: "標準 (1rem)", value: "1rem"}
+                  - {label: "やや大 (1.125rem)", value: "1.125rem"}
+                  - {label: "大 (1.25rem)", value: "1.25rem"}
+              - label: "ライフイベント見出し 文字色"
+                name: "life_title_color"
+                widget: "color"
+                required: false
+                enableAlpha: false
+                allowInput: true
+              - label: "ライフイベント見出し フォントサイズ"
+                name: "life_title_size"
+                widget: "select"
+                required: false
+                options:
+                  - {label: "デフォルト", value: ""}
+                  - {label: "小 (0.875rem)", value: "0.875rem"}
+                  - {label: "標準 (1rem)", value: "1rem"}
+                  - {label: "やや大 (1.125rem)", value: "1.125rem"}
+                  - {label: "大 (1.25rem)", value: "1.25rem"}
+                  - {label: "特大 (1.5rem)", value: "1.5rem"}
+              - label: "ライフイベント説明文 文字色"
+                name: "life_text_color"
+                widget: "color"
+                required: false
+                enableAlpha: false
+                allowInput: true
+              - label: "ライフイベント説明文 フォントサイズ"
+                name: "life_text_size"
+                widget: "select"
+                required: false
+                options:
+                  - {label: "デフォルト", value: ""}
+                  - {label: "極小 (0.75rem)", value: "0.75rem"}
+                  - {label: "小 (0.875rem)", value: "0.875rem"}
+                  - {label: "標準 (1rem)", value: "1rem"}
+                  - {label: "やや大 (1.125rem)", value: "1.125rem"}
+                  - {label: "大 (1.25rem)", value: "1.25rem"}
 
       # ── 資格保有者の声ページ ──
       - label: "資格保有者の声ページ"
@@ -195,16 +509,94 @@ collections:
             name: "styles"
             widget: "object"
             fields:
-              - {label: "ページタイトル 文字色", name: "page_title_color", widget: "string", required: false, hint: "例: #ffffff（空欄でデフォルト）"}
-              - {label: "ページタイトル フォントサイズ", name: "page_title_size", widget: "string", required: false, hint: "例: 2.5rem（空欄でデフォルト）"}
-              - {label: "ページ説明文 文字色", name: "page_desc_color", widget: "string", required: false, hint: "例: #ffffff（空欄でデフォルト）"}
-              - {label: "ページ説明文 フォントサイズ", name: "page_desc_size", widget: "string", required: false, hint: "例: 1rem（空欄でデフォルト）"}
-              - {label: "声カード 会社名 文字色", name: "voice_name_color", widget: "string", required: false, hint: "例: #1a365d（空欄でデフォルト）"}
-              - {label: "声カード 会社名 フォントサイズ", name: "voice_name_size", widget: "string", required: false, hint: "例: 1.25rem（空欄でデフォルト）"}
-              - {label: "声カード 情報 文字色", name: "voice_info_color", widget: "string", required: false, hint: "例: #555555（空欄でデフォルト）"}
-              - {label: "声カード 情報 フォントサイズ", name: "voice_info_size", widget: "string", required: false, hint: "例: 0.875rem（空欄でデフォルト）"}
-              - {label: "声カード 本文 文字色", name: "voice_text_color", widget: "string", required: false, hint: "例: #333333（空欄でデフォルト）"}
-              - {label: "声カード 本文 フォントサイズ", name: "voice_text_size", widget: "string", required: false, hint: "例: 0.9rem（空欄でデフォルト）"}
+              - label: "ページタイトル 文字色"
+                name: "page_title_color"
+                widget: "color"
+                required: false
+                enableAlpha: false
+                allowInput: true
+              - label: "ページタイトル フォントサイズ"
+                name: "page_title_size"
+                widget: "select"
+                required: false
+                options:
+                  - {label: "デフォルト", value: ""}
+                  - {label: "小 (0.875rem)", value: "0.875rem"}
+                  - {label: "標準 (1rem)", value: "1rem"}
+                  - {label: "やや大 (1.25rem)", value: "1.25rem"}
+                  - {label: "大 (1.5rem)", value: "1.5rem"}
+                  - {label: "特大 (1.875rem)", value: "1.875rem"}
+                  - {label: "2XL (2.25rem)", value: "2.25rem"}
+                  - {label: "3XL (2.5rem)", value: "2.5rem"}
+                  - {label: "4XL (3rem)", value: "3rem"}
+                  - {label: "5XL (3.75rem)", value: "3.75rem"}
+              - label: "ページ説明文 文字色"
+                name: "page_desc_color"
+                widget: "color"
+                required: false
+                enableAlpha: false
+                allowInput: true
+              - label: "ページ説明文 フォントサイズ"
+                name: "page_desc_size"
+                widget: "select"
+                required: false
+                options:
+                  - {label: "デフォルト", value: ""}
+                  - {label: "極小 (0.75rem)", value: "0.75rem"}
+                  - {label: "小 (0.875rem)", value: "0.875rem"}
+                  - {label: "標準 (1rem)", value: "1rem"}
+                  - {label: "やや大 (1.125rem)", value: "1.125rem"}
+                  - {label: "大 (1.25rem)", value: "1.25rem"}
+              - label: "声カード 会社名 文字色"
+                name: "voice_name_color"
+                widget: "color"
+                required: false
+                enableAlpha: false
+                allowInput: true
+              - label: "声カード 会社名 フォントサイズ"
+                name: "voice_name_size"
+                widget: "select"
+                required: false
+                options:
+                  - {label: "デフォルト", value: ""}
+                  - {label: "小 (0.875rem)", value: "0.875rem"}
+                  - {label: "標準 (1rem)", value: "1rem"}
+                  - {label: "やや大 (1.125rem)", value: "1.125rem"}
+                  - {label: "大 (1.25rem)", value: "1.25rem"}
+                  - {label: "特大 (1.5rem)", value: "1.5rem"}
+              - label: "声カード 情報 文字色"
+                name: "voice_info_color"
+                widget: "color"
+                required: false
+                enableAlpha: false
+                allowInput: true
+              - label: "声カード 情報 フォントサイズ"
+                name: "voice_info_size"
+                widget: "select"
+                required: false
+                options:
+                  - {label: "デフォルト", value: ""}
+                  - {label: "極小 (0.75rem)", value: "0.75rem"}
+                  - {label: "小 (0.875rem)", value: "0.875rem"}
+                  - {label: "標準 (1rem)", value: "1rem"}
+                  - {label: "やや大 (1.125rem)", value: "1.125rem"}
+              - label: "声カード 本文 文字色"
+                name: "voice_text_color"
+                widget: "color"
+                required: false
+                enableAlpha: false
+                allowInput: true
+              - label: "声カード 本文 フォントサイズ"
+                name: "voice_text_size"
+                widget: "select"
+                required: false
+                options:
+                  - {label: "デフォルト", value: ""}
+                  - {label: "極小 (0.75rem)", value: "0.75rem"}
+                  - {label: "小 (0.875rem)", value: "0.875rem"}
+                  - {label: "標準 (1rem)", value: "1rem"}
+                  - {label: "やや大 (1.125rem)", value: "1.125rem"}
+                  - {label: "大 (1.25rem)", value: "1.25rem"}
 
       # ── 資格保有者検索ページ ──
       - label: "資格保有者検索ページ"

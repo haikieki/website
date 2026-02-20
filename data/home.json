@@ -28,7 +28,7 @@
     "hero_subtitle_color": "",
     "hero_subtitle_size": "",
     "footer_desc_size": "",
-    "hero_title_size": "",
+    "hero_title_size": "1.25rem",
     "feature_body_color": "",
     "feature_title_size": "",
     "feature_title_color": "#1a365d",

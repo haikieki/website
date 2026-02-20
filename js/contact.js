@@ -66,7 +66,7 @@ function validateForm() {
     }
 
     if (!privacy) {
-        alert('個人情報の取り扱いに同意してください');
+        alert('入力内容に間違いがないかご確認の上、チェックを入れてください');
         return false;
     }
 

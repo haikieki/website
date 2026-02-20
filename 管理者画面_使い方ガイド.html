@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>管理者画面 使い方ガイド | 全国住宅リフォーム取扱主任者協会</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Hiragino Sans', 'Meiryo', sans-serif;
+      background: #f4f6f9;
+      color: #333;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    .page-header {
+      background: #1a365d;
+      color: white;
+      padding: 40px 32px;
+      border-bottom: 4px solid #FF6B00;
+    }
+    .page-header h1 {
+      font-size: 1.6rem;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+    .page-header p { opacity: 0.8; font-size: 0.9rem; }
+    .container { max-width: 900px; margin: 0 auto; padding: 40px 24px; }
+
+    /* 目次 */
+    .toc {
+      background: white;
+      border-left: 4px solid #1a365d;
+      padding: 20px 24px;
+      margin-bottom: 40px;
+      border-radius: 0 8px 8px 0;
+      box-shadow: 0 1px 4px rgba(0,0,0,.07);
+    }
+    .toc h2 { font-size: 1rem; font-weight: 900; color: #1a365d; margin-bottom: 12px; }
+    .toc ol { padding-left: 20px; }
+    .toc li { margin-bottom: 4px; }
+    .toc a { color: #2c5aa0; text-decoration: none; font-weight: 600; }
+    .toc a:hover { text-decoration: underline; }
+
+    /* セクション */
+    .section {
+      background: white;
+      border-radius: 8px;
+      padding: 32px;
+      margin-bottom: 28px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.07);
+    }
+    .section h2 {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: #1a365d;
+      padding-bottom: 12px;
+      border-bottom: 2px solid #FF6B00;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section h2 .num {
+      background: #1a365d;
+      color: white;
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem;
+      flex-shrink: 0;
+    }
+    .section h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1a365d;
+      margin: 20px 0 8px;
+      padding-left: 10px;
+      border-left: 3px solid #FF6B00;
+    }
+    .section p { margin-bottom: 12px; color: #444; }
+    .section ul, .section ol { padding-left: 20px; margin-bottom: 12px; }
+    .section li { margin-bottom: 6px; color: #444; }
+
+    /* ステップ */
+    .steps { counter-reset: step; list-style: none; padding: 0; }
+    .steps li {
+      counter-increment: step;
+      padding: 14px 16px 14px 52px;
+      position: relative;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+    .steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 26px; height: 26px;
+      background: #FF6B00;
+      color: white;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 900;
+    }
+
+    /* ヒントボックス */
+    .hint {
+      background: #fffbf0;
+      border: 1px solid #fbbf24;
+      border-left: 4px solid #fbbf24;
+      border-radius: 0 6px 6px 0;
+      padding: 14px 16px;
+      margin: 14px 0;
+      font-size: 0.9rem;
+    }
+    .hint .label { font-weight: 900; color: #b45309; margin-bottom: 4px; }
+
+    .info {
+      background: #eff6ff;
+      border: 1px solid #93c5fd;
+      border-left: 4px solid #3b82f6;
+      border-radius: 0 6px 6px 0;
+      padding: 14px 16px;
+      margin: 14px 0;
+      font-size: 0.9rem;
+    }
+    .info .label { font-weight: 900; color: #1d4ed8; margin-bottom: 4px; }
+
+    .warn {
+      background: #fef2f2;
+      border: 1px solid #fca5a5;
+      border-left: 4px solid #ef4444;
+      border-radius: 0 6px 6px 0;
+      padding: 14px 16px;
+      margin: 14px 0;
+      font-size: 0.9rem;
+    }
+    .warn .label { font-weight: 900; color: #b91c1c; margin-bottom: 4px; }
+
+    /* テーブル */
+    table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 0.9rem; }
+    th { background: #1a365d; color: white; padding: 10px 14px; text-align: left; font-weight: 700; }
+    td { padding: 10px 14px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+    tr:nth-child(even) td { background: #f8fafc; }
+
+    /* URL */
+    .url-box {
+      background: #1e293b;
+      color: #7dd3fc;
+      font-family: monospace;
+      font-size: 0.9rem;
+      padding: 10px 16px;
+      border-radius: 6px;
+      margin: 12px 0;
+      word-break: break-all;
+    }
+
+    /* スクリーンショット代替 */
+    .screenshot-placeholder {
+      border: 2px dashed #cbd5e1;
+      border-radius: 6px;
+      padding: 24px;
+      text-align: center;
+      color: #94a3b8;
+      font-size: 0.85rem;
+      margin: 12px 0;
+    }
+
+    /* フッター */
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: #94a3b8;
+      font-size: 0.8rem;
+    }
+
+    @media print {
+      body { background: white; }
+      .section { box-shadow: none; border: 1px solid #ddd; }
+      .toc { box-shadow: none; border: 1px solid #ddd; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-header">
+  <h1>管理者画面 使い方ガイド</h1>
+  <p>全国住宅リフォーム取扱主任者協会 ウェブサイト — Netlify CMS 操作マニュアル</p>
+</div>
+
+<div class="container">
+
+  <!-- 目次 -->
+  <div class="toc">
+    <h2>目次</h2>
+    <ol>
+      <li><a href="#login">管理者画面へのログイン</a></li>
+      <li><a href="#overview">管理画面の概要</a></li>
+      <li><a href="#toppage">トップページを編集する</a></li>
+      <li><a href="#specialist">取扱主任者とはページを編集する</a></li>
+      <li><a href="#guide">いいリフォームをするためにページを編集する</a></li>
+      <li><a href="#voices">資格保有者の声ページを編集する</a></li>
+      <li><a href="#images">背景画像を変更する</a></li>
+      <li><a href="#preview">変更内容をプレビューする</a></li>
+      <li><a href="#publish">変更を公開する</a></li>
+    </ol>
+  </div>
+
+  <!-- 1. ログイン -->
+  <div class="section" id="login">
+    <h2><span class="num">1</span>管理者画面へのログイン</h2>
+
+    <h3>アクセスURL</h3>
+    <p>ブラウザのアドレスバーに以下のURLを入力してください：</p>
+    <div class="url-box">https://joyful-choux-356fd3.netlify.app/admin/</div>
+
+    <h3>ログイン手順</h3>
+    <ol class="steps">
+      <li>上記URLにアクセスすると「ログイン」ボタンが表示されます</li>
+      <li>「Continue with Netlify Identity」または「メールアドレス＋パスワード」でログインします</li>
+      <li>ログインに成功すると管理画面（Decap CMS）が表示されます</li>
+    </ol>
+
+    <div class="hint">
+      <div class="label">ヒント</div>
+      初回ログイン時にNetlifyからメールが届きます。メール内のリンクをクリックしてパスワードを設定してください。
+    </div>
+
+    <div class="warn">
+      <div class="label">注意</div>
+      ログイン情報は絶対に他人に共有しないでください。管理画面からサイトのコンテンツをすべて変更できます。
+    </div>
+  </div>
+
+  <!-- 2. 概要 -->
+  <div class="section" id="overview">
+    <h2><span class="num">2</span>管理画面の概要</h2>
+
+    <p>管理画面（Decap CMS）にログインすると、左側に「ページ設定」というメニューが表示されます。編集したいページを選んでクリックします。</p>
+
+    <table>
+      <tr>
+        <th>メニュー項目</th>
+        <th>対応ページ</th>
+        <th>編集できる内容</th>
+      </tr>
+      <tr>
+        <td>トップページ</td>
+        <td>index.html（ホーム）</td>
+        <td>ヒーロー文言・統計数値・選ばれる3つの理由・フッター説明文・背景画像</td>
+      </tr>
+      <tr>
+        <td>取扱主任者とはページ</td>
+        <td>national_housing_reform_specialist.html</td>
+        <td>ヒーロー文言・概要・理念・背景画像</td>
+      </tr>
+      <tr>
+        <td>いいリフォームをするためにページ</td>
+        <td>guide.html</td>
+        <td>タイトル・費用情報・ステップ・ライフイベント・背景画像</td>
+      </tr>
+      <tr>
+        <td>資格保有者の声ページ</td>
+        <td>voices.html</td>
+        <td>タイトル・3社の声カード（写真・氏名・本文）・背景画像</td>
+      </tr>
+      <tr>
+        <td>資格保有者検索ページ</td>
+        <td>search.html</td>
+        <td>背景画像のみ</td>
+      </tr>
+      <tr>
+        <td>お問合せページ</td>
+        <td>contact.html</td>
+        <td>背景画像のみ</td>
+      </tr>
+    </table>
+
+    <h3>画面右下のボタン</h3>
+    <p>管理画面の右下に2つのボタンがあります：</p>
+    <ul>
+      <li><strong>👁 プレビュー</strong>：編集中のサイトを別タブで確認できます</li>
+      <li><strong>⬇ ダウンロード</strong>：HTMLファイルやJSONデータをダウンロードできます</li>
+    </ul>
+  </div>
+
+  <!-- 3. トップページ -->
+  <div class="section" id="toppage">
+    <h2><span class="num">3</span>トップページを編集する</h2>
+
+    <h3>編集手順</h3>
+    <ol class="steps">
+      <li>管理画面左メニューから「トップページ」をクリック</li>
+      <li>編集したい項目のテキストを書き換える</li>
+      <li>右上の「保存」ボタンをクリック</li>
+      <li>「Publish」（公開）ボタンをクリックして変更を反映する</li>
+    </ol>
+
+    <h3>編集できる項目</h3>
+    <table>
+      <tr><th>項目名</th><th>説明</th></tr>
+      <tr><td>メイン見出し</td><td>ヒーロー画像上の大きなタイトル文（改行はShift+Enter）</td></tr>
+      <tr><td>説明文</td><td>タイトルの下の説明テキスト</td></tr>
+      <tr><td>背景画像</td><td>ヒーロー背景写真（<a href="#images">「背景画像を変更する」</a>を参照）</td></tr>
+      <tr><td>画像位置</td><td>写真の表示位置（例：center、top、center 20%）</td></tr>
+      <tr><td>資格保有者数</td><td>統計バーの「資格保有者数」（例：10,000）</td></tr>
+      <tr><td>実績年数</td><td>統計バーの「年以上」の数値（例：15）</td></tr>
+      <tr><td>選ばれる3つの理由</td><td>3つのカードのタイトルと説明文</td></tr>
+      <tr><td>フッター説明文</td><td>フッターの協会説明テキスト</td></tr>
+    </table>
+
+    <h3>スタイル設定（フォント・色）</h3>
+    <p>各テキストの文字色やフォントサイズを変更できます。変更しない場合は「デフォルト」のままで問題ありません。</p>
+
+    <div class="hint">
+      <div class="label">ヒント：改行について</div>
+      テキストエリア内で改行を入力する場合は <strong>Shift + Enter</strong> を押してください。Enterキーのみでは改行されません。
+    </div>
+  </div>
+
+  <!-- 4. 取扱主任者とはページ -->
+  <div class="section" id="specialist">
+    <h2><span class="num">4</span>取扱主任者とはページを編集する</h2>
+
+    <h3>編集できる項目</h3>
+    <table>
+      <tr><th>セクション</th><th>項目</th><th>説明</th></tr>
+      <tr><td>ヒーローセクション</td><td>サブタイトル</td><td>ページ上部の小見出し</td></tr>
+      <tr><td>ヒーローセクション</td><td>メイン見出し</td><td>ページの大タイトル</td></tr>
+      <tr><td>ヒーローセクション</td><td>説明文</td><td>ヒーロー内の本文テキスト</td></tr>
+      <tr><td>ヒーローセクション</td><td>背景画像／位置</td><td>ヒーローの背景写真</td></tr>
+      <tr><td>概要セクション</td><td>説明文</td><td>概要部分の説明テキスト</td></tr>
+      <tr><td>概要セクション</td><td>特徴カード（3つ）</td><td>各カードのタイトルと説明</td></tr>
+      <tr><td>理念セクション</td><td>引用テキスト</td><td>大きく表示される理念の言葉</td></tr>
+      <tr><td>理念セクション</td><td>サブテキスト</td><td>理念の補足説明</td></tr>
+    </table>
+  </div>
+
+  <!-- 5. ガイドページ -->
+  <div class="section" id="guide">
+    <h2><span class="num">5</span>いいリフォームをするためにページを編集する</h2>
+
+    <h3>編集できる項目</h3>
+    <table>
+      <tr><th>セクション</th><th>項目</th><th>説明</th></tr>
+      <tr><td>ページヘッダー</td><td>ページタイトル・説明文・背景画像</td><td>ページ上部のヒーロー部分</td></tr>
+      <tr><td>費用セクション</td><td>説明文</td><td>費用セクションの説明テキスト</td></tr>
+      <tr><td>費用セクション</td><td>費用項目（4つ）</td><td>各費用の金額と項目名</td></tr>
+      <tr><td>ステップセクション</td><td>ステップ項目（3つ）</td><td>各ステップのタイトルと説明</td></tr>
+      <tr><td>ライフイベントセクション</td><td>カード（3つ）</td><td>各カードのタイトルと説明</td></tr>
+    </table>
+  </div>
+
+  <!-- 6. 声ページ -->
+  <div class="section" id="voices">
+    <h2><span class="num">6</span>資格保有者の声ページを編集する</h2>
+
+    <h3>編集できる項目</h3>
+    <table>
+      <tr><th>項目</th><th>説明</th></tr>
+      <tr><td>ページタイトル・説明文・背景画像</td><td>ページ上部のヒーロー部分</td></tr>
+      <tr><td>声カード（3件）</td><td>各カードの詳細（下記参照）</td></tr>
+    </table>
+
+    <h3>声カード各項目</h3>
+    <table>
+      <tr><th>フィールド名</th><th>表示場所</th></tr>
+      <tr><td>会社名</td><td>カード内の会社名バナー</td></tr>
+      <tr><td>プロフィール写真</td><td>カード右側に表示される写真</td></tr>
+      <tr><td>氏名・都道府県・会員番号</td><td>会社名バナーの下の小さいテキスト</td></tr>
+      <tr><td>資格取得のきっかけ</td><td>カードの冒頭の太字テキスト</td></tr>
+      <tr><td>資格を活かした仕事の事例</td><td>「資格を活かした事例」欄</td></tr>
+      <tr><td>消費者へのメッセージ</td><td>「消費者へのメッセージ」欄</td></tr>
+    </table>
+
+    <h3>プロフィール写真の更新手順</h3>
+    <ol class="steps">
+      <li>「声カード」の該当カードを開く</li>
+      <li>「プロフィール写真」フィールドの「画像を選択」をクリック</li>
+      <li>「Upload」タブから新しい写真をアップロード、またはメディアライブラリから選択</li>
+      <li>「Choose selected」ボタンで確定する</li>
+      <li>右上の「保存」→「Publish」で反映</li>
+    </ol>
+
+    <div class="hint">
+      <div class="label">写真の推奨サイズ</div>
+      縦長（3:4 比率程度）の写真が最適です。ファイルサイズは 500KB 以内を推奨します。
+    </div>
+  </div>
+
+  <!-- 7. 背景画像 -->
+  <div class="section" id="images">
+    <h2><span class="num">7</span>背景画像を変更する</h2>
+
+    <h3>画像変更手順</h3>
+    <ol class="steps">
+      <li>編集したいページを管理画面から開く</li>
+      <li>「ヒーローセクション」または「ページヘッダー」の「背景画像」フィールドをクリック</li>
+      <li>「Upload」タブから新しい画像をアップロード</li>
+      <li>アップロード後、「Choose selected」ボタンで選択を確定</li>
+      <li>「画像位置」フィールドで被写体が見切れないか調整（例：<code>center</code>、<code>top</code>、<code>center 30%</code>）</li>
+      <li>「保存」→「Publish」で公開</li>
+    </ol>
+
+    <h3>画像位置の調整方法</h3>
+    <table>
+      <tr><th>値</th><th>効果</th></tr>
+      <tr><td>center</td><td>画像中央を表示（デフォルト）</td></tr>
+      <tr><td>top</td><td>画像上部を表示</td></tr>
+      <tr><td>center 20%</td><td>縦方向20%の位置を中心に表示（顔が上部にある場合に有効）</td></tr>
+      <tr><td>center 5%</td><td>ほぼ上端を表示</td></tr>
+    </table>
+
+    <div class="info">
+      <div class="label">画像推奨サイズ</div>
+      横幅 1920px 以上、ファイルサイズ 1MB 以内の JPEG が最適です。
+    </div>
+  </div>
+
+  <!-- 8. プレビュー -->
+  <div class="section" id="preview">
+    <h2><span class="num">8</span>変更内容をプレビューする</h2>
+
+    <h3>プレビュー確認手順</h3>
+    <ol class="steps">
+      <li>管理画面で編集内容を「保存」する（まだ公開しなくてよい）</li>
+      <li>画面右下の「👁 プレビュー」ボタンをクリック</li>
+      <li>確認したいページ名を選択する</li>
+      <li>新しいタブでサイトが開き、最新の状態が確認できる</li>
+    </ol>
+
+    <div class="info">
+      <div class="label">注意</div>
+      プレビューは「保存済み」の内容を反映します。「Publish（公開）」前でも保存しておけば確認できます。
+    </div>
+  </div>
+
+  <!-- 9. 公開 -->
+  <div class="section" id="publish">
+    <h2><span class="num">9</span>変更を公開する</h2>
+
+    <h3>公開手順</h3>
+    <ol class="steps">
+      <li>編集・保存が完了したら、画面右上のステータスを確認する</li>
+      <li>ステータスが「Draft」の場合、「Set status」→「Ready」に変更する</li>
+      <li>「Publish」ボタンをクリックする</li>
+      <li>「Publish now」を選択して確定する</li>
+      <li>数秒〜1分程度でサイトに反映される</li>
+    </ol>
+
+    <div class="warn">
+      <div class="label">重要</div>
+      「保存（Save draft）」だけでは公開されません。必ず「Publish」まで完了させてください。
+    </div>
+
+    <h3>公開後の確認</h3>
+    <p>公開後はサイトのURLを直接開いて、変更が正しく反映されているか確認してください。ブラウザのキャッシュが残っている場合は <strong>Ctrl + F5</strong>（Mac は Cmd + Shift + R）で強制更新してください。</p>
+  </div>
+
+
+</div>
+
+<footer>
+  <p>全国住宅リフォーム取扱主任者協会 — 管理者画面 使い方ガイド</p>
+</footer>
+
+</body>
+</html>

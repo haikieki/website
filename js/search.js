@@ -109,7 +109,7 @@ function displayResults(results) {
     html += results.map(item => `
         <div class="result-card">
             <div class="result-badge">認定資格者</div>
-            <div class="result-header">${escapeHtml(item.name || '')}</div>
+            <div class="result-header"><h3>${escapeHtml(item.name || '')}</h3></div>
             <div class="result-body">
                 <div class="result-item">
                     <span class="result-label">会員番号</span>

@@ -138,7 +138,8 @@
             #top-hero { margin-top: 96px; }
         }
         @media (max-width: 767px) {
-            #hero-image { object-position: 20% center !important; }
+            #hero-image { object-position: center center !important; }
+            #hero-gradient { background: linear-gradient(to bottom, rgba(26,54,93,0.55) 0%, rgba(26,54,93,0.15) 40%, rgba(26,54,93,0.15) 60%, rgba(26,54,93,0.70) 100%) !important; }
         }
     </style>
 </head>
@@ -203,7 +204,7 @@
             </div>
 
             <!-- グラデーションオーバーレイ（左側を青く） -->
-            <div class="absolute inset-0 z-10 pointer-events-none" style="background: linear-gradient(to left, rgba(26,54,93,0.15) 0%, rgba(26,54,93,0.15) 30%, rgba(26,54,93,0.70) 60%, rgba(26,54,93,0.92) 100%);"></div>
+            <div id="hero-gradient" class="absolute inset-0 z-10 pointer-events-none" style="background: linear-gradient(to left, rgba(26,54,93,0.15) 0%, rgba(26,54,93,0.15) 30%, rgba(26,54,93,0.70) 60%, rgba(26,54,93,0.92) 100%);"></div>
             <!-- 下部グラデーション（テキスト周辺を暗く） -->
             <div class="absolute inset-0 z-10 pointer-events-none" style="background: linear-gradient(to top, rgba(26,54,93,0.65) 0%, transparent 55%);"></div>
 

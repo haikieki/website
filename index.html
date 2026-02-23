@@ -133,6 +133,10 @@
             line-height: 1.8;
             margin-bottom: 0.75rem;
         }
+        #top-hero { margin-top: 80px; }
+        @media (min-width: 1024px) {
+            #top-hero { margin-top: 96px; }
+        }
     </style>
 </head>
 
@@ -188,7 +192,7 @@
     <main>
 
         <!-- ヒーローセクション -->
-        <section class="relative bg-navy-dark overflow-hidden" style="height: clamp(460px, 78vh, 820px);">
+        <section id="top-hero" class="relative bg-navy-dark overflow-hidden" style="height: clamp(460px, 78vh, 820px);">
 
             <!-- 背景画像 -->
             <div class="absolute inset-0 z-0">
